@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="./fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevSchool - Tutorials | آموزش‌ها</title>
+
+    <meta
+      name="description"
+      content="فهرست کامل آموزش‌های DevSchool — ۳۷ زبان و تکنولوژی برنامه‌نویسی از HTML، CSS و پایتون تا Git و MongoDB، همه به فارسی و رایگان."
+    />
+    <meta name="author" content="DevSchool" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://devschool-ir.github.io/tutorials.html" />
+
+    <meta http-equiv="content-language" content="fa" />
+    <link
+      rel="alternate"
+      hreflang="fa"
+      href="https://devschool-ir.github.io/tutorials.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://devschool-ir.github.io/tutorials.html"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DevSchool" />
+    <meta property="og:title" content="آموزش‌ها — DevSchool" />
+    <meta
+      property="og:description"
+      content="۳۷ زبان و تکنولوژی برنامه‌نویسی، همه به فارسی و رایگان."
+    />
+    <meta
+      property="og:url"
+      content="https://devschool-ir.github.io/tutorials.html"
+    />
+    <meta property="og:locale" content="fa_IR" />
+    <meta
+      property="og:image"
+      content="https://devschool-ir.github.io/logos/devschool-icon.png"
+    />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="فهرست آموزش‌های DevSchool" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="آموزش‌ها — DevSchool" />
+    <meta
+      name="twitter:description"
+      content="۳۷ زبان و تکنولوژی برنامه‌نویسی، همه به فارسی و رایگان."
+    />
+    <meta
+      name="twitter:image"
+      content="https://devschool-ir.github.io/logos/devschool-icon.png"
+    />
+
+    <link rel="icon" type="image/png" href="logos/devschool-icon.png" />
+    <link rel="apple-touch-icon" href="logos/devschool-icon.png" />
+    <meta name="theme-color" content="#1F7A4D" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "خانه",
+            "item": "https://devschool-ir.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "آموزش‌ها",
+            "item": "https://devschool-ir.github.io/tutorials.html"
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="./tutorials.css" />
+<link rel="stylesheet" href="./animations.css">
+  </head>
+  <body>
+    <div class="w-error">
+      <p class="w-error-content">
+        متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با
+        عرض بزرگتر استفاده نمایید.
+      </p>
+    </div>
+
+    <header class="site">
+      <div class="wrap nav">
+        <div class="brand">
+          <img
+            src="./logos/devschool-icon.png"
+            class="logo-icon"
+            alt="DevSchool"
+          />
+          <img
+            src="./logos/devschool-wordmark.png"
+            class="logo-wordmark"
+            alt="DevSchool"
+          />
+        </div>
+
+        <nav class="links">
+          <a href="index.html">خانه</a>
+          <a href="tutorials.html" class="active">آموزش‌ها</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              />
+            </svg>
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" />
+            </svg>
+          </button>
+          <a href="./html/01-html-intro.html" class="cta-btn">شروع یادگیری</a>
+          <button class="nav-toggle" aria-label="منو">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-head">
+      <div class="wrap">
+        <h1>آموزش‌ها</h1>
+        <p>
+          از پایه‌های وب تا فریم‌ورک‌ها و پایگاه داده — هر کدام با آموزش کامل
+          فارسی. برای دیدن دوره‌های هر بخش، روی دسته‌بندی مورد نظر کلیک کنید.
+        </p>
+
+        <div class="search-wrap">
+          <div class="search-bar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M21 21l-4-4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <input type="text" placeholder="جستجو در آموزش‌ها…" />
+            <span class="search-kbd">/</span>
+          </div>
+          <div class="search-results"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="tabs" id="catTabs">
+            <button class="tab is-active" data-cat="all">همه</button>
+            <button class="tab" data-cat="web">پایه‌های وب</button>
+            <button class="tab" data-cat="lang">زبان‌ها</button>
+            <button class="tab" data-cat="frame">فریم‌ورک‌ها</button>
+            <button class="tab" data-cat="db">پایگاه داده</button>
+            <button class="tab" data-cat="tools">ابزارها</button>
+          </div>
+          <div class="status-row">
+            <span class="status-label">فیلتر وضعیت</span>
+            <div class="status-pills">
+              <button class="pill is-active" data-status="all">همه</button>
+              <button class="pill" data-status="ready">آماده</button>
+              <button class="pill" data-status="soon">به‌زودی</button>
+            </div>
+            <div class="result-count">
+              <span id="shownCount">۳۷</span> دوره
+            </div>
+          </div>
+        </div>
+
+        <div class="results" id="results">
+          <div class="group-block" data-block="web">
+            <div class="group-head">
+              <h2 style="color: #1572b6">پایه‌های وب</h2>
+              <span>۳ مورد</span>
+              <div class="group-line"></div>
+            </div>
+            <div class="tut-grid">
+              <a
+                class="tut-card ready"
+                style="--tag-color: #e34f26"
+                href="html/01-html-intro.html"
+                data-cat="web"
+                data-aliases="html,اچ تی ام ال,اچ‌تی‌ام‌ال"
+              >
+                <span class="tut-badge">01</span>
+                <div class="tut-body">
+                  <h3>HTML</h3>
+                  <p>ساختار صفحات وب، از پایه تا عناصر معنایی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۳۶ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #1572b6"
+                href="css/01-css-intro.html"
+                data-cat="web"
+                data-aliases="css,سی اس اس,سی‌اس‌اس"
+              >
+                <span class="tut-badge">02</span>
+                <div class="tut-body">
+                  <h3>CSS</h3>
+                  <p>استایل‌دهی، چیدمان و طراحی واکنش‌گرا.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۴۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #f0c808"
+                href="javascript/01-javascript-intro.html"
+                data-cat="web"
+                data-aliases="javascript,js,جاوا اسکریپت,جاوااسکریپت"
+              >
+                <span class="tut-badge">03</span>
+                <div class="tut-body">
+                  <h3>JavaScript</h3>
+                  <p>تعامل و منطق برنامه‌نویسی در وب.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۴۸ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="group-block" data-block="lang">
+            <div class="group-head">
+              <h2 style="color: #777bb4">زبان‌های برنامه‌نویسی</h2>
+              <span>۱۰ مورد</span>
+              <div class="group-line"></div>
+            </div>
+            <div class="tut-grid">
+              <a
+                class="tut-card ready"
+                style="--tag-color: #3776ab"
+                href="python/01-python-intro.html"
+                data-cat="lang"
+                data-aliases="python,پایتون,پیتون"
+              >
+                <span class="tut-badge">04</span>
+                <div class="tut-body">
+                  <h3>Python</h3>
+                  <p>زبانی ساده برای شروع برنامه‌نویسی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۵۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #ea9e2e"
+                href="java/01-java-intro.html"
+                data-cat="lang"
+                data-aliases="java,جاوا"
+              >
+                <span class="tut-badge">05</span>
+                <div class="tut-body">
+                  <h3>Java</h3>
+                  <p>برنامه‌نویسی شیءگرا و برنامه‌های سازمانی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۶۵ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #777bb4"
+                href="php/01-php-intro.html"
+                data-cat="lang"
+                data-aliases="php,پی اچ پی,پی‌اچ‌پی"
+              >
+                <span class="tut-badge">06</span>
+                <div class="tut-body">
+                  <h3>PHP</h3>
+                  <p>برنامه‌نویسی سمت سرور و صفحات پویا.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۵۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #5c6bc0"
+                href="c/01-c-intro.html"
+                data-cat="lang"
+                data-aliases="c,سی"
+              >
+                <span class="tut-badge">07</span>
+                <div class="tut-body">
+                  <h3>C</h3>
+                  <p>پایه‌ی برنامه‌نویسی سیستمی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۵۸ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #00599c"
+                href="cplasplas/01-cpp-intro.html"
+                data-cat="lang"
+                data-aliases="c++,cpp,سی پلاس پلاس,سی‌پلاس‌پلاس"
+              >
+                <span class="tut-badge">08</span>
+                <div class="tut-body">
+                  <h3 style="direction: ltr; text-align: right">C++</h3>
+                  <p>برنامه‌نویسی سیستمی با کارایی بالا.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۶۵ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #2e9e4f"
+                href="csharp/01-csharp-intro.html"
+                data-cat="lang"
+                data-aliases="c#,csharp,سی شارپ,سی‌شارپ"
+              >
+                <span class="tut-badge">09</span>
+                <div class="tut-body">
+                  <h3 style="direction: ltr; text-align: right">C#</h3>
+                  <p>توسعه اپلیکیشن با فریم‌ورک دات‌نت.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۷۲ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #00add8"
+                href="go/01-go-intro.html"
+                data-cat="lang"
+                data-aliases="go,golang,گو,گولنگ"
+              >
+                <span class="tut-badge">10</span>
+                <div class="tut-body">
+                  <h3>Go</h3>
+                  <p>زبانی سریع برای سرویس‌های بک‌اند.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۷ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #7f52ff"
+                href="kotlin/01-kotlin-intro.html"
+                data-cat="lang"
+                data-aliases="kotlin,کاتلین"
+              >
+                <span class="tut-badge">11</span>
+                <div class="tut-body">
+                  <h3>Kotlin</h3>
+                  <p>توسعه اپلیکیشن اندروید و بک‌اند.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۵۹ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #fa7343"
+                href="swift/01-swift-intro.html"
+                data-cat="lang"
+                data-aliases="swift,سویفت,سوییفت"
+              >
+                <span class="tut-badge">12</span>
+                <div class="tut-body">
+                  <h3>Swift</h3>
+                  <p>توسعه اپلیکیشن برای iOS و macOS.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #276dc3"
+                href="r/01-r-intro.html"
+                data-cat="lang"
+                data-aliases="r,آر"
+              >
+                <span class="tut-badge">13</span>
+                <div class="tut-body">
+                  <h3>R</h3>
+                  <p>زبان تحلیل آماری و علم داده.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۹ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="group-block" data-block="frame">
+            <div class="group-head">
+              <h2 style="color: #4fc08d">فریم‌ورک‌ها و کتابخانه‌ها</h2>
+              <span>۱۲ مورد</span>
+              <div class="group-line"></div>
+            </div>
+            <div class="tut-grid">
+              <a
+                class="tut-card ready"
+                style="--tag-color: #3ab0c3"
+                href="react/01-react-intro.html"
+                data-cat="frame"
+                data-aliases="react,ری اکت,ری‌اکت,ریکت"
+              >
+                <span class="tut-badge">14</span>
+                <div class="tut-body">
+                  <h3>React</h3>
+                  <p>ساخت رابط کاربری با کامپوننت‌ها.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۵۱ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #4fc08d"
+                href="vue/01-vue-intro.html"
+                data-cat="frame"
+                data-aliases="vue,ویو"
+              >
+                <span class="tut-badge">15</span>
+                <div class="tut-body">
+                  <h3>Vue</h3>
+                  <p>فریم‌ورک سبک و آسان برای شروع.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۸۳ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #dd0031"
+                href="angular/01-angular-intro.html"
+                data-cat="frame"
+                data-aliases="angular,انگیولار,انگولار"
+              >
+                <span class="tut-badge">16</span>
+                <div class="tut-body">
+                  <h3>Angular</h3>
+                  <p>فریم‌ورک کامل برای برنامه‌های بزرگ.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۷ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #b52e31"
+                href="angularjs/01-angularjs-intro.html"
+                data-cat="frame"
+                data-aliases="angularjs,انگیولار جی اس,انگولار جی‌اس"
+              >
+                <span class="tut-badge">17</span>
+                <div class="tut-body">
+                  <h3>AngularJS</h3>
+                  <p>نسخه‌ی کلاسیک فریم‌ورک انگیولار.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۸۱ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #3c873a"
+                href="nodejs/01-nodejs-intro.html"
+                data-cat="frame"
+                data-aliases="nodejs,node,node.js,نود جی اس,نود,نودجی‌اس"
+              >
+                <span class="tut-badge">18</span>
+                <div class="tut-body">
+                  <h3>Node.js</h3>
+                  <p>اجرای جاوااسکریپت روی سرور.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۵ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #3a76af"
+                href="jquery/01-jquery-intro.html"
+                data-cat="frame"
+                data-aliases="jquery,جی کوئری,جی‌کوئری"
+              >
+                <span class="tut-badge">19</span>
+                <div class="tut-body">
+                  <h3>jQuery</h3>
+                  <p>ساده‌سازی کار با DOM و رویدادها.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۲ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #7952b3"
+                href="bootstrap/01-bootstrap-intro.html"
+                data-cat="frame"
+                data-aliases="bootstrap,بوت استرپ,بوت‌استرپ"
+              >
+                <span class="tut-badge">20</span>
+                <div class="tut-body">
+                  <h3>Bootstrap</h3>
+                  <p>فریم‌ورک آماده برای طراحی سریع.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۱۱۴ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #cc6699"
+                href="sass/01-sass-intro.html"
+                data-cat="frame"
+                data-aliases="sass,ساس"
+              >
+                <span class="tut-badge">21</span>
+                <div class="tut-body">
+                  <h3>Sass</h3>
+                  <p>پیش‌پردازنده‌ی قدرتمند CSS.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۵۷ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #0c4b33"
+                href="django/01-django-intro.html"
+                data-cat="frame"
+                data-aliases="django,جنگو,جانگو"
+              >
+                <span class="tut-badge">22</span>
+                <div class="tut-body">
+                  <h3>Django</h3>
+                  <p>فریم‌ورک وب پایتون برای توسعه سریع.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۸ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #4d77cf"
+                href="numpy/01-numpy-intro.html"
+                data-cat="frame"
+                data-aliases="numpy,نامپای,نامپی"
+              >
+                <span class="tut-badge">23</span>
+                <div class="tut-body">
+                  <h3>NumPy</h3>
+                  <p>محاسبات عددی در پایتون.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۳ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #6f42c1"
+                href="pandas/01-pandas-intro.html"
+                data-cat="frame"
+                data-aliases="pandas,پانداس"
+              >
+                <span class="tut-badge">24</span>
+                <div class="tut-body">
+                  <h3>Pandas</h3>
+                  <p>تحلیل و پردازش داده در پایتون.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۴ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #0c55a5"
+                href="scipy/01-scipy-intro.html"
+                data-cat="frame"
+                data-aliases="scipy,سای پای,سای‌پای"
+              >
+                <span class="tut-badge">25</span>
+                <div class="tut-body">
+                  <h3>SciPy</h3>
+                  <p>محاسبات علمی پیشرفته در پایتون.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۵۶ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="group-block" data-block="db">
+            <div class="group-head">
+              <h2 style="color: #336791">پایگاه داده</h2>
+              <span>۴ مورد</span>
+              <div class="group-line"></div>
+            </div>
+            <div class="tut-grid">
+              <a
+                class="tut-card ready"
+                style="--tag-color: #4479a1"
+                href="sql/01-sql-intro.html"
+                data-cat="db"
+                data-aliases="sql,اس کیو ال,اس‌کیو‌ال"
+              >
+                <span class="tut-badge">26</span>
+                <div class="tut-body">
+                  <h3>SQL</h3>
+                  <p>زبان استاندارد کار با پایگاه داده.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۵۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card ready"
+                style="--tag-color: #00758f"
+                href="mysql/01-mysql-intro.html"
+                data-cat="db"
+                data-aliases="mysql,مای اس کیو ال,مای‌اس‌کیو‌ال"
+              >
+                <span class="tut-badge">27</span>
+                <div class="tut-body">
+                  <h3>MySQL</h3>
+                  <p>محبوب‌ترین پایگاه داده رابطه‌ای.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status ready">آماده</span>
+                  <span class="tut-ch">۶۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #336791"
+                href="postgresql/01-postgresql-intro.html"
+                data-cat="db"
+                data-aliases="postgresql,postgres,پست گرس,پست‌گرس,پستگرس"
+              >
+                <span class="tut-badge">28</span>
+                <div class="tut-body">
+                  <h3>PostgreSQL</h3>
+                  <p>پایگاه داده رابطه‌ای پیشرفته.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۹ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #47a248"
+                href="mongodb/01-mongodb-intro.html"
+                data-cat="db"
+                data-aliases="mongodb,mongo,مونگو دی بی,مونگودیبی,منگو دی بی,منگودیبی,مونگو,منگو"
+              >
+                <span class="tut-badge">29</span>
+                <div class="tut-body">
+                  <h3>MongoDB</h3>
+                  <p>پایگاه داده سندی و بدون اسکیما.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۸ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="group-block" data-block="tools">
+            <div class="group-head">
+              <h2 style="color: #2496ed">ابزارها و متفرقه</h2>
+              <span>۸ مورد</span>
+              <div class="group-line"></div>
+            </div>
+            <div class="tut-grid">
+              <a
+                class="tut-card soon"
+                style="--tag-color: #1d6f42"
+                href="excel/01-excel-intro.html"
+                data-cat="tools"
+                data-aliases="excel,اکسل"
+              >
+                <span class="tut-badge">30</span>
+                <div class="tut-body">
+                  <h3>Excel</h3>
+                  <p>کار با فرمول‌ها و جدول‌های اکسل.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۴ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #e37933"
+                href="xml/01-xml-intro.html"
+                data-cat="tools"
+                data-aliases="xml,ایکس ام ال,ایکس‌ام‌ال"
+              >
+                <span class="tut-badge">31</span>
+                <div class="tut-body">
+                  <h3>XML</h3>
+                  <p>فرمت ساخت‌یافته برای تبادل داده.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۶ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #6b4fbb"
+                href="dsa/01-dsa-intro.html"
+                data-cat="tools"
+                data-aliases="dsa,ساختمان داده,دیاسای"
+              >
+                <span class="tut-badge">32</span>
+                <div class="tut-body">
+                  <h3>DSA</h3>
+                  <p>ساختمان داده و الگوریتم.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۸۲ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #e8a93b"
+                href="aws/01-aws-intro.html"
+                data-cat="tools"
+                data-aliases="aws,ای دبلیو اس,آمازون"
+              >
+                <span class="tut-badge">33</span>
+                <div class="tut-body">
+                  <h3>AWS</h3>
+                  <p>خدمات ابری آمازون.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۸۰ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #f05033"
+                href="git/01-git-intro.html"
+                data-cat="tools"
+                data-aliases="git,گیت"
+              >
+                <span class="tut-badge">34</span>
+                <div class="tut-body">
+                  <h3>Git</h3>
+                  <p>کنترل نسخه و مدیریت تغییرات کد.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۶۱ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #512bd4"
+                href="asp/01-asp-intro.html"
+                data-cat="tools"
+                data-aliases="asp,ای اس پی"
+              >
+                <span class="tut-badge">35</span>
+                <div class="tut-body">
+                  <h3>ASP</h3>
+                  <p>توسعه‌ی وب سمت سرور با دات‌نت.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۳ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #b5179e"
+                href="ai/01-ai-intro.html"
+                data-cat="tools"
+                data-aliases="ai,هوش مصنوعی"
+              >
+                <span class="tut-badge">36</span>
+                <div class="tut-body">
+                  <h3>AI</h3>
+                  <p>مفاهیم پایه‌ی هوش مصنوعی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۱۲۴ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+              <a
+                class="tut-card soon"
+                style="--tag-color: #f0308c"
+                href="genai/01-genai-intro.html"
+                data-cat="tools"
+                data-aliases="genai,gen ai,هوش مصنوعی مولد"
+              >
+                <span class="tut-badge">37</span>
+                <div class="tut-body">
+                  <h3>Gen AI</h3>
+                  <p>هوش مصنوعی مولد و مدل‌های زبانی.</p>
+                </div>
+                <div class="tut-meta">
+                  <span class="tut-status soon">به‌زودی</span>
+                  <span class="tut-ch">۷۶ فصل</span>
+                  <span class="tut-go">شروع ←</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-logo">
+          <img
+            src="./logos/devschool-icon.png"
+            class="logo-icon"
+            alt="DevSchool"
+          />
+          <img
+            src="./logos/devschool-wordmark.png"
+            class="logo-wordmark"
+            alt="DevSchool"
+          />
+        </div>
+        <p class="tagline">فضایی ساده برای خواندن آموزش‌های برنامه‌نویسی.</p>
+        <div class="foot-bottom">
+          <span>© تمامی حقوق محفوظ است</span>
+          <span>Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ---- دارک‌مود ----
+        var root = document.documentElement;
+        var themeToggle = document.getElementById("themeToggle");
+        var saved = localStorage.getItem("ds-theme");
+        if (saved) root.setAttribute("data-theme", saved);
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            var next =
+              root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", next);
+            localStorage.setItem("ds-theme", next);
+          });
+        }
+
+        // ---- منوی موبایل (دکمه‌ی همبرگری) ----
+        var navToggle = document.querySelector(".nav-toggle");
+        var navLinks = document.querySelector("nav.links");
+
+        if (navToggle && navLinks) {
+          navToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("mobile-open");
+            navToggle.classList.toggle("open");
+          });
+        }
+
+        // ---- سرچ (باکس پیشنهادی + فیلتر زنده لیست) ----
+        var searchInput = document.querySelector(".search-bar input");
+        var searchWrap = document.querySelector(".search-wrap");
+        var resultsBox = document.querySelector(".search-results");
+        var catTabs = document.querySelectorAll("#catTabs .tab");
+        var statusPills = document.querySelectorAll(".status-pills .pill");
+        var shownCount = document.getElementById("shownCount");
+        var groupBlocks = Array.from(
+          document.querySelectorAll(".group-block[data-block]"),
+        );
+
+        var activeCat = "all";
+        var activeStatus = "all";
+
+        var toFa = function (n) {
+          return String(n).replace(/\d/g, function (d) {
+            return "۰۱۲۳۴۵۶۷۸۹"[d];
+          });
+        };
+
+        var applyFilters = function () {
+          var q = (searchInput.value || "").trim().toLowerCase();
+          var visible = 0;
+
+          groupBlocks.forEach(function (block) {
+            var blockCat = block.getAttribute("data-block");
+            var cards = Array.from(
+              block.querySelectorAll(".tut-card[data-cat]"),
+            );
+            var shownInBlock = 0;
+
+            cards.forEach(function (card) {
+              var cat = card.getAttribute("data-cat");
+              var status = card.classList.contains("ready")
+                ? "ready"
+                : "soon";
+              var title = (card.querySelector("h3").textContent || "")
+                .trim()
+                .toLowerCase();
+              var aliases = (card.getAttribute("data-aliases") || "")
+                .toLowerCase();
+
+              var okCat = activeCat === "all" || cat === activeCat;
+              var okStatus = activeStatus === "all" || status === activeStatus;
+              var okQuery =
+                q === "" ||
+                title.includes(q) ||
+                aliases.split(",").some(function (a) {
+                  return a.includes(q);
+                });
+
+              var show = okCat && okStatus && okQuery;
+              card.classList.toggle("is-hidden", !show);
+              if (show) shownInBlock++;
+            });
+
+            block.classList.toggle("is-empty", shownInBlock === 0);
+            if (shownInBlock) visible += shownInBlock;
+          });
+
+          shownCount.textContent = toFa(visible);
+        };
+
+        // ---- تب‌های دسته‌بندی ----
+        catTabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            catTabs.forEach(function (t) {
+              t.classList.remove("is-active");
+            });
+            tab.classList.add("is-active");
+            activeCat = tab.getAttribute("data-cat");
+            applyFilters();
+          });
+        });
+
+        // ---- پیل‌های وضعیت ----
+        statusPills.forEach(function (pill) {
+          pill.addEventListener("click", function () {
+            statusPills.forEach(function (p) {
+              p.classList.remove("is-active");
+            });
+            pill.classList.add("is-active");
+            activeStatus = pill.getAttribute("data-status");
+            applyFilters();
+          });
+        });
+
+        // ---- میان‌بر کیبورد "/" برای سرچ ----
+        var activeEl = null;
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "/" &&
+            document.activeElement &&
+            document.activeElement.tagName !== "INPUT" &&
+            document.activeElement.tagName !== "TEXTAREA"
+          ) {
+            e.preventDefault();
+            if (searchInput) {
+              searchInput.focus();
+              searchInput.select();
+            }
+          }
+        });
+
+        if (searchInput && searchWrap && resultsBox) {
+          var langData = Array.from(
+            document.querySelectorAll(".tut-card[data-cat]"),
+          ).map(function (card) {
+            var title = card.querySelector("h3").textContent.trim();
+            var ownAliases = (card.dataset.aliases || "")
+              .split(",")
+              .map(function (a) {
+                return a.trim().toLowerCase();
+              });
+            return {
+              title: title,
+              href: card.getAttribute("href"),
+              color: card.style.getPropertyValue("--tag-color").trim(),
+              aliases: [title.toLowerCase()].concat(ownAliases),
+            };
+          });
+
+          var showResults = function () {
+            var query = searchInput.value.trim().toLowerCase();
+
+            if (query === "") {
+              resultsBox.classList.remove("show");
+              resultsBox.classList.add("hide");
+              setTimeout(function () {
+                if (!resultsBox.classList.contains("show")) {
+                  resultsBox.style.display = "none";
+                  resultsBox.classList.remove("hide");
+                }
+              }, 200);
+              return;
+            }
+
+            var matches = langData.filter(function (l) {
+              return l.aliases.some(function (alias) {
+                return alias.includes(query);
+              });
+            });
+
+            if (matches.length === 0) {
+              resultsBox.innerHTML =
+                '<div class="search-empty">نتیجه‌ای پیدا نشد</div>';
+            } else {
+              resultsBox.innerHTML = matches
+                .slice(0, 8)
+                .map(function (l) {
+                  return (
+                    '<a class="search-result-item" href="' +
+                    l.href +
+                    '" style="--r-color:' +
+                    l.color +
+                    '"><span class="search-dot"></span>' +
+                    l.title +
+                    "</a>"
+                  );
+                })
+                .join("");
+            }
+
+            resultsBox.style.display = "block";
+            resultsBox.classList.remove("hide");
+            resultsBox.classList.add("show");
+          };
+
+          searchInput.addEventListener("input", function () {
+            showResults();
+            applyFilters();
+          });
+          searchInput.addEventListener("focus", showResults);
+
+          document.addEventListener("click", function (e) {
+            if (!searchWrap.contains(e.target)) {
+              resultsBox.classList.remove("show");
+              resultsBox.classList.add("hide");
+              setTimeout(function () {
+                if (!resultsBox.classList.contains("show")) {
+                  resultsBox.style.display = "none";
+                  resultsBox.classList.remove("hide");
+                }
+              }, 200);
+            }
+          });
+        }
+
+        applyFilters();
+      });
+    </script>
+  </body>
+</html>

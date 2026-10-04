@@ -1,0 +1,63 @@
+/* ==========================================================================
+   DevSchool — Global Entrance Animations
+   Linked AFTER the page stylesheet on every page (index, tutorials,
+   lessons, error pages). Adds ONLY the entrances page CSS doesn't define,
+   so these rules never fight existing animations.
+   ========================================================================== */
+
+@keyframes dsFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dsFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dsSideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ---- Lesson sidebar: the only major region without an entrance ---- */
+aside.side {
+  animation: dsSideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+/* ---- Lesson content cascade: eyebrow -> title ---- */
+main.content > .content-title {
+  animation: dsFadeIn 0.5s ease 0.05s both;
+}
+
+main.content:not(.error-content) > h1 {
+  animation: dsFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+main.content > .lesson-nav {
+  animation: dsFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+/* ---- Lesson body text: paragraphs, sub-headings and plain lists rise
+   together right after the title (code cards, callouts and tables keep
+   their own entrances from the page stylesheet) ---- */
+main.content > p,
+main.content > h2,
+main.content > ul.plain,
+main.content > ol.plain {
+  animation: dsFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* ---- Reduced motion: entrances off, content always visible ---- */
+@media (prefers-reduced-motion: reduce) {
+  aside.side,
+  main.content > .content-title,
+  main.content > h1,
+  main.content > .lesson-nav,
+  main.content > p,
+  main.content > h2,
+  main.content > ul.plain,
+  main.content > ol.plain {
+    animation: none;
+  }
+}

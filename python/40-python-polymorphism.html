@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="../fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="shortcut icon" href="../logos/devschool-icon.png" type="image/x-icon">
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+    <meta property="og:type" content="article">
+
+
+    <!-- ########### -->
+    <title>DevSchool — Python Learning | فصل ۴۰ Polymorphism</title>
+    <!-- ########### -->
+
+    <!-- ########### -->
+    <meta name="description" content="Polymorphism در Python: چندریختی کلاس‌ها با override، استفاده از اشیاء مختلف با یک رابط مشترک و متدهای چرخه‌ی زندگی.">
+    <!-- ########### -->
+
+
+    <!-- ########### -->
+    <meta property="og:url" content="https://devschool-ir.github.io/python/40-python-polymorphism.html">
+    <!-- ########### -->
+
+    <meta property="og:site_name" content="DevSchool">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image" content="https://devschool-ir.github.io/logos/devschool-icon.png">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="stylesheet" href="../all-pages-css/all-pages-css.css">
+<link rel="stylesheet" href="../animations.css">
+    <link rel="canonical" href="https://devschool-ir.github.io/python/40-python-polymorphism.html">
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DevSchool", "item": "https://devschool-ir.github.io/"}, {"@type": "ListItem", "position": 2, "name": "آموزش‌ها", "item": "https://devschool-ir.github.io/tutorials.html"}, {"@type": "ListItem", "position": 3, "name": "Polymorphism"}]}
+    </script>
+
+</head>
+<body>
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="w-error"><p class="w-error-content">متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با عرض بزرگتر استفاده نمایید.</p></div>
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-1">
+
+        <div class="header">
+
+            <div class="up-header">
+
+                <div class="logo">
+                    <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="devschool-wordmark">
+                    <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                </div>
+
+                <div class="link-up" style="display:flex; align-items:center;">
+                       <div class="nav-links">
+                           <a class="home-link up-links in-active" href="../index.html">خانه</a>
+                           <a class="lessons-link up-links in-active" href="../tutorials.html">آموزش ها</a>
+                       </div>
+                       <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+                           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+                       </button>
+                       <button id="navToggle" class="nav-toggle" aria-label="منو">
+                           <span></span><span></span><span></span>
+                       </button>
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+                <div class="lessons-name">
+                    <a class="links-up link01" href="../html/01-html-intro.html">HTML</a>
+                    <a class="links-up link1" href="../css/01-css-intro.html">CSS</a>
+                    <a class="links-up link2" href="../javascript/01-javascript-intro.html">JAVASCRIPT</a>
+                    <a class="links-up link3" href="../sql/01-sql-intro.html">SQL</a>
+                    <a class="links-up link4" href="../python/01-python-intro.html">PYTHON</a>
+                    <a class="links-up link5" href="../java/01-java-intro.html">JAVA</a>
+                    <a class="links-up link6" href="../php/01-php-intro.html">PHP</a>
+                    <a class="links-up link7" href="../c/01-c-intro.html">C</a>
+                    <a class="links-up link8" href="../cplasplas/01-cpp-intro.html">++C</a>
+                    <a class="links-up link9" href="../csharp/01-csharp-intro.html">#C</a>
+                    <a class="links-up link10" href="../bootstrap/01-bootstrap-intro.html">BOOTSTRAP</a>
+                    <a class="links-up link11" href="../react/01-react-intro.html">REACT</a>
+                    <a class="links-up link12" href="../mysql/01-mysql-intro.html">MYSQL</a>
+                    <a class="links-up link13" href="../jquery/01-jquery-intro.html">JQUERY</a>
+                    <a class="links-up link14" href="../excel/01-excel-intro.html">EXCEL</a>
+                    <a class="links-up link15" href="../xml/01-xml-intro.html">XML</a>
+                    <a class="links-up link16" href="../django/01-django-intro.html">DJANGO</a>
+                    <a class="links-up link17" href="../numpy/01-numpy-intro.html">NUMPY</a>
+                    <a class="links-up link18" href="../pandas/01-pandas-intro.html">PANDAS</a>
+                    <a class="links-up link19" href="../nodejs/01-nodejs-intro.html">NODEJS</a>
+                    <a class="links-up link20" href="../dsa/01-dsa-intro.html">DSA</a>
+                    <a class="links-up link21" href="../aws/01-aws-intro.html">AWS</a>
+                    <a class="links-up link22" href="../angular/01-angular-intro.html">ANGULAR</a>
+                    <a class="links-up link23" href="../angularjs/01-angularjs-intro.html">ANGULARJS</a>
+                    <a class="links-up link24" href="../git/01-git-intro.html">GIT</a>
+                    <a class="links-up link25" href="../postgresql/01-postgresql-intro.html">POSTGRESQL</a>
+                    <a class="links-up link26" href="../mongodb/01-mongodb-intro.html">MONGODB</a>
+                    <a class="links-up link27" href="../asp/01-asp-intro.html">ASP</a>
+                    <a class="links-up link28" href="../ai/01-ai-intro.html">AI</a>
+                    <a class="links-up link29" href="../r/01-r-intro.html">R</a>                   
+                    <a class="links-up link30" href="../go/01-go-intro.html">Go</a>
+                    <a class="links-up link31" href="../kotlin/01-kotlin-intro.html">KOTLIN</a>
+                    <a class="links-up link32" href="../swift/01-swift-intro.html">SWIFT</a>
+                    <a class="links-up link33" href="../sass/01-sass-intro.html">SASS</a>
+                    <a class="links-up link34" href="../vue/01-vue-intro.html">VUE</a>
+                    <a class="links-up link35" href="../genai/01-genai-intro.html">GEN AI</a>
+                    <a class="links-up link36" href="../scipy/01-scipy-intro.html">SCIPY</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+
+    <div class="container-1-2">
+
+        <div class="container-2">
+
+            <div class="wrap layout">
+                <aside class="side">
+                    <h4>Python Basics</h4>
+                    <ul>
+                        <li><a href="./01-python-intro.html">01 — Python چیست؟</a></li>
+                        <li><a href="./02-python-install.html">02 — نصب و راه‌اندازی Python</a></li>
+                        <li><a href="./03-python-syntax.html">03 — Syntax</a></li>
+                        <li><a href="./04-python-comments.html">04 — Comments</a></li>
+                        <li><a href="./05-python-variables.html">05 — Variables</a></li>
+                        <li><a href="./06-python-data-types.html">06 — Data Types</a></li>
+                        <li><a href="./07-python-type-casting.html">07 — Type Casting</a></li>
+                        <li><a href="./08-python-input-output.html">08 — Input و Output</a></li>
+                    </ul>
+
+                    <h4>Python Operators</h4>
+                    <ul>
+                        <li><a href="./09-python-operators.html">09 — Operators</a></li>
+                        <li><a href="./10-python-arithmetic.html">10 — Arithmetic Operators</a></li>
+                        <li><a href="./11-python-assignment.html">11 — Assignment Operators</a></li>
+                        <li><a href="./12-python-comparison.html">12 — Comparison Operators</a></li>
+                        <li><a href="./13-python-logical.html">13 — Logical Operators</a></li>
+                        <li><a href="./14-python-membership.html">14 — Membership و Identity</a></li>
+                    </ul>
+
+                    <h4>Python Conditions & Loops</h4>
+                    <ul>
+                        <li><a href="./15-python-if-else.html">15 — if و else</a></li>
+                        <li><a href="./16-python-match.html">16 — match</a></li>
+                        <li><a href="./17-python-while.html">17 — while Loop</a></li>
+                        <li><a href="./18-python-for.html">18 — for Loop</a></li>
+                        <li><a href="./19-python-break-continue.html">19 — break و continue</a></li>
+                        <li><a href="./20-python-range.html">20 — range</a></li>
+                    </ul>
+
+                    <h4>Python Collections</h4>
+                    <ul>
+                        <li><a href="./21-python-lists.html">21 — Lists</a></li>
+                        <li><a href="./22-python-tuples.html">22 — Tuples</a></li>
+                        <li><a href="./23-python-sets.html">23 — Sets</a></li>
+                        <li><a href="./24-python-dictionaries.html">24 — Dictionaries</a></li>
+                        <li><a href="./25-python-collection-methods.html">25 — Collection Methods</a></li>
+                    </ul>
+
+                    <h4>Python Strings & Functions</h4>
+                    <ul>
+                        <li><a href="./26-python-strings.html">26 — Strings</a></li>
+                        <li><a href="./27-python-string-methods.html">27 — String Methods</a></li>
+                        <li><a href="./28-python-functions.html">28 — Functions</a></li>
+                        <li><a href="./29-python-function-arguments.html">29 — Function Arguments</a></li>
+                        <li><a href="./30-python-lambda.html">30 — Lambda</a></li>
+                        <li><a href="./31-python-scope.html">31 — Scope</a></li>
+                    </ul>
+
+                    <h4>Python Modules & Files</h4>
+                    <ul>
+                        <li><a href="./32-python-modules.html">32 — Modules</a></li>
+                        <li><a href="./33-python-packages.html">33 — Packages و pip</a></li>
+                        <li><a href="./34-python-file-handling.html">34 — File Handling</a></li>
+                        <li><a href="./35-python-read-write-files.html">35 — خواندن و نوشتن فایل‌ها</a></li>
+                        <li><a href="./36-python-exceptions.html">36 — Exceptions و Error Handling</a></li>
+                    </ul>
+
+                    <h4>Python Object-Oriented Programming</h4>
+                    <ul>
+                        <li><a href="./37-python-classes.html">37 — Classes و Objects</a></li>
+                        <li><a href="./38-python-constructor.html">38 — Constructor</a></li>
+                        <li><a href="./39-python-inheritance.html">39 — Inheritance</a></li>
+                        <li><a href="./40-python-polymorphism.html" class="active">40 — Polymorphism</a></li>
+                        <li><a href="./41-python-encapsulation.html">41 — Encapsulation</a></li>
+                        <li><a href="./42-python-abstraction.html">42 — Abstraction</a></li>
+                    </ul>
+
+                    <h4>Python Advanced</h4>
+                    <ul>
+                        <li><a href="./43-python-iterators.html">43 — Iterators</a></li>
+                        <li><a href="./44-python-generators.html">44 — Generators</a></li>
+                        <li><a href="./45-python-decorators.html">45 — Decorators</a></li>
+                        <li><a href="./46-python-regex.html">46 — Regular Expressions</a></li>
+                        <li><a href="./47-python-datetime.html">47 — Date و Time</a></li>
+                        <li><a href="./48-python-json.html">48 — JSON</a></li>
+                        <li><a href="./49-python-virtual-environment.html">49 — Virtual Environment</a></li>
+                        <li><a href="./50-python-best-practices.html">50 — Best Practices</a></li>
+                    </ul>
+
+                </aside>
+            </div>
+    
+        </div>
+
+        <div class="container-3">
+            <main class="content">
+
+                <span class="content-title">فصل ۴۰ | Python Object-Oriented Programming</span>
+
+                <h1>Polymorphism</h1>
+
+                <p>
+                    <b>چندریختی (Polymorphism)</b> یعنی کلاس‌های مختلف متدی با یک نام دارند اما هرکدام رفتار مخصوص خودش را اجرا می‌کند.
+                </p>
+
+                <h2>چند کلاس، یک متد همنام</h2>
+
+                <div class="code-card">
+                    <div class="file">main.py</div>
+<pre><span class="tok-tag">class</span> <span class="tok-attr">Dog</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">sound</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">return</span> <span class="tok-str">"هاپ هاپ"</span>
+
+<span class="tok-tag">class</span> <span class="tok-attr">Cat</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">sound</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">return</span> <span class="tok-str">"میو میو"</span>
+
+<span class="tok-attr">d</span> = <span class="tok-attr">Dog</span>&lpar;&rpar;)
+<span class="tok-attr">c</span> = <span class="tok-attr">Cat</span>&lpar;&rpar;)
+<span class="tok-tag">print</span>&lpar;<span class="tok-attr">d</span>.<span class="tok-tag">sound</span>&lpar;&rpar;&rpar;)
+<span class="tok-tag">print</span>&lpar;<span class="tok-attr">c</span>.<span class="tok-tag">sound</span>&lpar;&rpar;&rpar;)</pre>
+                </div>
+
+                <h2>استفاده با یک حلقه</h2>
+
+                <div class="code-card">
+                    <div class="file">main.py</div>
+<pre><span class="tok-tag">class</span> <span class="tok-attr">Bird</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">move</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">return</span> <span class="tok-str">"پرواز می‌کند"</span>
+
+<span class="tok-tag">class</span> <span class="tok-attr">Fish</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">move</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">return</span> <span class="tok-str">"شنا می‌کند"</span>
+
+<span class="tok-tag">animals</span> = [<span class="tok-attr">Bird</span>&lpar;&rpar;), <span class="tok-attr">Fish</span>&lpar;&rpar;)]
+
+<span class="tok-tag">for</span> <span class="tok-attr">a</span> <span class="tok-tag">in</span> <span class="tok-attr">animals</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">print</span>&lpar;<span class="tok-attr">a</span>.<span class="tok-tag">move</span>&lpar;&rpar;&rpar;)</pre>
+                </div>
+
+                <div class="callout">
+                    <b>نکته: </b>
+                    بدون دانستن نوع دقیق شیء، متد همنام صدا زده می‌شود؛ این قدرت چندریختی است.
+                </div>
+
+                <h2>چندریختی با وراثت</h2>
+
+                <div class="code-card">
+                    <div class="file">main.py</div>
+<pre><span class="tok-tag">class</span> <span class="tok-attr">Shape</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">area</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">pass</span>
+
+<span class="tok-tag">class</span> <span class="tok-attr">Square</span>&lpar;<span class="tok-attr">Shape</span>&rpar;&colon;
+    <span class="tok-tag">def</span> <span class="tok-attr">__init__</span>&lpar;<span class="tok-attr">self</span>&comma; <span class="tok-attr">side</span>&rpar;&colon;
+        <span class="tok-attr">self</span>.<span class="tok-attr">side</span> = <span class="tok-attr">side</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">area</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">return</span> <span class="tok-attr">self</span>.<span class="tok-attr">side</span> <span class="tok-tag">**</span> <span class="tok-tag">2</span>
+
+<span class="tok-tag">class</span> <span class="tok-attr">Circle</span>&lpar;<span class="tok-attr">Shape</span>&rpar;&colon;
+    <span class="tok-tag">def</span> <span class="tok-attr">__init__</span>&lpar;<span class="tok-attr">self</span>&comma; <span class="tok-attr">radius</span>&rpar;&colon;
+        <span class="tok-attr">self</span>.<span class="tok-attr">radius</span> = <span class="tok-attr">radius</span>
+    <span class="tok-tag">def</span> <span class="tok-attr">area</span>&lpar;<span class="tok-attr">self</span>&rpar;&colon;
+        <span class="tok-tag">import</span> <span class="tok-attr">math</span>
+        <span class="tok-tag">return</span> <span class="tok-attr">math</span>.<span class="tok-tag">pi</span> <span class="tok-tag">*</span> <span class="tok-attr">self</span>.<span class="tok-attr">radius</span> <span class="tok-tag">**</span> <span class="tok-tag">2</span>
+
+<span class="tok-tag">shapes</span> = [<span class="tok-attr">Square</span>&lpar;<span class="tok-tag">4</span>&rpar;), <span class="tok-attr">Circle</span>&lpar;<span class="tok-tag">3</span>&rpar;)]
+<span class="tok-tag">for</span> <span class="tok-attr">s</span> <span class="tok-tag">in</span> <span class="tok-attr">shapes</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">print</span>&lpar;<span class="tok-attr">s</span>.<span class="tok-tag">area</span>&lpar;&rpar;&rpar;)</pre>
+                </div>
+
+                <div class="callout">
+                    <b>نکته: </b>
+                    والد یک طرح اولیه دارد و هر فرزند <code>area()</code> را به‌شکل خودش پیاده‌سازی می‌کند.
+                </div>
+
+                <h2>بررسی نوع با isinstance()</h2>
+
+                <div class="code-card">
+                    <div class="file">main.py</div>
+<pre><span class="tok-tag">class</span> <span class="tok-attr">Vehicle</span><span class="tok-tag">&colon;</span>
+    <span class="tok-tag">pass</span>
+
+<span class="tok-tag">class</span> <span class="tok-attr">Car</span>&lpar;<span class="tok-attr">Vehicle</span>&rpar;&colon;
+    <span class="tok-tag">pass</span>
+
+<span class="tok-attr">my_car</span> = <span class="tok-attr">Car</span>&lpar;&rpar;)
+<span class="tok-tag">print</span>&lpar;<span class="tok-tag">isinstance</span>&lpar;<span class="tok-attr">my_car</span>&comma; <span class="tok-attr">Car</span>&rpar;&rpar;)       <span class="tok-com"># True</span>
+<span class="tok-tag">print</span>&lpar;<span class="tok-tag">isinstance</span>&lpar;<span class="tok-attr">my_car</span>&comma; <span class="tok-attr">Vehicle</span>&rpar;&rpar;)   <span class="tok-com"># True</span>
+<span class="tok-tag">print</span>&lpar;<span class="tok-tag">type</span>&lpar;<span class="tok-attr">my_car</span>&rpar;&rpar;)                       <span class="tok-com"># &lt;class '__main__.Car'&gt;</span></pre>
+                </div>
+
+                <div class="lesson-nav">
+                    <a class="nav-btn prev" href="./39-python-inheritance.html"><span class="lbl">فصل قبل</span><span class="title">→ Inheritance</span></a>
+
+                    <a class="nav-btn next" href="./41-python-encapsulation.html"><span class="lbl">فصل بعد</span><span class="title">Encapsulation ←</span></a>
+                
+                </div>
+
+            </main>
+        </div>
+            
+    </div>
+
+
+
+
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-4">
+
+        <footer>
+
+            <div class="container-4">
+
+                <div class="right">
+
+                    <div class="logo">
+
+                        <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="Logo-Wordmark">
+                        <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                        
+                    </div>
+
+                    <p class="footer-texts footer-tagline">فضایی ساده برای خواندن آموزش‌های برنامه نویسی.</p>
+                    <div class="footer-bottom-content">
+
+                        <p class="footer-texts footer-copyright">© تمامی حقوق محفوظ است</p>
+                        <p class="footer-texts footer-telegram">Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></p>
+                    
+                    
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            
+
+
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('ds-theme');
+            if (saved) root.setAttribute('data-theme', saved);
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('ds-theme', next);
+                });
+            }
+
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('mobile-open');
+                    navToggle.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+
+        (function () {
+            function runCode(panel) {
+                var editor = panel.querySelector('.try-editor');
+                var iframe = panel.querySelector('.try-result');
+                if (editor && iframe) {
+                    iframe.srcdoc = editor.value;
+                }
+            }
+
+            document.querySelectorAll('.try-btn').forEach(function (btn) {
+                var panel = btn.nextElementSibling;
+                if (!panel || !panel.classList.contains('try-panel')) return;
+
+                btn.addEventListener('click', function () {
+                    var opening = !panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    btn.classList.toggle('open');
+                    btn.querySelector('span').textContent = opening ? 'بستن' : 'امتحان کن';
+                    if (opening) runCode(panel);
+                });
+
+                var editor = panel.querySelector('.try-editor');
+                if (editor) editor.addEventListener('input', function () { runCode(panel); });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+            function fallbackCopy(text, done) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            document.querySelectorAll('.code-card pre').forEach(function (pre) {
+                var card = pre.parentNode;
+                if (!card.classList.contains('code-card')) return;
+                if (card.querySelector('.copy-btn')) return;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'copy-btn';
+                btn.innerHTML = COPY_ICON;
+                btn.setAttribute('aria-label', 'کپی کد');
+                card.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var text = (pre.textContent || '').replace(/\s+$/, '');
+                    function done() {
+                        btn.classList.add('copied');
+                        btn.innerHTML = CHECK_ICON;
+                        setTimeout(function () {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = COPY_ICON;
+                        }, 1800);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+                    } else {
+                        fallbackCopy(text, done);
+                    }
+                });
+            });
+        })();
+    </script><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+</body>
+</html>

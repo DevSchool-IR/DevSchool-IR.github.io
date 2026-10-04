@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="../fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="shortcut icon" href="../logos/devschool-icon.png" type="image/x-icon">
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="DevSchool — HTML-Learning | فصل ۱۴ رسانه و پیوندها">
+    <meta property="og:description" content="در این درس نمایش تصویر با عنصر img و ویژگی‌های src و alt را به‌همراه بهترین شیوه‌ها یاد می‌گیرید.">
+
+    <!-- ############# -->
+    <title>DevSchool — HTML Learning | فصل ۱۴ رسانه و پیوندها</title>
+    <!-- ########### -->
+
+    <!-- ########### -->
+    <meta name="description" content="در این درس نمایش تصویر با عنصر img و ویژگی‌های src و alt را به‌همراه بهترین شیوه‌ها یاد می‌گیرید.">
+    <!-- ########### -->
+
+    <!-- ############# -->
+
+
+    <!-- ############# -->
+    <meta property="description" content="نمایش تصویر با عنصر img
+    عنصر <img> برای جای دادن یک تصویر در صفحه استفاده می‌شود. این عنصر یک عنصر خالی است و برچسب بسته ندارد؛ اما دو ویژگی src و alt تقریباً همیشه لازم است.">
+    <!-- ############# -->
+
+
+    <!-- ############# -->
+    <meta property="og:url" content="https://devschool-ir.github.io/html/14-html-images.html">
+    <!-- ############# -->
+
+    
+    <meta property="og:site_name" content="DevSchool">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image" content="https://devschool-ir.github.io/logos/devschool-icon.png">
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="stylesheet" href="../all-pages-css/all-pages-css.css">
+<link rel="stylesheet" href="../animations.css">
+    <link rel="canonical" href="https://devschool-ir.github.io/html/14-html-images.html">
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DevSchool", "item": "https://devschool-ir.github.io/"}, {"@type": "ListItem", "position": 2, "name": "آموزش‌ها", "item": "https://devschool-ir.github.io/tutorials.html"}, {"@type": "ListItem", "position": 3, "name": "نمایش تصویر با عنصر img"}]}
+    </script>
+
+</head>
+<body>
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="w-error"><p class="w-error-content">متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با عرض بزرگتر استفاده نمایید.</p></div>
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-1">
+
+        <div class="header">
+
+            <div class="up-header">
+
+                <div class="logo">
+                    <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="devschool-wordmark">
+                    <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                </div>
+
+                <div class="link-up" style="display:flex; align-items:center;">
+                       <div class="nav-links">
+                           <a class="home-link up-links in-active" href="../index.html">خانه</a>
+                           <a class="lessons-link up-links in-active" href="../tutorials.html">آموزش ها</a>
+                       </div>
+                       <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+                           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+                       </button>
+                       <button id="navToggle" class="nav-toggle" aria-label="منو">
+                           <span></span><span></span><span></span>
+                       </button>
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+                <div class="lessons-name">
+                    <a class="links-up link01" href="../html/01-html-intro.html">HTML</a>
+                    <a class="links-up link1" href="../css/01-css-intro.html">CSS</a>
+                    <a class="links-up link2" href="../javascript/01-javascript-intro.html">JAVASCRIPT</a>
+                    <a class="links-up link3" href="../sql/01-sql-intro.html">SQL</a>
+                    <a class="links-up link4" href="../python/01-python-intro.html">PYTHON</a>
+                    <a class="links-up link5" href="../java/01-java-intro.html">JAVA</a>
+                    <a class="links-up link6" href="../php/01-php-intro.html">PHP</a>
+                    <a class="links-up link7" href="../c/01-c-intro.html">C</a>
+                    <a class="links-up link8" href="../cplasplas/01-cpp-intro.html">++C</a>
+                    <a class="links-up link9" href="../csharp/01-csharp-intro.html">#C</a>
+                    <a class="links-up link10" href="../bootstrap/01-bootstrap-intro.html">BOOTSTRAP</a>
+                    <a class="links-up link11" href="../react/01-react-intro.html">REACT</a>
+                    <a class="links-up link12" href="../mysql/01-mysql-intro.html">MYSQL</a>
+                    <a class="links-up link13" href="../jquery/01-jquery-intro.html">JQUERY</a>
+                    <a class="links-up link14" href="../excel/01-excel-intro.html">EXCEL</a>
+                    <a class="links-up link15" href="../xml/01-xml-intro.html">XML</a>
+                    <a class="links-up link16" href="../django/01-django-intro.html">DJANGO</a>
+                    <a class="links-up link17" href="../numpy/01-numpy-intro.html">NUMPY</a>
+                    <a class="links-up link18" href="../pandas/01-pandas-intro.html">PANDAS</a>
+                    <a class="links-up link19" href="../nodejs/01-nodejs-intro.html">NODEJS</a>
+                    <a class="links-up link20" href="../dsa/01-dsa-intro.html">DSA</a>
+                    <a class="links-up link21" href="../aws/01-aws-intro.html">AWS</a>
+                    <a class="links-up link22" href="../angular/01-angular-intro.html">ANGULAR</a>
+                    <a class="links-up link23" href="../angularjs/01-angularjs-intro.html">ANGULARJS</a>
+                    <a class="links-up link24" href="../git/01-git-intro.html">GIT</a>
+                    <a class="links-up link25" href="../postgresql/01-postgresql-intro.html">POSTGRESQL</a>
+                    <a class="links-up link26" href="../mongodb/01-mongodb-intro.html">MONGODB</a>
+                    <a class="links-up link27" href="../asp/01-asp-intro.html">ASP</a>
+                    <a class="links-up link28" href="../ai/01-ai-intro.html">AI</a>
+                    <a class="links-up link29" href="../r/01-r-intro.html">R</a>                   
+                    <a class="links-up link30" href="../go/01-go-intro.html">Go</a>
+                    <a class="links-up link31" href="../kotlin/01-kotlin-intro.html">KOTLIN</a>
+                    <a class="links-up link32" href="../swift/01-swift-intro.html">SWIFT</a>
+                    <a class="links-up link33" href="../sass/01-sass-intro.html">SASS</a>
+                    <a class="links-up link34" href="../vue/01-vue-intro.html">VUE</a>
+                    <a class="links-up link35" href="../genai/01-genai-intro.html">GEN AI</a>
+                    <a class="links-up link36" href="../scipy/01-scipy-intro.html">SCIPY</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+
+
+    <div class="container-1-2">
+
+        <div class="container-2">
+
+            <div class="wrap layout">
+                <aside class="side">
+                    <h4>HTML Basics</h4>
+                    <ul>
+                        <li><a href="./01-html-intro.html">01 — مقدمه HTML</a></li>
+                        <li><a href="./02-html-editors.html">02 — ویرایشگرها</a></li>
+                        <li><a href="./03-html-basic.html">03 — ساختار پایه</a></li>
+                        <li><a href="./04-html-elements.html">04 — عناصر</a></li>
+                        <li><a href="./05-html-attributes.html">05 — ویژگی‌ها</a></li>
+                    </ul>
+                        <h4>HTML Text &amp; Formatting</h4>
+                    <ul>
+                        <li><a href="./06-html-headings.html">06 — تیترها</a></li>
+                        <li><a href="./07-html-paragraphs.html">07 — پاراگراف‌ها</a></li>
+                        <li><a href="./08-html-styles.html">08 — استایل درون‌خطی</a></li>
+                        <li><a href="./09-formatting.html">09 — قالب‌بندی متن</a></li>
+                        <li><a href="./10-html-quotations.html">10 — نقل‌قول و کامنت</a></li>
+                    </ul>
+                    <h4>HTML Media &amp; Links</h4>
+                    <ul>
+                        <li><a href="./11-html-colors.html">11 — رنگ‌ها</a></li>
+                        <li><a href="./12-html-css.html">12 — HTML و CSS</a></li>
+                        <li><a href="./13-html-links.html">13 — لینک‌ها</a></li>
+                        <li><a class="active" href="./14-html-images.html">14 — تصاویر</a></li>
+                    </ul>
+                    <h4>HTML Lists &amp; Tables</h4>
+                    <ul>
+                        <li><a href="./15-html-lists.html">15 — لیست‌ها</a></li>
+                        <li><a href="./16-html-tables.html">16 — جدول‌ها</a></li>
+                    </ul>
+                    <h4>HTML Layout</h4>
+                    <ul>
+                        <li><a href="./17-html-block-inline.html">17 — بلاک و اینلاین</a></li>
+                        <li><a href="./18-html-div-span.html">18 — div و span</a></li>
+                        <li><a href="./19-html-classes.html">19 — کلاس‌ها</a></li>
+                        <li><a href="./20-html-id.html">20 — شناسه Id</a></li>
+                    </ul>
+                    <h4>HTML Advanced</h4>
+                    <ul>
+                        <li><a href="./21-html-iframes.html">21 — iframe</a></li>
+                        <li><a href="./22-html-javascript.html">22 — HTML و جاوااسکریپت</a></li>
+                        <li><a href="./23-html-file-paths.html">23 — مسیر فایل‌ها</a></li>
+                        <li><a href="./24-html-head.html">24 — head و متادیتا</a></li>
+                        <li><a href="./25-html-layout.html">25 — چیدمان معنایی</a></li>
+                    </ul>
+                    <h4>HTML Forms</h4>
+                    <ul>
+                        <li><a href="./26-html-forms.html">26 — فرم‌ها</a></li>
+                        <li><a href="./27-html-form-elements.html">27 — عناصر فرم</a></li>
+                        <li><a href="./28-html-input-types.html">28 — انواع input</a></li>
+                        <li><a href="./29-html-input-attributes.html">29 — ویژگی‌های input</a></li>
+                        <li><a href="./30-html-form-validation.html">30 — اعتبارسنجی فرم</a></li>
+                    </ul>
+                    <h4>HTML Multimedia &amp; Extras</h4>
+                    <ul>
+                        <li><a href="./31-html-entities.html">31 — نمادها و کاراکترها</a></li>
+                        <li><a href="./32-html-audio-video.html">32 — صدا و ویدئو</a></li>
+                        <li><a href="./33-html-favicon.html">33 — Favicon</a></li>
+                        <li><a href="./34-html-responsive.html">34 — طراحی واکنش‌گرا</a></li>
+                        <li><a href="./35-html-computercode.html">35 — تگ‌های کد کامپیوتری</a></li>
+                        <li><a href="./36-html-best-practices.html">36 — جمع‌بندی و بهترین شیوه‌ها</a></li>
+                    </ul>
+                </aside>
+            </div>
+    
+        </div>
+
+        <div class="container-3">
+            <main class="content">
+
+                <span class="content-title">فصل ۱۴ | رسانه و پیوندها</span>
+                <h1>نمایش تصویر با عنصر img</h1>
+
+                <p>عنصر <code>&lt;img&gt;</code> برای جای دادن یک تصویر در صفحه استفاده می‌شود. این عنصر یک عنصر خالی است و برچسب بسته ندارد؛ اما دو ویژگی <code>src</code> و <code>alt</code> تقریباً همیشه لازم است.</p>
+
+                <div class="code-card">
+                <div class="file">basic-image.html</div>
+                <pre><span class="tok-tag">&lt;img </span><span class="tok-attr">src</span>=<span class="tok-str">"nature.jpg"</span> <span class="tok-attr">alt</span>=<span class="tok-str">"منظره‌ی طبیعت"</span><span class="tok-tag">&gt;</span></pre>
+                
+                    <button class="try-btn" >
+                        <span>امتحان کن</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+
+                    <div class="try-panel">
+                        <div class="try-inner">
+                            <div class="try-grid">
+                                <textarea class="try-editor" spellcheck="false">
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <title>فایل من</title>
+</head>
+<body>
+
+    <img src="../logos/devschool-icon.png" alt="لوگوی سایت">
+
+</body>
+</html>
+</textarea>
+                                <iframe class="try-result" sandbox="allow-scripts"></iframe>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+
+                <h2>چرا alt مهم است؟</h2>
+                <ul class="plain">
+                <li>وقتی تصویر بارگذاری نشود، این متن به‌جای آن نمایش داده می‌شود.</li>
+                <li>صفحه‌خوان‌ها برای افراد کم‌بینا این متن را می‌خوانند.</li>
+                <li>موتورهای جست‌وجو از این متن برای فهمیدن محتوای تصویر استفاده می‌کنند.</li>
+                </ul>
+
+                <h2>تعیین اندازه‌ی تصویر</h2>
+                <p>با ویژگی‌های <code>width</code> و <code>height</code> می‌توان ابعاد نمایش تصویر را به پیکسل مشخص کرد. تعیین از پیش این مقادیر باعث می‌شود مرورگر فضای لازم را زودتر رزرو کند و صفحه هنگام بارگذاری تصویر نپرد.</p>
+
+                <div class="code-card">
+                <div class="file">sized-image.html</div>
+                <pre><span class="tok-tag">&lt;img </span><span class="tok-attr">src</span>=<span class="tok-str">"nature.jpg"</span> <span class="tok-attr">alt</span>=<span class="tok-str">"منظره‌ی طبیعت"</span> <span class="tok-attr">width</span>=<span class="tok-str">"500"</span> <span class="tok-attr">height</span>=<span class="tok-str">"300"</span><span class="tok-tag">&gt;</span></pre>
+                
+                    <button class="try-btn" >
+                        <span>امتحان کن</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+
+                    <div class="try-panel">
+                        <div class="try-inner">
+                            <div class="try-grid">
+                                <textarea class="try-editor" spellcheck="false">
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <title>فایل من</title>
+</head>
+<body>
+
+    <img src="../logos/devschool-icon.png" alt="لوگوی سایت" width="100px" height="100px">
+
+</body>
+</html>
+</textarea>
+                                <iframe class="try-result" sandbox="allow-scripts"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h2>استفاده از تصویر به‌عنوان لینک</h2>
+                <p>با قرار دادن <code>&lt;img&gt;</code> داخل یک عنصر <code>&lt;a&gt;</code>، می‌توانید کل تصویر را قابل کلیک کنید.</p>
+
+                <div class="code-card">
+                <div class="file">image-link.html</div>
+    <pre><span class="tok-tag">&lt;a </span><span class="tok-attr">href</span>=<span class="tok-str">"https://example.com"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;img </span><span class="tok-attr">src</span>=<span class="tok-str">"logo.png"</span> <span class="tok-attr">alt</span>=<span class="tok-str">"لوگو"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/a&gt;</span></pre>
+                
+                    
+
+                </div>
+
+                <div class="callout"><b>نکته:</b> بهتر است اندازه‌ی نهایی تصویر با CSS (خاصیت‌های <code>width</code> و <code>height</code> در استایل) تنظیم شود، نه با ویژگی‌های HTML، تا کنترل بیشتری روی طراحی واکنش‌گرا داشته باشید.</div>
+
+                <div class="lesson-nav">
+                <a class="nav-btn prev" href="./13-html-links.html"><span class="lbl">فصل قبل</span><span class="title">→ لینک‌ها</span></a>
+                <a class="nav-btn next" href="./15-html-lists.html"><span class="lbl">فصل بعد</span><span class="title">لیست‌ها ←</span></a>
+                </div>
+
+            </main>
+        </div>
+            
+    </div>
+
+
+
+
+
+
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-4">
+
+        <footer>
+
+            <div class="container-4">
+
+                <div class="right">
+
+                    <div class="logo">
+
+                        <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="Logo-Wordmark">
+                        <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                        
+                    </div>
+
+                    <p class="footer-texts footer-tagline">فضایی ساده برای خواندن آموزش‌های برنامه نویسی.</p>
+                    <div class="footer-bottom-content">
+
+                        <p class="footer-texts footer-copyright">© تمامی حقوق محفوظ است</p>
+                        <p class="footer-texts footer-telegram">Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></p>
+                    
+                    
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            
+
+
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('ds-theme');
+            if (saved) root.setAttribute('data-theme', saved);
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('ds-theme', next);
+                });
+            }
+
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('mobile-open');
+                    navToggle.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+
+        (function () {
+            function runCode(panel) {
+                var editor = panel.querySelector('.try-editor');
+                var iframe = panel.querySelector('.try-result');
+                if (editor && iframe) {
+                    iframe.srcdoc = editor.value;
+                }
+            }
+
+            document.querySelectorAll('.try-btn').forEach(function (btn) {
+                var panel = btn.nextElementSibling;
+                if (!panel || !panel.classList.contains('try-panel')) return;
+
+                btn.addEventListener('click', function () {
+                    var opening = !panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    btn.classList.toggle('open');
+                    btn.querySelector('span').textContent = opening ? 'بستن' : 'امتحان کن';
+                    if (opening) runCode(panel);
+                });
+
+                var editor = panel.querySelector('.try-editor');
+                if (editor) editor.addEventListener('input', function () { runCode(panel); });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+            function fallbackCopy(text, done) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            document.querySelectorAll('.code-card pre').forEach(function (pre) {
+                var card = pre.parentNode;
+                if (!card.classList.contains('code-card')) return;
+                if (card.querySelector('.copy-btn')) return;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'copy-btn';
+                btn.innerHTML = COPY_ICON;
+                btn.setAttribute('aria-label', 'کپی کد');
+                card.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var text = (pre.textContent || '').replace(/\s+$/, '');
+                    function done() {
+                        btn.classList.add('copied');
+                        btn.innerHTML = CHECK_ICON;
+                        setTimeout(function () {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = COPY_ICON;
+                        }, 1800);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+                    } else {
+                        fallbackCopy(text, done);
+                    }
+                });
+            });
+        })();
+    </script><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+</body>
+</html>

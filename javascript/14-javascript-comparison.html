@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="../fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="shortcut icon" href="../logos/devschool-icon.png" type="image/x-icon">
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+    <meta property="og:type" content="article">
+
+
+    <!-- ########### -->
+    <title>DevSchool — JavaScript Learning | فصل ۱۴ Comparison</title>
+    <!-- ########### -->
+
+    <!-- ########### -->
+    <meta name="description" content="عملگرهای مقایسه در JavaScript را بیاموزید؛ تفاوت == و ===، نابرابری، بزرگ‌تر و کوچک‌تر و نتیجه‌ی boolean هر مقایسه.">
+    <!-- ########### -->
+
+
+    <!-- ########### -->
+    <meta property="og:url" content="https://devschool-ir.github.io/javascript/14-javascript-comparison.html">
+    <!-- ########### -->
+
+    <meta property="og:site_name" content="DevSchool">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image" content="https://devschool-ir.github.io/logos/devschool-icon.png">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="stylesheet" href="../all-pages-css/all-pages-css.css">
+<link rel="stylesheet" href="../animations.css">
+    <link rel="canonical" href="https://devschool-ir.github.io/javascript/14-javascript-comparison.html">
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DevSchool", "item": "https://devschool-ir.github.io/"}, {"@type": "ListItem", "position": 2, "name": "آموزش‌ها", "item": "https://devschool-ir.github.io/tutorials.html"}, {"@type": "ListItem", "position": 3, "name": "Comparison"}]}
+    </script>
+
+</head>
+<body>
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="w-error"><p class="w-error-content">متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با عرض بزرگتر استفاده نمایید.</p></div>
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-1">
+
+        <div class="header">
+
+            <div class="up-header">
+
+                <div class="logo">
+                    <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="devschool-wordmark">
+                    <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                </div>
+
+                <div class="link-up" style="display:flex; align-items:center;">
+                       <div class="nav-links">
+                           <a class="home-link up-links in-active" href="../index.html">خانه</a>
+                           <a class="lessons-link up-links in-active" href="../tutorials.html">آموزش ها</a>
+                       </div>
+                       <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+                           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+                       </button>
+                       <button id="navToggle" class="nav-toggle" aria-label="منو">
+                           <span></span><span></span><span></span>
+                       </button>
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+                <div class="lessons-name">
+                    <a class="links-up link01" href="../html/01-html-intro.html">HTML</a>
+                    <a class="links-up link1" href="../css/01-css-intro.html">CSS</a>
+                    <a class="links-up link2" href="../javascript/01-javascript-intro.html">JAVASCRIPT</a>
+                    <a class="links-up link3" href="../sql/01-sql-intro.html">SQL</a>
+                    <a class="links-up link4" href="../python/01-python-intro.html">PYTHON</a>
+                    <a class="links-up link5" href="../java/01-java-intro.html">JAVA</a>
+                    <a class="links-up link6" href="../php/01-php-intro.html">PHP</a>
+                    <a class="links-up link7" href="../c/01-c-intro.html">C</a>
+                    <a class="links-up link8" href="../cplasplas/01-cpp-intro.html">++C</a>
+                    <a class="links-up link9" href="../csharp/01-csharp-intro.html">#C</a>
+                    <a class="links-up link10" href="../bootstrap/01-bootstrap-intro.html">BOOTSTRAP</a>
+                    <a class="links-up link11" href="../react/01-react-intro.html">REACT</a>
+                    <a class="links-up link12" href="../mysql/01-mysql-intro.html">MYSQL</a>
+                    <a class="links-up link13" href="../jquery/01-jquery-intro.html">JQUERY</a>
+                    <a class="links-up link14" href="../excel/01-excel-intro.html">EXCEL</a>
+                    <a class="links-up link15" href="../xml/01-xml-intro.html">XML</a>
+                    <a class="links-up link16" href="../django/01-django-intro.html">DJANGO</a>
+                    <a class="links-up link17" href="../numpy/01-numpy-intro.html">NUMPY</a>
+                    <a class="links-up link18" href="../pandas/01-pandas-intro.html">PANDAS</a>
+                    <a class="links-up link19" href="../nodejs/01-nodejs-intro.html">NODEJS</a>
+                    <a class="links-up link20" href="../dsa/01-dsa-intro.html">DSA</a>
+                    <a class="links-up link21" href="../aws/01-aws-intro.html">AWS</a>
+                    <a class="links-up link22" href="../angular/01-angular-intro.html">ANGULAR</a>
+                    <a class="links-up link23" href="../angularjs/01-angularjs-intro.html">ANGULARJS</a>
+                    <a class="links-up link24" href="../git/01-git-intro.html">GIT</a>
+                    <a class="links-up link25" href="../postgresql/01-postgresql-intro.html">POSTGRESQL</a>
+                    <a class="links-up link26" href="../mongodb/01-mongodb-intro.html">MONGODB</a>
+                    <a class="links-up link27" href="../asp/01-asp-intro.html">ASP</a>
+                    <a class="links-up link28" href="../ai/01-ai-intro.html">AI</a>
+                    <a class="links-up link29" href="../r/01-r-intro.html">R</a>                   
+                    <a class="links-up link30" href="../go/01-go-intro.html">Go</a>
+                    <a class="links-up link31" href="../kotlin/01-kotlin-intro.html">KOTLIN</a>
+                    <a class="links-up link32" href="../swift/01-swift-intro.html">SWIFT</a>
+                    <a class="links-up link33" href="../sass/01-sass-intro.html">SASS</a>
+                    <a class="links-up link34" href="../vue/01-vue-intro.html">VUE</a>
+                    <a class="links-up link35" href="../genai/01-genai-intro.html">GEN AI</a>
+                    <a class="links-up link36" href="../scipy/01-scipy-intro.html">SCIPY</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+
+    <div class="container-1-2">
+
+        <div class="container-2">
+
+            <div class="wrap layout">
+                <aside class="side">
+                    <h4>JavaScript Basics</h4>
+                    <ul>
+                        <li><a href="./01-javascript-intro.html">01 — JavaScript چیست؟</a></li>
+                        <li><a href="./02-javascript-where-to.html">02 — روش‌های اجرای JavaScript</a></li>
+                        <li><a href="./03-javascript-output.html">03 — خروجی گرفتن</a></li>
+                        <li><a href="./04-javascript-statements.html">04 — Statements</a></li>
+                        <li><a href="./05-javascript-syntax.html">05 — Syntax</a></li>
+                        <li><a href="./06-javascript-comments.html">06 — Comments</a></li>
+                        <li><a href="./07-javascript-variables.html">07 — Variables</a></li>
+                        <li><a href="./08-javascript-let-const.html">08 — let و const</a></li>
+                    </ul>
+
+                    <h4>JavaScript Data & Operators</h4>
+                    <ul>
+                        <li><a href="./09-javascript-data-types.html">09 — Data Types</a></li>
+                        <li><a href="./10-javascript-type-conversion.html">10 — Type Conversion</a></li>
+                        <li><a href="./11-javascript-operators.html">11 — Operators</a></li>
+                        <li><a href="./12-javascript-arithmetic.html">12 — Arithmetic</a></li>
+                        <li><a href="./13-javascript-assignment.html">13 — Assignment</a></li>
+                        <li><a href="./14-javascript-comparison.html" class="active">14 — Comparison</a></li>
+                        <li><a href="./15-javascript-logical.html">15 — Logical Operators</a></li>
+                        <li><a href="./16-javascript-bitwise.html">16 — Bitwise Operators</a></li>
+                    </ul>
+
+                    <h4>JavaScript Control Flow</h4>
+                    <ul>
+                        <li><a href="./17-javascript-if-else.html">17 — if و else</a></li>
+                        <li><a href="./18-javascript-switch.html">18 — switch</a></li>
+                        <li><a href="./19-javascript-loops.html">19 — Loops</a></li>
+                        <li><a href="./20-javascript-for.html">20 — for Loop</a></li>
+                        <li><a href="./21-javascript-while.html">21 — while و do while</a></li>
+                        <li><a href="./22-javascript-break-continue.html">22 — break و continue</a></li>
+                    </ul>
+
+                    <h4>JavaScript Functions</h4>
+                    <ul>
+                        <li><a href="./23-javascript-functions.html">23 — Functions</a></li>
+                        <li><a href="./24-javascript-parameters.html">24 — Parameters و Arguments</a></li>
+                        <li><a href="./25-javascript-return.html">25 — return</a></li>
+                        <li><a href="./26-javascript-arrow-functions.html">26 — Arrow Functions</a></li>
+                        <li><a href="./27-javascript-scope.html">27 — Scope</a></li>
+                        <li><a href="./28-javascript-recursion.html">28 — Recursion</a></li>
+                    </ul>
+
+                    <h4>JavaScript Objects & Arrays</h4>
+                    <ul>
+                        <li><a href="./29-javascript-objects.html">29 — Objects</a></li>
+                        <li><a href="./30-javascript-object-methods.html">30 — Object Methods</a></li>
+                        <li><a href="./31-javascript-arrays.html">31 — Arrays</a></li>
+                        <li><a href="./32-javascript-array-methods.html">32 — Array Methods</a></li>
+                        <li><a href="./33-javascript-strings.html">33 — Strings</a></li>
+                        <li><a href="./34-javascript-numbers-math.html">34 — Numbers و Math</a></li>
+                    </ul>
+
+                    <h4>JavaScript DOM & Browser</h4>
+                    <ul>
+                        <li><a href="./35-javascript-date.html">35 — Date</a></li>
+                        <li><a href="./36-javascript-dom.html">36 — DOM</a></li>
+                        <li><a href="./37-javascript-events.html">37 — Events</a></li>
+                        <li><a href="./38-javascript-forms.html">38 — Forms</a></li>
+                        <li><a href="./39-javascript-browser-bom.html">39 — Browser و BOM</a></li>
+                        <li><a href="./40-javascript-storage.html">40 — Web Storage</a></li>
+                    </ul>
+
+                    <h4>JavaScript Advanced</h4>
+                    <ul>
+                        <li><a href="./41-javascript-error-handling.html">41 — Error Handling</a></li>
+                        <li><a href="./42-javascript-json.html">42 — JSON</a></li>
+                        <li><a href="./43-javascript-promises.html">43 — Promises</a></li>
+                        <li><a href="./44-javascript-async-await.html">44 — Async و Await</a></li>
+                        <li><a href="./45-javascript-fetch.html">45 — Fetch API</a></li>
+                        <li><a href="./46-javascript-modules.html">46 — Modules</a></li>
+                        <li><a href="./47-javascript-classes.html">47 — Classes</a></li>
+                        <li><a href="./48-javascript-best-practices.html">48 — Best Practices</a></li>
+                    </ul>
+
+                </aside>
+            </div>
+    
+        </div>
+
+        <div class="container-3">
+            <main class="content">
+
+                <span class="content-title">فصل ۱۴ | JavaScript Data & Operators</span>
+
+                <h1>Comparison</h1>
+
+                <p>
+                    عملگرهای مقایسه دو مقدار را باهم می‌سنجند و همیشه یک <b>boolean</b> برمی‌گردانند: <code>true</code> یا <code>false</code>. این مقادیر، موتور تصمیم‌گیری در شرط‌های <code>if</code> و حلقه‌ها هستند.
+                </p>
+
+                <h2>عملگرهای برابری</h2>
+
+                <p>سه عملگر برابری وجود دارد که تفاوت مهمی با هم دارند؛ مهم‌ترین نکته‌ی این فصل فرق <code>==</code> و <code>===</code> است:</p>
+
+                <ul>
+                    <li><code>==</code> <b>برابری (شل):</b> نوع را نادیده می‌گیرد و فقط مقدار را می‌سنجد</li>
+                    <li><code>===</code> <b>برابری (سخت):</b> هم نوع و هم مقدار باید یکسان باشند</li>
+                    <li><code>!=</code> <b>نابرابری (شل):</b> برعکس <code>==</code></li>
+                    <li><code>!==</code> <b>نابرابری (سخت):</b> برعکس <code>===</code></li>
+                </ul>
+
+                <div class="code-card">
+                    <div class="file">index.html</div>
+<pre><span class="tok-tag">&lt;script&gt;</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;5 == <span class="tok-str">"5"</span>&rpar;&semi;    <span class="tok-com">// true  (شل)</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;5 === <span class="tok-str">"5"</span>&rpar;&semi;   <span class="tok-com">// false (سخت)</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;5 != <span class="tok-str">"5"</span>&rpar;&semi;     <span class="tok-com">// false</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;5 !== <span class="tok-str">"5"</span>&rpar;&semi;    <span class="tok-com">// true</span>
+<span class="tok-tag">&lt;/script&gt;</span></pre>
+                </div>
+
+                <p>
+                    با <code>===</code> چون عدد <code>5</code> و رشته‌ی <code>"5"</code> نوع متفاوتی دارند، نتیجه <code>false</code> است؛ این «شل/سخت» را همیشه از هم جدا کنید تا از باگ‌های مقایسه در امان بمانید.
+                </p>
+
+                <div class="callout">
+                    <b>بهترین تمرین: </b>
+                    تقریباً همیشه از <code>===</code> و <code>!==</code> استفاده کنید تا از تبدیل خودکار نوع و نتایج غیرمنتظره جلوگیری شود.
+                </div>
+
+                <h2>بزرگ‌تر و کوچک‌تر</h2>
+
+                <p>چهار عملگر ترتیبی روی اعداد و رشته‌ها کار می‌کنند و بر اساس «مقدار» مقایسه‌شان انجام می‌دهند:</p>
+
+                <ul>
+                    <li><code>&gt;</code> بزرگ‌تر از</li>
+                    <li><code>&lt;</code> کوچک‌تر از</li>
+                    <li><code>&gt;=</code> بزرگ‌تر یا مساوی</li>
+                    <li><code>&lt;=</code> کوچک‌تر یا مساوی</li>
+                </ul>
+
+                <div class="code-card">
+                    <div class="file">index.html</div>
+<pre><span class="tok-tag">&lt;script&gt;</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;10 &gt; 5&rpar;&semi;      <span class="tok-com">// true</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;10 &lt; 5&rpar;&semi;      <span class="tok-com">// false</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;10 &gt;= 10&rpar;&semi;    <span class="tok-com">// true</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;10 &lt;= 9&rpar;&semi;     <span class="tok-com">// false</span>
+<span class="tok-tag">&lt;/script&gt;</span></pre>
+                </div>
+
+                <h2>مقایسه‌ی رشته‌ها</h2>
+
+                <p>
+                    رشته‌ها هم با همین عملگرها قابل مقایسه‌اند؛ توجه کنید مقایسه بر اساس کد کاراکتر است نه وزن فارسی، پس در برنامه‌های واقعی به آن دقت کنید:
+                </p>
+
+                <div class="code-card">
+                    <div class="file">index.html</div>
+<pre><span class="tok-tag">&lt;script&gt;</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;<span class="tok-str">"apple"</span> &lt; <span class="tok-str">"banana"</span>&rpar;&semi;  <span class="tok-com">// true</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;<span class="tok-str">"Z"</span> &lt; <span class="tok-str">"a"</span>&rpar;&semi;          <span class="tok-com">// true (کد کاراکتر)</span>
+<span class="tok-tag">&lt;/script&gt;</span></pre>
+                </div>
+
+                <p>
+                    حروف بزرگ و کوچک کدهای متفاوتی دارند (مثلاً <code>a</code>=97 و <code>Z</code>=90)؛ برای همین <code>"Z"</code> از <code>"a"</code> کوچک‌تر شمرده می‌شود. اگر ترتیب الفباییِ درست می‌خواهید، <code>localeCompare</code> به کار ببرید.
+                </p>
+
+                <h2>مقایسه با تبدیل (Coercion)</h2>
+
+                <p>
+                    با مقایسه‌گران شل (خانواده‌ی <code>==</code> و <code>&lt;</code> روی انواع مختلف) جاوااسکریپت خودش نوع‌ها را به هم تبدیل می‌کند و همین باعث شگفتی‌های ناخواسته می‌شود:
+                </p>
+
+                <div class="code-card">
+                    <div class="file">index.html</div>
+<pre><span class="tok-tag">&lt;script&gt;</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;<span class="tok-str">"10"</span> &gt; 9&rpar;&semi;    <span class="tok-com">// true</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;<span class="tok-str">"10"</span> == 10&rpar;&semi;  <span class="tok-com">// true</span>
+    <span class="tok-attr">console</span>&period;<span class="tok-attr">log</span>&lpar;<span class="tok-str">"10"</span> === 10&rpar;&semi; <span class="tok-com">// false</span>
+<span class="tok-tag">&lt;/script&gt;</span></pre>
+                </div>
+
+                <p>
+                    «رشته‌ی ۱۰» اول به عدد تبدیل می‌شود و بعد با ۹ مقایسه می‌گردد. این رفتار نرم، دلیل اصلی پیشنهاد استفاده از <code>===</code> است تا جای رفتار پنهان، صریح باشید.
+                </p>
+
+                <div class="lesson-nav">
+                    <a class="nav-btn prev" href="./13-javascript-assignment.html"><span class="lbl">فصل قبل</span><span class="title">→ Assignment</span></a>
+
+                    <a class="nav-btn next" href="./15-javascript-logical.html"><span class="lbl">فصل بعد</span><span class="title">Logical Operators ←</span></a>
+                
+                </div>
+
+            </main>
+        </div>
+            
+    </div>
+
+
+
+
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-4">
+
+        <footer>
+
+            <div class="container-4">
+
+                <div class="right">
+
+                    <div class="logo">
+
+                        <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="Logo-Wordmark">
+                        <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                        
+                    </div>
+
+                    <p class="footer-texts footer-tagline">فضایی ساده برای خواندن آموزش‌های برنامه نویسی.</p>
+                    <div class="footer-bottom-content">
+
+                        <p class="footer-texts footer-copyright">© تمامی حقوق محفوظ است</p>
+                        <p class="footer-texts footer-telegram">Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></p>
+                    
+                    
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            
+
+
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('ds-theme');
+            if (saved) root.setAttribute('data-theme', saved);
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('ds-theme', next);
+                });
+            }
+
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('mobile-open');
+                    navToggle.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+
+        (function () {
+            function runCode(panel) {
+                var editor = panel.querySelector('.try-editor');
+                var iframe = panel.querySelector('.try-result');
+                if (editor && iframe) {
+                    iframe.srcdoc = editor.value;
+                }
+            }
+
+            document.querySelectorAll('.try-btn').forEach(function (btn) {
+                var panel = btn.nextElementSibling;
+                if (!panel || !panel.classList.contains('try-panel')) return;
+
+                btn.addEventListener('click', function () {
+                    var opening = !panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    btn.classList.toggle('open');
+                    btn.querySelector('span').textContent = opening ? 'بستن' : 'امتحان کن';
+                    if (opening) runCode(panel);
+                });
+
+                var editor = panel.querySelector('.try-editor');
+                if (editor) editor.addEventListener('input', function () { runCode(panel); });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+            function fallbackCopy(text, done) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            document.querySelectorAll('.code-card pre').forEach(function (pre) {
+                var card = pre.parentNode;
+                if (!card.classList.contains('code-card')) return;
+                if (card.querySelector('.copy-btn')) return;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'copy-btn';
+                btn.innerHTML = COPY_ICON;
+                btn.setAttribute('aria-label', 'کپی کد');
+                card.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var text = (pre.textContent || '').replace(/\s+$/, '');
+                    function done() {
+                        btn.classList.add('copied');
+                        btn.innerHTML = CHECK_ICON;
+                        setTimeout(function () {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = COPY_ICON;
+                        }, 1800);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+                    } else {
+                        fallbackCopy(text, done);
+                    }
+                });
+            });
+        })();
+    </script><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+</body>
+</html>

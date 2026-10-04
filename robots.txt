@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devschool-ir.github.io/sitemap.xml

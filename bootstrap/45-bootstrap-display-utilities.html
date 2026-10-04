@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="../fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../logos/devschool-icon.png" type="image/x-icon">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="DevSchool — Bootstrap Learning | فصل ۴۵ — Display Utilities">
+    <title>DevSchool — Bootstrap Learning | فصل ۴۵ — Display Utilities</title>
+    <meta name="description" content="آموزش ابزارهای نمایش (Display Utilities) در Bootstrap 5 برای کنترل نمایش و مخفی کردن المان‌ها در Breakpointهای مختلف.">
+
+    <meta property="og:url" content="https://devschool-ir.github.io/bootstrap/45-bootstrap-display-utilities.html">
+    <meta property="og:site_name" content="DevSchool">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image" content="https://devschool-ir.github.io/logos/devschool-icon.png">
+    <link rel="stylesheet" href="../all-pages-css/all-pages-css.css">
+<link rel="stylesheet" href="../animations.css">
+    <link rel="canonical" href="https://devschool-ir.github.io/bootstrap/45-bootstrap-display-utilities.html">
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DevSchool", "item": "https://devschool-ir.github.io/"}, {"@type": "ListItem", "position": 2, "name": "آموزش‌ها", "item": "https://devschool-ir.github.io/tutorials.html"}, {"@type": "ListItem", "position": 3, "name": "Display Utilities"}]}
+    </script>
+
+</head>
+<body>
+    
+    <div class="w-error"><p class="w-error-content">متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با عرض بزرگتر استفاده نمایید.</p></div>
+
+    
+    <div class="container-1">
+
+        <div class="header">
+
+            <div class="up-header">
+
+                <div class="logo">
+                    <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="devschool-wordmark">
+                    <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                </div>
+
+                <div class="link-up" style="display:flex; align-items:center;">
+                       <div class="nav-links">
+                           <a class="home-link up-links in-active" href="../index.html">خانه</a>
+                           <a class="lessons-link up-links in-active" href="../tutorials.html">آموزش ها</a>
+                       </div>
+                       <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+                           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+                       </button>
+                       <button id="navToggle" class="nav-toggle" aria-label="منو">
+                           <span></span><span></span><span></span>
+                       </button>
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+                <div class="lessons-name">
+                    <a class="links-up link01" href="../html/01-html-intro.html">HTML</a>
+                    <a class="links-up link1" href="../css/01-css-intro.html">CSS</a>
+                    <a class="links-up link2" href="../javascript/01-javascript-intro.html">JAVASCRIPT</a>
+                    <a class="links-up link3" href="../sql/01-sql-intro.html">SQL</a>
+                    <a class="links-up link4" href="../python/01-python-intro.html">PYTHON</a>
+                    <a class="links-up link5" href="../java/01-java-intro.html">JAVA</a>
+                    <a class="links-up link6" href="../php/01-php-intro.html">PHP</a>
+                    <a class="links-up link7" href="../c/01-c-intro.html">C</a>
+                    <a class="links-up link8" href="../cplasplas/01-cpp-intro.html">++C</a>
+                    <a class="links-up link9" href="../csharp/01-csharp-intro.html">#C</a>
+                    <a class="links-up link10" href="../bootstrap/01-bootstrap-intro.html">BOOTSTRAP</a>
+                    <a class="links-up link11" href="../react/01-react-intro.html">REACT</a>
+                    <a class="links-up link12" href="../mysql/01-mysql-intro.html">MYSQL</a>
+                    <a class="links-up link13" href="../jquery/01-jquery-intro.html">JQUERY</a>
+                    <a class="links-up link14" href="../excel/01-excel-intro.html">EXCEL</a>
+                    <a class="links-up link15" href="../xml/01-xml-intro.html">XML</a>
+                    <a class="links-up link16" href="../django/01-django-intro.html">DJANGO</a>
+                    <a class="links-up link17" href="../numpy/01-numpy-intro.html">NUMPY</a>
+                    <a class="links-up link18" href="../pandas/01-pandas-intro.html">PANDAS</a>
+                    <a class="links-up link19" href="../nodejs/01-nodejs-intro.html">NODEJS</a>
+                    <a class="links-up link20" href="../dsa/01-dsa-intro.html">DSA</a>
+                    <a class="links-up link21" href="../aws/01-aws-intro.html">AWS</a>
+                    <a class="links-up link22" href="../angular/01-angular-intro.html">ANGULAR</a>
+                    <a class="links-up link23" href="../angularjs/01-angularjs-intro.html">ANGULARJS</a>
+                    <a class="links-up link24" href="../git/01-git-intro.html">GIT</a>
+                    <a class="links-up link25" href="../postgresql/01-postgresql-intro.html">POSTGRESQL</a>
+                    <a class="links-up link26" href="../mongodb/01-mongodb-intro.html">MONGODB</a>
+                    <a class="links-up link27" href="../asp/01-asp-intro.html">ASP</a>
+                    <a class="links-up link28" href="../ai/01-ai-intro.html">AI</a>
+                    <a class="links-up link29" href="../r/01-r-intro.html">R</a>                   
+                    <a class="links-up link30" href="../go/01-go-intro.html">Go</a>
+                    <a class="links-up link31" href="../kotlin/01-kotlin-intro.html">KOTLIN</a>
+                    <a class="links-up link32" href="../swift/01-swift-intro.html">SWIFT</a>
+                    <a class="links-up link33" href="../sass/01-sass-intro.html">SASS</a>
+                    <a class="links-up link34" href="../vue/01-vue-intro.html">VUE</a>
+                    <a class="links-up link35" href="../genai/01-genai-intro.html">GEN AI</a>
+                    <a class="links-up link36" href="../scipy/01-scipy-intro.html">SCIPY</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="container-1-2">
+        <div class="container-2">
+            <div class="wrap layout">
+                                                <aside class="side">
+                    <h4>Bootstrap Basics</h4>
+                    <ul>
+                        <li><a href="./01-bootstrap-intro.html">01 — مقدمه Bootstrap</a></li>
+                        <li><a href="./02-bootstrap-install.html">02 — نصب Bootstrap</a></li>
+                        <li><a href="./03-bootstrap-file-structure.html">03 — ساختار فایل‌ها و اتصال</a></li>
+                        <li><a href="./04-bootstrap-containers.html">04 — Container و Container-fluid</a></li>
+                        <li><a href="./05-bootstrap-grid-system.html">05 — Grid System</a></li>
+                        <li><a href="./06-bootstrap-breakpoints.html">06 — Breakpoints و Responsive</a></li>
+                        <li><a href="./07-bootstrap-spacing-utilities.html">07 — Spacing Utilities</a></li>
+                        <li><a href="./08-bootstrap-typography.html">08 — Typography</a></li>
+                        <li><a href="./09-bootstrap-colors-backgrounds.html">09 — Colors و Backgrounds</a></li>
+                        <li><a href="./10-bootstrap-borders-shadows.html">10 — Borders و Shadows</a></li>
+                    </ul>
+                    <h4>Layout & Components</h4>
+                    <ul>
+                        <li><a href="./11-bootstrap-buttons-button-groups.html">11 — Buttons و Button Groups</a></li>
+                        <li><a href="./12-bootstrap-alerts.html">12 — Alerts</a></li>
+                        <li><a href="./13-bootstrap-badges.html">13 — Badges</a></li>
+                        <li><a href="./14-bootstrap-cards.html">14 — Cards</a></li>
+                        <li><a href="./15-bootstrap-list-groups.html">15 — List Groups</a></li>
+                        <li><a href="./16-bootstrap-tables.html">16 — Tables</a></li>
+                        <li><a href="./17-bootstrap-images-figures.html">17 — Images و Figures</a></li>
+                        <li><a href="./18-bootstrap-navs.html">18 — Navs</a></li>
+                        <li><a href="./19-bootstrap-navbar.html">19 — Navbar</a></li>
+                        <li><a href="./20-bootstrap-breadcrumb.html">20 — Breadcrumb</a></li>
+                        <li><a href="./21-bootstrap-pagination.html">21 — Pagination</a></li>
+                        <li><a href="./22-bootstrap-progress-bars.html">22 — Progress Bars</a></li>
+                        <li><a href="./23-bootstrap-spinners.html">23 — Spinners</a></li>
+                        <li><a href="./24-bootstrap-close-button.html">24 — Close Button</a></li>
+                    </ul>
+                    <h4>Forms & Input</h4>
+                    <ul>
+                        <li><a href="./25-bootstrap-forms-form-controls.html">25 — Forms و Form Controls</a></li>
+                        <li><a href="./26-bootstrap-input-group.html">26 — Input Group</a></li>
+                        <li><a href="./27-bootstrap-select-textarea.html">27 — Select و Textarea</a></li>
+                        <li><a href="./28-bootstrap-checkbox-radio.html">28 — Checkbox و Radio</a></li>
+                        <li><a href="./29-bootstrap-range-file-input.html">29 — Range و File Input</a></li>
+                        <li><a href="./30-bootstrap-floating-labels.html">30 — Floating Labels</a></li>
+                        <li><a href="./31-bootstrap-form-validation.html">31 — Form Validation</a></li>
+                        <li><a href="./32-bootstrap-input-states.html">32 — Input States</a></li>
+                        <li><a href="./33-bootstrap-form-layouts.html">33 — Form Layouts</a></li>
+                        <li><a href="./34-bootstrap-form-utilities.html">34 — Form Utilities</a></li>
+                    </ul>
+                    <h4>Navigation & Interactive UI</h4>
+                    <ul>
+                        <li><a href="./35-bootstrap-dropdowns.html">35 — Dropdowns</a></li>
+                        <li><a href="./36-bootstrap-collapse.html">36 — Collapse</a></li>
+                        <li><a href="./37-bootstrap-accordion.html">37 — Accordion</a></li>
+                        <li><a href="./38-bootstrap-offcanvas.html">38 — Offcanvas</a></li>
+                        <li><a href="./39-bootstrap-modal.html">39 — Modal</a></li>
+                        <li><a href="./40-bootstrap-tooltips.html">40 — Tooltips</a></li>
+                        <li><a href="./41-bootstrap-popovers.html">41 — Popovers</a></li>
+                        <li><a href="./42-bootstrap-carousel.html">42 — Carousel</a></li>
+                        <li><a href="./43-bootstrap-scrollspy.html">43 — Scrollspy</a></li>
+                        <li><a href="./44-bootstrap-tabs-tab-navigation.html">44 — Tabs و Tab Navigation</a></li>
+                    </ul>
+                    <h4>Utilities & Customization</h4>
+                    <ul>
+                        <li><a class="active" href="./45-bootstrap-display-utilities.html">45 — Display Utilities</a></li>
+                        <li><a href="./46-bootstrap-flex-utilities.html">46 — Flex Utilities</a></li>
+                        <li><a href="./47-bootstrap-position-utilities.html">47 — Position Utilities</a></li>
+                        <li><a href="./48-bootstrap-sizing-utilities.html">48 — Sizing Utilities</a></li>
+                        <li><a href="./49-bootstrap-text-utilities.html">49 — Text Utilities</a></li>
+                        <li><a href="./50-bootstrap-vertical-align-overflow.html">50 — Vertical Align و Overflow</a></li>
+                        <li><a href="./51-bootstrap-visibility-opacity.html">51 — Visibility و Opacity</a></li>
+                        <li><a href="./52-bootstrap-z-index.html">52 — Z-index</a></li>
+                        <li><a href="./53-bootstrap-css-variables.html">53 — CSS Variables</a></li>
+                        <li><a href="./54-bootstrap-utility-api.html">54 — Utility API</a></li>
+                    </ul>
+                    <h4>Responsive Design</h4>
+                    <ul>
+                        <li><a href="./55-bootstrap-responsive-typography.html">55 — Responsive Typography</a></li>
+                        <li><a href="./56-bootstrap-responsive-containers.html">56 — Responsive Containers</a></li>
+                        <li><a href="./57-bootstrap-responsive-grid-patterns.html">57 — Responsive Grid Patterns</a></li>
+                        <li><a href="./58-bootstrap-responsive-images.html">58 — Responsive Images</a></li>
+                        <li><a href="./59-bootstrap-responsive-tables.html">59 — Responsive Tables</a></li>
+                        <li><a href="./60-bootstrap-responsive-navbar.html">60 — Responsive Navbar</a></li>
+                        <li><a href="./61-bootstrap-responsive-utilities.html">61 — Responsive Utilities</a></li>
+                        <li><a href="./62-bootstrap-mobile-first-design.html">62 — Mobile-First Design</a></li>
+                        <li><a href="./63-bootstrap-multi-column-layouts.html">63 — Layoutهای چندستونه</a></li>
+                        <li><a href="./64-bootstrap-responsive-dashboard.html">64 — Dashboard Responsive</a></li>
+                    </ul>
+                    <h4>Advanced Bootstrap</h4>
+                    <ul>
+                        <li><a href="./65-bootstrap-grid-nesting.html">65 — Grid پیشرفته و Nesting</a></li>
+                        <li><a href="./66-bootstrap-auto-layout-columns.html">66 — Auto Layout Columns</a></li>
+                        <li><a href="./67-bootstrap-ordering-offsetting.html">67 — Ordering و Offsetting</a></li>
+                        <li><a href="./68-bootstrap-gutters.html">68 — Gutters</a></li>
+                        <li><a href="./69-bootstrap-icons.html">69 — Bootstrap Icons</a></li>
+                        <li><a href="./70-bootstrap-customizing-themes.html">70 — Customizing Themes</a></li>
+                        <li><a href="./71-bootstrap-sass-variables.html">71 — Sass Variables</a></li>
+                        <li><a href="./72-bootstrap-override-components.html">72 — Override کردن Componentها</a></li>
+                        <li><a href="./73-bootstrap-custom-components.html">73 — Component سفارشی</a></li>
+                        <li><a href="./74-bootstrap-dark-mode.html">74 — Dark Mode</a></li>
+                    </ul>
+                    <h4>Bootstrap with JavaScript</h4>
+                    <ul>
+                        <li><a href="./75-bootstrap-javascript.html">75 — Bootstrap با JavaScript</a></li>
+                        <li><a href="./76-bootstrap-data-attributes.html">76 — Data Attributes</a></li>
+                        <li><a href="./77-bootstrap-modal-javascript.html">77 — Modal با JavaScript</a></li>
+                        <li><a href="./78-bootstrap-dropdown-javascript.html">78 — Dropdown با JavaScript</a></li>
+                        <li><a href="./79-bootstrap-collapse-accordion-javascript.html">79 — Collapse و Accordion</a></li>
+                        <li><a href="./80-bootstrap-carousel-javascript.html">80 — Carousel با JavaScript</a></li>
+                        <li><a href="./81-bootstrap-tooltip-popover-javascript.html">81 — Tooltip و Popover</a></li>
+                        <li><a href="./82-bootstrap-offcanvas-javascript.html">82 — Offcanvas با JavaScript</a></li>
+                        <li><a href="./83-bootstrap-events.html">83 — Events</a></li>
+                        <li><a href="./84-bootstrap-state-management.html">84 — مدیریت State</a></li>
+                    </ul>
+                    <h4>Integration</h4>
+                    <ul>
+                        <li><a href="./85-bootstrap-html-css.html">85 — HTML و CSS</a></li>
+                        <li><a href="./86-bootstrap-javascript.html">86 — JavaScript</a></li>
+                        <li><a href="./87-bootstrap-jquery.html">87 — jQuery</a></li>
+                        <li><a href="./88-bootstrap-react.html">88 — React</a></li>
+                        <li><a href="./89-bootstrap-vue.html">89 — Vue</a></li>
+                        <li><a href="./90-bootstrap-angular.html">90 — Angular</a></li>
+                        <li><a href="./91-bootstrap-django.html">91 — Django</a></li>
+                        <li><a href="./92-bootstrap-php.html">92 — PHP</a></li>
+                        <li><a href="./93-bootstrap-nodejs.html">93 — Node.js</a></li>
+                        <li><a href="./94-bootstrap-frontend-projects.html">94 — پروژه‌های Frontend</a></li>
+                    </ul>
+                    <h4>Accessibility & Performance</h4>
+                    <ul>
+                        <li><a href="./95-bootstrap-accessibility.html">95 — Accessibility</a></li>
+                        <li><a href="./96-bootstrap-aria.html">96 — ARIA</a></li>
+                        <li><a href="./97-bootstrap-keyboard-navigation.html">97 — Keyboard Navigation</a></li>
+                        <li><a href="./98-bootstrap-color-contrast.html">98 — Color Contrast</a></li>
+                        <li><a href="./99-bootstrap-css-performance.html">99 — Performance و CSS</a></li>
+                        <li><a href="100-bootstrap-javascript-optimization.html">100 — بهینه‌سازی JavaScript</a></li>
+                        <li><a href="101-bootstrap-responsive-performance.html">101 — Responsive Performance</a></li>
+                        <li><a href="102-bootstrap-dependency-management.html">102 — مدیریت وابستگی‌ها</a></li>
+                        <li><a href="103-bootstrap-production.html">103 — نسخه‌ی Production</a></li>
+                        <li><a href="104-bootstrap-troubleshooting.html">104 — رفع مشکلات رایج</a></li>
+                    </ul>
+                    <h4>Projects & Best Practices</h4>
+                    <ul>
+                        <li><a href="105-bootstrap-landing-page.html">105 — Landing Page</a></li>
+                        <li><a href="106-bootstrap-signup-form.html">106 — فرم ثبت‌نام</a></li>
+                        <li><a href="107-bootstrap-navbar-project.html">107 — Navbar کامل</a></li>
+                        <li><a href="108-bootstrap-login-page.html">108 — صفحه Login</a></li>
+                        <li><a href="109-bootstrap-dashboard.html">109 — Dashboard</a></li>
+                        <li><a href="110-bootstrap-shop-page.html">110 — صفحه فروشگاه</a></li>
+                        <li><a href="111-bootstrap-profile-page.html">111 — صفحه پروفایل</a></li>
+                        <li><a href="112-bootstrap-admin-panel.html">112 — Admin Panel</a></li>
+                        <li><a href="113-bootstrap-best-practices.html">113 — Best Practices</a></li>
+                        <li><a href="114-bootstrap-final-project.html">114 — پروژه نهایی</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="container-3">
+            <main class="content">
+                <span class="content-title">فصل ۴۵ | Display Utilities</span>
+<h1>Display Utilities</h1>
+<p>ابزارهای نمایش (Display Utilities) در Bootstrap 5 به شما اجازه می‌دهند نمایش یا مخفی بودن المان‌ها را در Breakpointهای مختلف کنترل کنید. این ابزارها برای طراحی Responsive بسیار ضروری هستند.</p>
+
+<h2>کلاس‌های نمایش</h2>
+<p>Bootstrap کلاس‌هایی مانند <code>d-none</code>، <code>d-block</code>، <code>d-inline</code> و غیره ارائه می‌دهد که معادل CSS <code>display: none/block/inline</code> هستند.</p>
+
+<div class="code-card">
+    <div class="file">example-display.html</div>
+    <pre><span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-str">"d-none"</span><span class="tok-tag">&gt;</span>مخفی در همه صفحه‌ها<span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-str">"d-block"</span><span class="tok-tag">&gt;</span>قابل مشاهده<span class="tok-tag">&lt;/div&gt;</span>
+<span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-str">"d-md-none d-lg-block"</span><span class="tok-tag">&gt;</span>
+    مخفی در md، نمایش در lg
+<span class="tok-tag">&lt;/div&gt;</span></pre>
+    <button class="try-btn"><span>امتحان کن</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="try-panel"><div class="try-inner"><div class="try-grid">
+        <textarea class="try-editor" spellcheck="false">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h4>ابزارهای نمایش</h4>
+        <div class="alert alert-info d-block">
+            همیشه نمایش داده می‌شود (d-block)
+        </div>
+        <div class="alert alert-warning d-none">
+            هیچوقت نمایش داده نمی‌شود (d-none)
+        </div>
+        <div class="alert alert-success d-none d-md-block">
+            فقط در md و بالاتر نمایش داده می‌شود
+        </div>
+        <div class="alert alert-danger d-md-none">
+            فقط در زیر md نمایش داده می‌شود
+        </div>
+        <hr>
+        <h4>انواع Display</h4>
+        <span class="d-inline p-2 bg-primary text-white">d-inline</span>
+        <span class="d-inline-block p-2 bg-success text-white" style="width: 200px;">d-inline-block (200px)</span>
+        <div class="d-block p-2 bg-warning mt-2">d-block (تمام عرض)</div>
+        <div class="d-flex p-2 bg-info text-white mt-2">d-flex (Flexbox)</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</textarea>
+        <iframe class="try-result" sandbox="allow-scripts"></iframe>
+    </div></div></div>
+</div>
+
+<div class="callout"><b>نکته:</b> کلاس <code>d-none</code> المان را در همه صفحه‌ها مخفی می‌کند. برای نمایش مجدد در یک Breakpoint خاص، <code>d-{bp}-block</code> را اضافه کنید.</div>
+
+<h2>کلاس‌های نمایش Responsive</h2>
+<ul class="plain">
+    <li><code>d-none</code>: مخفی در همه صفحه‌ها</li>
+    <li><code>d-block</code>: نمایش به صورت block</li>
+    <li><code>d-sm-none</code>: مخفی از sm به بالا</li>
+    <li><code>d-md-block</code>: نمایش block از md به بالا</li>
+    <li><code>d-lg-none</code>: مخفی از lg به بالا</li>
+    <li><code>d-xl-block</code>: نمایش block از xl به بالا</li>
+    <li><code>d-xxl-none</code>: مخفی از xxl به بالا</li>
+</ul>
+
+<h2>نمایش Inline و Flex</h2>
+<p>علاوه بر <code>d-block</code> و <code>d-none</code>، کلاس‌های <code>d-inline</code>، <code>d-inline-block</code>، <code>d-flex</code> و <code>d-grid</code> نیز موجود هستند.</p>
+
+<div class="callout"><b>نکته:</b> ابزارهای نمایش Responsive فقط با ترکیب <code>d-none</code> و <code>d-{bp}-{display}</code> معنی پیدا می‌کنند. مثلاً <code>d-none d-md-flex</code> یعنی مخفی در موبایل و Flex در Tablet و بالاتر.</div>
+
+                <div class="lesson-nav">
+                    <a class="nav-btn prev" href="./44-bootstrap-tabs-tab-navigation.html"><span class="lbl">فصل قبل</span><span class="title">→ Tabs و Tab Navigation</span></a>
+                    <a class="nav-btn next" href="./46-bootstrap-flex-utilities.html"><span class="lbl">فصل بعد</span><span class="title">Flex Utilities ←</span></a>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <div class="container-4">
+
+        <footer>
+
+            <div class="container-4">
+
+                <div class="right">
+
+                    <div class="logo">
+
+                        <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="Logo-Wordmark">
+                        <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                        
+                    </div>
+
+                    <p class="footer-texts footer-tagline">فضایی ساده برای خواندن آموزش‌های برنامه نویسی.</p>
+                    <div class="footer-bottom-content">
+
+                        <p class="footer-texts footer-copyright">© تمامی حقوق محفوظ است</p>
+                        <p class="footer-texts footer-telegram">Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></p>
+                    
+                    
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            
+
+
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('ds-theme');
+            if (saved) root.setAttribute('data-theme', saved);
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('ds-theme', next);
+                });
+            }
+
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('mobile-open');
+                    navToggle.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+
+        (function () {
+            function runCode(panel) {
+                var editor = panel.querySelector('.try-editor');
+                var iframe = panel.querySelector('.try-result');
+                if (editor && iframe) {
+                    iframe.srcdoc = editor.value;
+                }
+            }
+
+            document.querySelectorAll('.try-btn').forEach(function (btn) {
+                var panel = btn.nextElementSibling;
+                if (!panel || !panel.classList.contains('try-panel')) return;
+
+                btn.addEventListener('click', function () {
+                    var opening = !panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    btn.classList.toggle('open');
+                    btn.querySelector('span').textContent = opening ? 'بستن' : 'امتحان کن';
+                    if (opening) runCode(panel);
+                });
+
+                var editor = panel.querySelector('.try-editor');
+                if (editor) editor.addEventListener('input', function () { runCode(panel); });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+            function fallbackCopy(text, done) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            document.querySelectorAll('.code-card pre').forEach(function (pre) {
+                var card = pre.parentNode;
+                if (!card.classList.contains('code-card')) return;
+                if (card.querySelector('.copy-btn')) return;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'copy-btn';
+                btn.innerHTML = COPY_ICON;
+                btn.setAttribute('aria-label', 'کپی کد');
+                card.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var text = (pre.textContent || '').replace(/\s+$/, '');
+                    function done() {
+                        btn.classList.add('copied');
+                        btn.innerHTML = CHECK_ICON;
+                        setTimeout(function () {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = COPY_ICON;
+                        }, 1800);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+                    } else {
+                        fallbackCopy(text, done);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

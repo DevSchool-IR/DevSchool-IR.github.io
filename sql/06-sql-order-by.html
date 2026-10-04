@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <script>
+      !function(e,t,n){
+          e.yektanetAnalyticsObject=n,
+          e[n]=e[n]||function(){e[n].q.push(arguments)},
+          e[n].q=e[n].q||[];
+          var a=t.getElementsByTagName("head")[0],
+              r=new Date,
+              c="https://cdn.yektanet.com/superscript-v2/uSJPYHMC/native-Devschool.hstn.me-47924/yn_pub.js?v="
+                  +r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),
+            s=t.createElement("link");
+          s.rel="preload",
+          s.as="script",
+          s.href=c,
+          a.appendChild(s);
+          var l=t.createElement("script");
+          l.async=!0,
+          l.src=c,
+          a.appendChild(l);
+      }(window,document,"yektanet");
+    </script>
+    <link rel="preload" href="../fonts/Dana-Medium.ttf" as="font" type="font/ttf" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="shortcut icon" href="../logos/devschool-icon.png" type="image/x-icon">
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+    <meta property="og:type" content="article">
+
+
+    <!-- ########### -->
+    <title>DevSchool — SQL Learning | فصل ۶ ORDER BY</title>
+    <!-- ########### -->
+
+    <!-- ########### -->
+    <meta name="description" content="مرتب‌سازی نتایج با ORDER BY در SQL: صعودی، نزولی و مرتب‌سازی با چند ستون همراه با مثال عملی.">
+    <!-- ########### -->
+
+
+    <!-- ########### -->
+    <meta property="og:url" content="https://devschool-ir.github.io/sql/06-sql-order-by.html">
+    <!-- ########### -->
+
+    <meta property="og:site_name" content="DevSchool">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image" content="https://devschool-ir.github.io/logos/devschool-icon.png">
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+    <link rel="stylesheet" href="../all-pages-css/all-pages-css.css">
+<link rel="stylesheet" href="../animations.css">
+    <link rel="canonical" href="https://devschool-ir.github.io/sql/06-sql-order-by.html">
+
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DevSchool", "item": "https://devschool-ir.github.io/"}, {"@type": "ListItem", "position": 2, "name": "آموزش‌ها", "item": "https://devschool-ir.github.io/tutorials.html"}, {"@type": "ListItem", "position": 3, "name": "ORDER BY"}]}
+    </script>
+
+</head>
+<body>
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="w-error"><p class="w-error-content">متاسفانه این وب‌سایت برای عرض دستگاه شما مناسب نیست. لطفا از دستگاهی با عرض بزرگتر استفاده نمایید.</p></div>
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-1">
+
+        <div class="header">
+
+            <div class="up-header">
+
+                <div class="logo">
+                    <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="devschool-wordmark">
+                    <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                </div>
+
+                <div class="link-up" style="display:flex; align-items:center;">
+                       <div class="nav-links">
+                           <a class="home-link up-links in-active" href="../index.html">خانه</a>
+                           <a class="lessons-link up-links in-active" href="../tutorials.html">آموزش ها</a>
+                       </div>
+                       <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+                           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+                       </button>
+                       <button id="navToggle" class="nav-toggle" aria-label="منو">
+                           <span></span><span></span><span></span>
+                       </button>
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+                <div class="lessons-name">
+                    <a class="links-up link01" href="../html/01-html-intro.html">HTML</a>
+                    <a class="links-up link1" href="../css/01-css-intro.html">CSS</a>
+                    <a class="links-up link2" href="../javascript/01-javascript-intro.html">JAVASCRIPT</a>
+                    <a class="links-up link3" href="../sql/01-sql-intro.html">SQL</a>
+                    <a class="links-up link4" href="../python/01-python-intro.html">PYTHON</a>
+                    <a class="links-up link5" href="../java/01-java-intro.html">JAVA</a>
+                    <a class="links-up link6" href="../php/01-php-intro.html">PHP</a>
+                    <a class="links-up link7" href="../c/01-c-intro.html">C</a>
+                    <a class="links-up link8" href="../cplasplas/01-cpp-intro.html">++C</a>
+                    <a class="links-up link9" href="../csharp/01-csharp-intro.html">#C</a>
+                    <a class="links-up link10" href="../bootstrap/01-bootstrap-intro.html">BOOTSTRAP</a>
+                    <a class="links-up link11" href="../react/01-react-intro.html">REACT</a>
+                    <a class="links-up link12" href="../mysql/01-mysql-intro.html">MYSQL</a>
+                    <a class="links-up link13" href="../jquery/01-jquery-intro.html">JQUERY</a>
+                    <a class="links-up link14" href="../excel/01-excel-intro.html">EXCEL</a>
+                    <a class="links-up link15" href="../xml/01-xml-intro.html">XML</a>
+                    <a class="links-up link16" href="../django/01-django-intro.html">DJANGO</a>
+                    <a class="links-up link17" href="../numpy/01-numpy-intro.html">NUMPY</a>
+                    <a class="links-up link18" href="../pandas/01-pandas-intro.html">PANDAS</a>
+                    <a class="links-up link19" href="../nodejs/01-nodejs-intro.html">NODEJS</a>
+                    <a class="links-up link20" href="../dsa/01-dsa-intro.html">DSA</a>
+                    <a class="links-up link21" href="../aws/01-aws-intro.html">AWS</a>
+                    <a class="links-up link22" href="../angular/01-angular-intro.html">ANGULAR</a>
+                    <a class="links-up link23" href="../angularjs/01-angularjs-intro.html">ANGULARJS</a>
+                    <a class="links-up link24" href="../git/01-git-intro.html">GIT</a>
+                    <a class="links-up link25" href="../postgresql/01-postgresql-intro.html">POSTGRESQL</a>
+                    <a class="links-up link26" href="../mongodb/01-mongodb-intro.html">MONGODB</a>
+                    <a class="links-up link27" href="../asp/01-asp-intro.html">ASP</a>
+                    <a class="links-up link28" href="../ai/01-ai-intro.html">AI</a>
+                    <a class="links-up link29" href="../r/01-r-intro.html">R</a>                   
+                    <a class="links-up link30" href="../go/01-go-intro.html">Go</a>
+                    <a class="links-up link31" href="../kotlin/01-kotlin-intro.html">KOTLIN</a>
+                    <a class="links-up link32" href="../swift/01-swift-intro.html">SWIFT</a>
+                    <a class="links-up link33" href="../sass/01-sass-intro.html">SASS</a>
+                    <a class="links-up link34" href="../vue/01-vue-intro.html">VUE</a>
+                    <a class="links-up link35" href="../genai/01-genai-intro.html">GEN AI</a>
+                    <a class="links-up link36" href="../scipy/01-scipy-intro.html">SCIPY</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+
+
+    <div class="container-1-2">
+
+        <div class="container-2">
+
+            <div class="wrap layout">
+                <aside class="side">
+                    <h4>SQL Basics</h4>
+                    <ul>
+                        <li><a href="./01-sql-intro.html">01 — SQL چیست؟</a></li>
+                        <li><a href="./02-sql-syntax.html">02 — Syntax</a></li>
+                        <li><a href="./03-sql-select.html">03 — SELECT</a></li>
+                        <li><a href="./04-sql-select-distinct.html">04 — SELECT DISTINCT</a></li>
+                        <li><a href="./05-sql-where.html">05 — WHERE</a></li>
+                        <li><a href="./06-sql-order-by.html" class="active">06 — ORDER BY</a></li>
+                        <li><a href="./07-sql-and-or-not.html">07 — AND، OR و NOT</a></li>
+                        <li><a href="./08-sql-in.html">08 — IN</a></li>
+                    </ul>
+
+                    <h4>SQL Filtering & Conditions</h4>
+                    <ul>
+                        <li><a href="./09-sql-between.html">09 — BETWEEN</a></li>
+                        <li><a href="./10-sql-like.html">10 — LIKE</a></li>
+                        <li><a href="./11-sql-wildcards.html">11 — Wildcards</a></li>
+                        <li><a href="./12-sql-null-values.html">12 — NULL Values</a></li>
+                        <li><a href="./13-sql-aliases.html">13 — Aliases</a></li>
+                        <li><a href="./14-sql-functions.html">14 — SQL Functions</a></li>
+                    </ul>
+
+                    <h4>SQL Data Manipulation</h4>
+                    <ul>
+                        <li><a href="./15-sql-insert-into.html">15 — INSERT INTO</a></li>
+                        <li><a href="./16-sql-update.html">16 — UPDATE</a></li>
+                        <li><a href="./17-sql-delete.html">17 — DELETE</a></li>
+                        <li><a href="./18-sql-limit.html">18 — LIMIT</a></li>
+                        <li><a href="./19-sql-aggregate-functions.html">19 — Aggregate Functions</a></li>
+                        <li><a href="./20-sql-group-by.html">20 — GROUP BY</a></li>
+                        <li><a href="./21-sql-having.html">21 — HAVING</a></li>
+                    </ul>
+
+                    <h4>SQL Joins</h4>
+                    <ul>
+                        <li><a href="./22-sql-joins.html">22 — JOIN</a></li>
+                        <li><a href="./23-sql-inner-join.html">23 — INNER JOIN</a></li>
+                        <li><a href="./24-sql-left-join.html">24 — LEFT JOIN</a></li>
+                        <li><a href="./25-sql-right-join.html">25 — RIGHT JOIN</a></li>
+                        <li><a href="./26-sql-full-join.html">26 — FULL OUTER JOIN</a></li>
+                        <li><a href="./27-sql-self-join.html">27 — SELF JOIN</a></li>
+                        <li><a href="./28-sql-union.html">28 — UNION</a></li>
+                    </ul>
+
+                    <h4>SQL Database & Tables</h4>
+                    <ul>
+                        <li><a href="./29-sql-create-database.html">29 — CREATE DATABASE</a></li>
+                        <li><a href="./30-sql-create-table.html">30 — CREATE TABLE</a></li>
+                        <li><a href="./31-sql-alter-table.html">31 — ALTER TABLE</a></li>
+                        <li><a href="./32-sql-drop-table.html">32 — DROP TABLE</a></li>
+                        <li><a href="./33-sql-truncate-table.html">33 — TRUNCATE TABLE</a></li>
+                        <li><a href="./34-sql-constraints.html">34 — Constraints</a></li>
+                        <li><a href="./35-sql-data-types.html">35 — Data Types</a></li>
+                    </ul>
+
+                    <h4>SQL Keys & Relationships</h4>
+                    <ul>
+                        <li><a href="./36-sql-primary-key.html">36 — PRIMARY KEY</a></li>
+                        <li><a href="./37-sql-foreign-key.html">37 — FOREIGN KEY</a></li>
+                        <li><a href="./38-sql-unique.html">38 — UNIQUE</a></li>
+                        <li><a href="./39-sql-not-null.html">39 — NOT NULL</a></li>
+                        <li><a href="./40-sql-default.html">40 — DEFAULT</a></li>
+                        <li><a href="./41-sql-check.html">41 — CHECK</a></li>
+                        <li><a href="./42-sql-indexes.html">42 — Indexes</a></li>
+                    </ul>
+
+                    <h4>SQL Advanced</h4>
+                    <ul>
+                        <li><a href="./43-sql-subqueries.html">43 — Subqueries</a></li>
+                        <li><a href="./44-sql-views.html">44 — Views</a></li>
+                        <li><a href="./45-sql-stored-procedures.html">45 — Stored Procedures</a></li>
+                        <li><a href="./46-sql-triggers.html">46 — Triggers</a></li>
+                        <li><a href="./47-sql-transactions.html">47 — Transactions</a></li>
+                        <li><a href="./48-sql-relationships.html">48 — Database Relationships</a></li>
+                        <li><a href="./49-sql-normalization.html">49 — Normalization</a></li>
+                        <li><a href="./50-sql-best-practices.html">50 — SQL Best Practices</a></li>
+                    </ul>
+
+                </aside>
+            </div>
+    
+        </div>
+
+        <div class="container-3">
+            <main class="content">
+
+                <span class="content-title">فصل ۶ | SQL Basics</span>
+
+                <h1>ORDER BY</h1>
+
+                <p>
+                    دستور <b>ORDER BY</b> نتایج را مرتب می‌کند؛ به‌صورت پیش‌فرض <b>صعودی</b> (ASC) و با کلمه‌ی <code>DESC</code> به‌صورت <b>نزولی</b>.
+                </p>
+
+                <h2>مرتب‌سازی صعودی</h2>
+
+                <div class="code-card">
+                    <div class="file">query.sql</div>
+<pre><span class="tok-tag">SELECT</span> <span class="tok-tag">*</span>
+<span class="tok-tag">FROM</span> <span class="tok-attr">Customers</span>
+<span class="tok-tag">ORDER BY</span> <span class="tok-attr">Age</span><span class="tok-tag">;</span></pre>
+                </div>
+
+                <p>
+                    مشتری‌ها از جوان‌ترین به مسن‌ترین مرتب می‌شوند. <code>ASC</code> اختیاری است؛ اگر ننویسید، SQL به‌صورت پیش‌فرض صعودی مرتب می‌کند.
+                </p>
+
+                <h2>مرتب‌سازی نزولی</h2>
+
+                <div class="code-card">
+                    <div class="file">query.sql</div>
+<pre><span class="tok-tag">SELECT</span> <span class="tok-tag">*</span>
+<span class="tok-tag">FROM</span> <span class="tok-attr">Customers</span>
+<span class="tok-tag">ORDER BY</span> <span class="tok-attr">Age</span> <span class="tok-tag">DESC</span><span class="tok-tag">;</span></pre>
+                </div>
+
+                <p>
+                    این بار مسن‌ترین مشتری اول می‌آید.
+                </p>
+
+                <h2>ترکیب با WHERE</h2>
+
+                <div class="code-card">
+                    <div class="file">query.sql</div>
+<pre><span class="tok-tag">SELECT</span> <span class="tok-attr">Name</span><span class="tok-tag">,</span> <span class="tok-attr">City</span><span class="tok-tag">,</span> <span class="tok-attr">Age</span>
+<span class="tok-tag">FROM</span> <span class="tok-attr">Customers</span>
+<span class="tok-tag">WHERE</span> <span class="tok-attr">City</span> <span class="tok-tag">=</span> <span class="tok-str">'تهران'</span>
+<span class="tok-tag">ORDER BY</span> <span class="tok-attr">Age</span> <span class="tok-tag">DESC</span><span class="tok-tag">;</span></pre>
+                </div>
+
+                <p>
+                    اول سطرهای تهران فیلتر می‌شوند، بعد بر اساس سن مرتب می‌شوند.
+                </p>
+
+                <h2>مرتب‌سازی با چند ستون</h2>
+
+                <div class="code-card">
+                    <div class="file">query.sql</div>
+<pre><span class="tok-tag">SELECT</span> <span class="tok-tag">*</span>
+<span class="tok-tag">FROM</span> <span class="tok-attr">Customers</span>
+<span class="tok-tag">ORDER BY</span> <span class="tok-attr">City</span> <span class="tok-tag">ASC</span><span class="tok-tag">,</span> <span class="tok-attr">Age</span> <span class="tok-tag">DESC</span><span class="tok-tag">;</span></pre>
+                </div>
+
+                <p>
+                    اول بر اساس شهر (صعودی) و در شهرهای مشابه بر اساس سن (نزولی) مرتب می‌شود.
+                </p>
+
+                <div class="callout">
+                    <b>نکته: </b>
+                    وقتی چند ستون با هم مقایسه می‌شوند، ترتیب نوشتن آن‌ها از چپ به راست است؛ ستون اول اولویت بیشتری دارد و ستون‌های بعدی فقط برای سطرهای برابر ستون‌های قبلی عمل می‌کنند.
+                </div>
+
+                <div class="lesson-nav">
+                    <a class="nav-btn prev" href="./05-sql-where.html"><span class="lbl">فصل قبل</span><span class="title">→ WHERE</span></a>
+
+                    <a class="nav-btn next" href="./07-sql-and-or-not.html"><span class="lbl">فصل بعد</span><span class="title">AND، OR و NOT ←</span></a>
+                
+                </div>
+
+            </main>
+        </div>
+            
+    </div>
+
+
+
+
+    <!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+    
+    <div class="container-4">
+
+        <footer>
+
+            <div class="container-4">
+
+                <div class="right">
+
+                    <div class="logo">
+
+                        <img class="devschool-wordmark" src="../logos/devschool-wordmark.png" alt="Logo-Wordmark">
+                        <img class="Logo-Icon" src="../logos/devschool-icon.png" alt="Logo-Icon">
+                        
+                    </div>
+
+                    <p class="footer-texts footer-tagline">فضایی ساده برای خواندن آموزش‌های برنامه نویسی.</p>
+                    <div class="footer-bottom-content">
+
+                        <p class="footer-texts footer-copyright">© تمامی حقوق محفوظ است</p>
+                        <p class="footer-texts footer-telegram">Telegram: <a href="https://t.me/RS_PLAYER">@RS_PLAYER</a></p>
+                    
+                    
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            
+
+
+        </footer>
+
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('ds-theme');
+            if (saved) root.setAttribute('data-theme', saved);
+
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('ds-theme', next);
+                });
+            }
+
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    navLinks.classList.toggle('mobile-open');
+                    navToggle.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+
+    <script>
+
+        (function () {
+            function runCode(panel) {
+                var editor = panel.querySelector('.try-editor');
+                var iframe = panel.querySelector('.try-result');
+                if (editor && iframe) {
+                    iframe.srcdoc = editor.value;
+                }
+            }
+
+            document.querySelectorAll('.try-btn').forEach(function (btn) {
+                var panel = btn.nextElementSibling;
+                if (!panel || !panel.classList.contains('try-panel')) return;
+
+                btn.addEventListener('click', function () {
+                    var opening = !panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    btn.classList.toggle('open');
+                    btn.querySelector('span').textContent = opening ? 'بستن' : 'امتحان کن';
+                    if (opening) runCode(panel);
+                });
+
+                var editor = panel.querySelector('.try-editor');
+                if (editor) editor.addEventListener('input', function () { runCode(panel); });
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            var COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+            function fallbackCopy(text, done) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+                done();
+            }
+
+            document.querySelectorAll('.code-card pre').forEach(function (pre) {
+                var card = pre.parentNode;
+                if (!card.classList.contains('code-card')) return;
+                if (card.querySelector('.copy-btn')) return;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'copy-btn';
+                btn.innerHTML = COPY_ICON;
+                btn.setAttribute('aria-label', 'کپی کد');
+                card.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    var text = (pre.textContent || '').replace(/\s+$/, '');
+                    function done() {
+                        btn.classList.add('copied');
+                        btn.innerHTML = CHECK_ICON;
+                        setTimeout(function () {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = COPY_ICON;
+                        }, 1800);
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+                    } else {
+                        fallbackCopy(text, done);
+                    }
+                });
+            });
+        })();
+    </script><!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+<!-- ################################################################################### -->
+
+
+</body>
+</html>
