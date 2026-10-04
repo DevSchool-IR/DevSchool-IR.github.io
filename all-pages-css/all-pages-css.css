@@ -142,10 +142,6 @@ body{
     align-items: center;
     gap: 10px;
     opacity: 1;
-    transition: opacity 150ms ease;
-}
-.logo:hover{
-    opacity: .85;
 }
 
 .up-header{
@@ -1087,12 +1083,8 @@ main.content tbody td code {
 }
 
 .logo {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.logo:hover {
-  transform: scale(1.05);
-}
 
 .nav-btn {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1), var(--theme-transition);
