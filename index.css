@@ -364,7 +364,6 @@ html[data-theme="dark"] .icon-moon {
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 22px;
-  letter-spacing: 1px;
 }
 
 html[data-theme="dark"] .eyebrow {
@@ -372,7 +371,7 @@ html[data-theme="dark"] .eyebrow {
 }
 
 .eyebrow::before {
-  content: "●";
+  content: "ÃƒÂ¢Ã¢â‚¬â€Ã‚Â";
   color: var(--accent);
   font-size: 0.7rem;
 }
@@ -520,7 +519,6 @@ h1.hero-title em {
   margin: 0 0 8px;
   font-weight: 700;
   font-family: "Dana-Bold";
-  letter-spacing: 1px;
 }
 
 .feat-card p {
@@ -540,7 +538,6 @@ h1.hero-title em {
   font-family: "Sepid-VF","JetBrains Mono", monospace;
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1px;
   color: var(--primary);
   background: color-mix(in srgb, var(--primary) 14%, var(--bg));
   padding: 4px 12px;

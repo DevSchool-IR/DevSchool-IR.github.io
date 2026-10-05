@@ -1,4 +1,4 @@
-﻿
+
 @font-face {
   font-family: "Dana-Black";
   src: url(./fonts/Dana-Black.ttf) format("truetype");
@@ -354,7 +354,7 @@ html[data-theme="dark"] .eyebrow {
 }
 
 .eyebrow::before {
-  content: "●";
+  content: "â—";
   color: var(--accent);
   font-size: 0.7rem;
 }
@@ -578,7 +578,7 @@ html[data-theme="dark"] .search-bar:focus-within {
   padding: 40px 0 80px;
 }
 
-/* ---- نوار ابزار (دسته‌بندی + وضعیت) ---- */
+/* ---- Ù†ÙˆØ§Ø± Ø§Ø¨Ø²Ø§Ø± (Ø¯Ø³ØªÙ‡â€ŒØ¨Ù†Ø¯ÛŒ + ÙˆØ¶Ø¹ÛŒØª) ---- */
 
 .toolbar {
   display: flex;
@@ -670,7 +670,6 @@ html[data-theme="dark"] .tab.is-active {
   font-family: "NovinWeb", "JetBrains Mono", monospace;
   font-size: 0.72rem;
   font-weight: 900;
-  letter-spacing: 0.04em;
   color: var(--ink-soft);
   text-transform: uppercase;
 }
@@ -760,7 +759,6 @@ html[data-theme="dark"] .tab.is-active {
   font-family: "Meem-Bold";
   font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 1px;
   margin: 0;
 }
 
