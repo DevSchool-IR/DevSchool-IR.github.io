@@ -279,10 +279,14 @@
                 <h1>AJAX چیست؟</h1>
 
                 <p>
-                    تا اینجا همه‌چیز داخل همان صفحه بود. <code>AJAX</code> یعنی حرف زدن با سرور بدون رفرش صفحه: داده می‌گیری، بخشی از صفحه را عوض می‌کنی و کاربر اصلاً حس بارگذاری دوباره را ندارد. جست‌وجوی زنده، لایک، کامنت — همه با همین ایده کار می‌کنند.
+                    تا اینجا همه‌چیز داخل همان صفحه بود: کلیک می‌کردید و چیزی همان‌جا عوض می‌شد. <code>AJAX</code> مرز بعدی است — حرف زدن با سرور بدون رفرش صفحه. داده می‌گیرید، بخشی از صفحه را عوض می‌کنید و کاربر اصلاً حس بارگذاری دوباره را ندارد. جست‌وجوی زنده، لایک، کامنت، فید بی‌نهایت — همه با همین یک ایده کار می‌کنند.
                 </p>
 
-                <h2>تصویر ذهنی درست از درخواست ناهمزمان</h2>
+                <h2>اولین درخواست: همان مثال معروف</h2>
+
+                <p>
+                    کلاسیک‌ترین دموی AJAX دکمه‌ی «بیشتر» است: با هر کلیک چند پست جدید ته لیست می‌آید، بدون این‌که صفحه بپرد یا اسکرول گم شود. با متد <code>load</code> که فصل بعد کامل می‌بینید، این فقط یک خط است.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -291,22 +295,39 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// بقیه‌ی پست‌ها می‌آیند ته لیست</span></pre>
                 </div>
 
-                <p>
-                    با یک کلیک، فایل جدا از سرور گرفته و داخل <code>#posts</code> گذاشته می‌شود. صفحه رفرش نمی‌شود، اسکرول سر جایش می‌ماند و کاربر فقط پست‌های جدید را می‌بیند.
-                </p>
-
-                <h2>چرا «ناهمزمان» مهم است؟</h2>
+                <h2>چرا «ناهمزمان» قلب ماجرا است؟</h2>
 
                 <p>
-                    درخواست به سرور طول می‌کشد؛ اگر مرورگر صبر می‌کرد، صفحه قفل می‌شد. پس jQuery درخواست را می‌فرستد و می‌رود سراغ کارش؛ وقتی جواب رسید، تابعی که داده‌اید اجرا می‌شود. به این می‌گویند ناهمزمان بودن — و دلیل اصلی پیچیدگی (و قدرت) AJAX همین است.
+                    درخواست به سرور طول می‌کشد — گاهی میلی‌ثانیه، گاهی چند ثانیه. اگر مرورگر صبر می‌کرد، صفحه در این مدت قفل می‌شد و هیچ کلیکی کار نمی‌کرد. پس jQuery درخواست را می‌فرستد و می‌رود سراغ کارش؛ وقتی جواب رسید، تابعی که شما داده‌اید اجرا می‌شود. به این می‌گویند ناهمزمان بودن، و دلیل اصلی هم پیچیدگی و هم قدرت AJAX همین یک کلمه است.
                 </p>
+
+                <p>
+                    نتیجه‌ی عملی‌اش این است که کد شما دیگر از بالا به پایین اجرا نمی‌شود: خط بعد از درخواست، <b>قبل</b> از رسیدن جواب اجرا می‌شود. هر کاری که به جواب نیاز دارد باید داخل همان تابع جواب باشد، نه بعدش. این را از حالا ملکه‌ی ذهن کنید چون کل این بخش روی همین سوار است.
+                </p>
+
+                <h2>نمایش حالت لودینگ موقع انتظار</h2>
+
+                <p>
+                    چون جواب دیر می‌رسد، کاربر باید بفهمد سیستم دارد کار می‌کند. الگو ساده است: قبل از درخواست اسپینر را نشان بدهید، و آخرِ تابعی که با رسیدن جواب اجرا می‌شود مخفی‌اش کنید. اگر خطا هم آمد (فصل ۵۴)، به‌جای اسپینر پیام خطا بنشانید.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#more"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"click"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#spinner"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">show</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#posts"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">load</span><span class="tok-tag">&lpar;</span><span class="tok-str">"more-posts.html"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+        <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#spinner"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">hide</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    برای تمرین محلی، درخواست AJAX به فایل روی دیسک (<code>file://</code>) معمولاً توسط مرورگر بلاک می‌شود. یک سرور محلی ساده (مثل افزونه‌ی Live Server) راه بیندازید تا مثال‌ها کار کنند.
+                    برای تمرین محلی، درخواست AJAX به فایل روی دیسک (<code>file://</code>) معمولاً توسط مرورگر بلاک می‌شود. یک سرور محلی ساده (مثل افزونه‌ی Live Server در VS Code) راه بیندازید تا مثال‌های این بخش کار کنند؛ وگرنه همه‌چیز درست است ولی جوابی نمی‌آید.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./48-jquery-file-input.html"><span class="lbl">فصل قبل</span><span class="title">→ File Input</span></a>
                     <a class="nav-btn next" href="./50-jquery-ajax-load.html"><span class="lbl">فصل بعد</span><span class="title">AJAX load ←</span></a>
                 </div>

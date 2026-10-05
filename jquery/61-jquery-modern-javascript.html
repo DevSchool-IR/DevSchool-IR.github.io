@@ -279,37 +279,54 @@
                 <h1>jQuery در کنار JavaScript مدرن</h1>
 
                 <p>
-                    مرورگرهای امروزی خیلی از کارهای jQuery را خودشان بلدند. این فصل نقشه‌ی مهاجرت است: برای هر الگوی پرکاربرد، معادل native آن را می‌بینید تا بدانید کِی jQuery لازم است و کِی نه.
+                    مرورگرهای امروزی خیلی از کارهای jQuery را خودشان بلد شده‌اند و فاصله هر سال کمتر می‌شود. این فصل نقشه‌ی مهاجرت است: برای هر الگوی پرکاربرد، معادل native آن را می‌بینید تا بدانید کِی jQuery لازم است، کِی نه، و چطور بین این دو دنیا رفت‌وآمد کنید بدون این‌که دانسته‌هایتان دور ریخته شود.
                 </p>
 
-                <h2>جدول معادل‌ها</h2>
+                <h2>انتخاب عنصر: از $ تا querySelector</h2>
+
+                <p>
+                    پراستفاده‌ترین دستور کل دوره همین انتخاب است. معادل native آن <code>querySelector</code> (اولین تطبیق) و <code>querySelectorAll</code> (همه) است که همان سلکتورهای CSS را می‌فهمند؛ یعنی دانش سلکتورهای‌تان مستقیم منتقل می‌شود.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
-<pre><span class="tok-com">// انتخاب عنصر</span>
-<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#box"</span><span class="tok-tag">&rpar;</span>  <span class="tok-com">// jQuery</span>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#box"</span><span class="tok-tag">&rpar;</span>  <span class="tok-com">// jQuery</span>
 <span class="tok-attr">document</span><span class="tok-tag">&period;</span><span class="tok-attr">querySelector</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#box"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>  <span class="tok-com">// native</span>
-<span class="tok-com">// درخواست شبکه</span>
-<span class="tok-tag">$</span><span class="tok-tag">&period;</span><span class="tok-attr">get</span><span class="tok-tag">&lpar;</span><span class="tok-str">url</span><span class="tok-tag">&rpar;</span>  <span class="tok-com">// jQuery</span>
-<span class="tok-attr">fetch</span><span class="tok-tag">&lpar;</span><span class="tok-str">url</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">then</span><span class="tok-tag">&lpar;</span><span class="tok-attr">r</span> <span class="tok-tag">=&gt;</span> <span class="tok-attr">r</span><span class="tok-tag">&period;</span><span class="tok-attr">json</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>  <span class="tok-com">// native</span></pre>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">".item"</span><span class="tok-tag">&rpar;</span>  <span class="tok-com">// jQuery: همه</span>
+<span class="tok-attr">document</span><span class="tok-tag">&period;</span><span class="tok-attr">querySelectorAll</span><span class="tok-tag">&lpar;</span><span class="tok-str">".item"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>  <span class="tok-com">// native: لیست نودها</span></pre>
                 </div>
 
                 <p>
-                    قاعده‌ی سرانگشتی: اگر پروژه از قبل jQuery دارد، با همان ادامه بدهید؛ اگر پروژه‌ی صفر است، با native شروع کنید و فقط در صورت نیاز jQuery اضافه کنید.
+                    یک فرق ظریف: خروجی <code>querySelectorAll</code> آرایه‌ی واقعی نیست (NodeList است) و <code>forEach</code> جدیدها را دارد ولی <code>map</code> نه؛ برای تبدیلش از <code>Array.from</code> استفاده کنید. جزئیات کوچکی مثل همین، اول مهاجرت وقت می‌گیرد ولی زود عادی می‌شود.
                 </p>
+
+                <h2>شبکه: از ajax تا fetch</h2>
+
+                <p>
+                    معادل native درخواست شبکه <code>fetch</code> است که Promise برمی‌گرداند — همان مفهومی که فصل ۵۵ با Deferred یاد گرفتید، فقط استاندارد مرورگر. زنجیره‌ی <code>then</code> و گرفتن JSON با یک خط اضافه انجام می‌شود.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-attr">fetch</span><span class="tok-tag">&lpar;</span><span class="tok-str">"user.json"</span><span class="tok-tag">&rpar;</span>
+    <span class="tok-tag">&period;</span><span class="tok-attr">then</span><span class="tok-tag">&lpar;</span><span class="tok-attr">r</span> <span class="tok-tag">=&gt;</span> <span class="tok-attr">r</span><span class="tok-tag">&period;</span><span class="tok-attr">json</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&rpar;</span>
+    <span class="tok-tag">&period;</span><span class="tok-attr">then</span><span class="tok-tag">&lpar;</span><span class="tok-attr">user</span> <span class="tok-tag">=&gt;</span> <span class="tok-tag">console</span><span class="tok-tag">&period;</span><span class="tok-attr">log</span><span class="tok-tag">&lpar;</span><span class="tok-attr">user</span><span class="tok-tag">&period;</span><span class="tok-attr">name</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <h2>چه زمانی هنوز jQuery؟</h2>
 
                 <p>
-                    سه حالت: پشتیبانی از مرورگرهای خیلی قدیمی، پلاگین آماده‌ای که معادل ندارد (مثل datepicker خاص)، و تیمی که همه jQuery بلدند و زمان آموزش ندارند. بیرون از این سه‌تا، native معمولاً انتخاب بهتری است.
+                    با همه‌ی این‌ها، سه حالت هست که jQuery هنوز انتخاب درستی است: پشتیبانی از مرورگرهای خیلی قدیمی که APIهای مدرن ندارند، پلاگین آماده‌ای که معادل ندارد (مثل datepicker خاص فصل ۵۶)، و تیمی که همه jQuery بلدند و زمان آموزش ندارند. بیرون از این سه‌تا، native معمولاً انتخاب بهتری است — سبک‌تر، سریع‌تر، و بدون وابستگی.
                 </p>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    یادگیری jQuery با وجود این حرف‌ها بیهوده نیست؛ نیمی از وب قدیمی با آن نوشته شده و نگهداری آن‌ها کار همیشگی است. فهمیدن، مستقل از استفاده‌ی روزمره ارزش دارد.
+                    یادگیری jQuery با وجود این حرف‌ها بیهوده نیست؛ نیمی از وب قدیمی با آن نوشته شده و نگهداری آن‌ها کار همیشگی است. فهمیدن، مستقل از استفاده‌ی روزمره ارزش دارد — و مفاهیمش (انتخاب، رویداد، ناهمزمانی) همه‌جا به کارتان می‌آید.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./60-jquery-security.html"><span class="lbl">فصل قبل</span><span class="title">→ نکات امنیتی</span></a>
                     <a class="nav-btn next" href="./62-jquery-project.html"><span class="lbl">فصل بعد</span><span class="title">پروژه عملی با jQuery ←</span></a>
                 </div>

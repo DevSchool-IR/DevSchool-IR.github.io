@@ -279,10 +279,14 @@
                 <h1>Utility Methods</h1>
 
                 <p>
-                    جدا از متدهایی که روی انتخاب‌ها صدا زده می‌شوند، یک جعبه‌ابزار جدا هم هست: توابعی که مستقیم از خود <code>$</code> صدا زده می‌شوند و با آرایه، آبجکت و رشته کار می‌کنند — بدون اینکه به DOM دست بزنند.
+                    جدا از متدهایی که روی انتخاب‌ها صدا زده می‌شوند، یک جعبه‌ابزار جدا هم هست که خیلی‌ها دیر کشفش می‌کنند: توابعی که مستقیم از خود <code>$</code> صدا زده می‌شوند و با آرایه، آبجکت و رشته کار می‌کنند — بدون این‌که به DOM دست بزنند. برای منطق خالص داده، همین‌ها تمیزتر و سریع‌ترند.
                 </p>
 
                 <h2>چرخ، تبدیل و فیلتر آرایه‌ها</h2>
+
+                <p>
+                    سه کار پرتکرار روی لیست‌ها: پیمایش، تبدیل هر عنصر به چیز دیگر، و نگه داشتن آن‌هایی که شرط دارند. معادل‌های jQueryشان <code>each</code> و <code>map</code> و <code>grep</code> است. دقت کنید ترتیب آرگومان‌های <code>each</code> برعکس حلقه‌ی معمولی است: اول ایندکس، بعد مقدار.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -296,10 +300,14 @@
                 </div>
 
                 <p>
-                    دقت کنید ترتیب آرگومان‌های <code>each</code> برعکس حلقه‌ی معمولی است: اول ایندکس، بعد مقدار. و <code>grep</code> مثل فیلتر عمل می‌کند و آرایه‌ی نو برمی‌گرداند.
+                    <code>grep</code> مثل فیلتر عمل می‌کند و آرایه‌ی نو برمی‌گرداند؛ آرایه‌ی اصلی دست‌نخورده می‌ماند. این عادت «ورودی سالم، خروجی نو» اشکال‌زدایی را خیلی راحت می‌کند.
                 </p>
 
                 <h2>تمیزکاری رشته و بررسی نوع</h2>
+
+                <p>
+                    قبل از هر کاری با داده‌ی خارجی (ورودی کاربر یا جواب سرور)، سه چک سریع: فاصله‌های اضافه را بگیر، مطمئن شو لیست است، مطمئن شو تابع است — بعد جلو برو. این سه خط اول خیلی از تابع‌ها باید باشند.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -308,16 +316,25 @@
 <span class="tok-tag">var</span> <span class="tok-attr">isFn</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&period;</span><span class="tok-attr">isFunction</span><span class="tok-tag">&lpar;</span><span class="tok-attr">cb</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
+                <h2>ادغام تنظیمات با extend</h2>
+
                 <p>
-                    این سه‌تا از آن‌هایی‌اند که قبل از هر کاری با داده‌ی خارجی صدا زده می‌شوند: فاصله‌ها را بگیر، مطمئن شو لیست است، مطمئن شو تابع است — بعد جلو برو.
+                    و این همان خط معروفی که در فصل پلاگین دیدید و حالا معنایش کامل است: یک آبجکت خالی، بعد پیش‌فرض‌ها، بعد انتخاب کاربر. نتیجه ترکیبی است که هرچه کاربر نگفته از پیش‌فرض می‌آید. آبجکت خالی اول مهم است؛ بدون آن، خودِ پیش‌فرض‌ها برای همیشه عوض می‌شوند و فراخوانی بعدی غافلگیرتان می‌کند.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">var</span> <span class="tok-attr">defaults</span> <span class="tok-tag">=</span> <span class="tok-tag">&lbrace;</span> <span class="tok-attr">color</span><span class="tok-tag">&colon;</span> <span class="tok-str">"green"</span><span class="tok-tag">&comma;</span> <span class="tok-attr">size</span><span class="tok-tag">&colon;</span> <span class="tok-attr">14</span> <span class="tok-tag">&rbrace;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">var</span> <span class="tok-attr">settings</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&period;</span><span class="tok-attr">extend</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span><span class="tok-tag">&rbrace;</span><span class="tok-tag">&comma;</span> <span class="tok-attr">defaults</span><span class="tok-tag">&comma;</span> <span class="tok-attr">userOpts</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    خیلی از این ابزارها امروز در خود جاوااسکریپت هم هستند (<code>forEach</code>، <code>filter</code>، <code>trim</code>). اگر پروژه جدید است، نسخه‌ی native را ترجیح بدهید؛ این‌ها برای کدهای قدیمی‌اند.
+                    خیلی از این ابزارها امروز در خود جاوااسکریپت هم هستند (<code>forEach</code>، <code>filter</code>، <code>trim</code>). اگر پروژه جدید است، نسخه‌ی native را ترجیح بدهید؛ این‌ها بیشتر برای خواندن و نگهداری کدهای قدیمی به کار می‌آیند.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./57-jquery-plugin-create.html"><span class="lbl">فصل قبل</span><span class="title">→ ساخت Plugin</span></a>
                     <a class="nav-btn next" href="./59-jquery-performance.html"><span class="lbl">فصل بعد</span><span class="title">Performance و Best Practices ←</span></a>
                 </div>

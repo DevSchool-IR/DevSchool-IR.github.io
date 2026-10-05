@@ -279,26 +279,34 @@
                 <h1>Ù¾Ø±ÙˆÚ˜Ù‡ Ø¹Ù…Ù„ÛŒ Ø¨Ø§ jQuery</h1>
 
                 <p>
-                    Ø±Ø³ÛŒØ¯ÛŒÙ… Ø¨Ù‡ Ø¢Ø®Ø± Ø¯ÙˆØ±Ù‡. Ø§ÛŒÙ† ÙØµÙ„ Ù‡Ù…Ù‡â€ŒÛŒ Ú†ÛŒØ²ÛŒ Ú©Ù‡ ÛŒØ§Ø¯ Ú¯Ø±ÙØªÛŒØ¯ Ø±Ø§ Ø¯Ø± ÛŒÚ© Ù¾Ø±ÙˆÚ˜Ù‡â€ŒÛŒ ÙˆØ§Ù‚Ø¹ÛŒ Ø¬Ù…Ø¹ Ù…ÛŒâ€ŒÚ©Ù†Ø¯: Ù„ÛŒØ³Øª Ú©Ø§Ø±Ù‡Ø§ Ø¨Ø§ Ø§Ø¶Ø§ÙÙ‡ Ùˆ Ø­Ø°Ù Ùˆ ØªÛŒÚ©ØŒ Ú©Ù‡ Ø¨ÛŒÙ† Ø±ÙØ±Ø´â€ŒÙ‡Ø§ Ù‡Ù… Ù…ÛŒâ€ŒÙ…Ø§Ù†Ø¯. Ù‚Ø¯Ù…â€ŒØ¨Ù‡â€ŒÙ‚Ø¯Ù… Ø¬Ù„Ùˆ Ù…ÛŒâ€ŒØ±ÙˆÛŒÙ….
+                    رسیدیم به آخر دوره — و بهترین پایان، ساختن است نه خواندن. در این فصل یک لیست کارهای واقعی می‌سازیم که همه‌ی مهارت‌های دوره را قاطی می‌کند: خواندن ورودی و اعتبارسنجی (فصل ۴۴ و ۴۵)، ساخت عنصر داینامیک (فصل ۲۸)، نمایندگی رویداد (فصل ۵۹)، افکت (فصل ۱۹) و ذخیره‌ی محلی. قدم‌به‌قدم جلو می‌رویم؛ هر قدم روی قبلی سوار است.
                 </p>
 
-                <h2>Ù‚Ø¯Ù… Ø§ÙˆÙ„: Ø§Ø¶Ø§ÙÙ‡ Ú©Ø±Ø¯Ù† Ø¨Ø§ Ø§Ø¹ØªØ¨Ø§Ø±Ø³Ù†Ø¬ÛŒ</h2>
+                <h2>قدم اول: اضافه کردن با اعتبارسنجی</h2>
+
+                <p>
+                    اول اسکلت: دکمه‌ی اضافه که متن ورودی را می‌خواند، تمیز می‌کند، خالی را رد می‌کند و در غیر این صورت یک آیتم کامل (متن + دکمه‌ی حذف) می‌سازد و ورودی را برای بعدی خالی می‌کند. چهار خط اولش همان فصل ۴۴ است و خط آخر همان فصل ۲۸.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
 <pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#addBtn"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"click"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
     <span class="tok-tag">var</span> <span class="tok-attr">text</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#taskInput"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">trim</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
     <span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-attr">text</span> <span class="tok-tag">===</span> <span class="tok-str">""</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">return</span><span class="tok-tag">&semi;</span>
-    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#tasks"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">append</span><span class="tok-tag">&lpar;</span><span class="tok-str">"&lt;li&gt;&lt;span&gt;"</span> <span class="tok-tag">+</span> <span class="tok-attr">text</span> <span class="tok-tag">+</span> <span class="tok-str">"&lt;/span&gt; &lt;button class=&quot;del&quot;&gt;Ã—&lt;/button&gt;&lt;/li&gt;"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#tasks"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">append</span><span class="tok-tag">&lpar;</span><span class="tok-str">"&lt;li&gt;&lt;span&gt;"</span> <span class="tok-tag">+</span> <span class="tok-attr">text</span> <span class="tok-tag">+</span> <span class="tok-str">"&lt;/span&gt; &lt;button class=&quot;del&quot;&gt;×&lt;/button&gt;&lt;/li&gt;"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
     <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#taskInput"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-str">""</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
                 <p>
-                    Ù…ØªÙ† Ø®ÙˆØ§Ù†Ø¯Ù‡ Ùˆ ØªÙ…ÛŒØ² Ù…ÛŒâ€ŒØ´ÙˆØ¯ØŒ Ø®Ø§Ù„ÛŒ Ø±Ø¯ Ù…ÛŒâ€ŒØ´ÙˆØ¯ØŒ Ø¨Ø¹Ø¯ ÛŒÚ© Ø¢ÛŒØªÙ… Ú©Ø§Ù…Ù„ Ø¨Ø§ Ø¯Ú©Ù…Ù‡â€ŒÛŒ Ø­Ø°Ù Ø³Ø§Ø®ØªÙ‡ Ùˆ ÙˆØ±ÙˆØ¯ÛŒ Ø®Ø§Ù„ÛŒ Ù…ÛŒâ€ŒØ´ÙˆØ¯. Ø¯Ù‚Øª Ú©Ù†ÛŒØ¯ Ù…ØªÙ† Ú©Ø§Ø±Ø¨Ø± Ø¨Ø§ <code>append</code> Ø±Ø´ØªÙ‡â€ŒØ§ÛŒ Ø§Ø¶Ø§ÙÙ‡ Ø´Ø¯Ø› Ø¯Ø± Ù¾Ø±ÙˆÚ˜Ù‡â€ŒÛŒ ÙˆØ§Ù‚Ø¹ÛŒ Ø­ØªÙ…Ø§Ù‹ Ø¨Ø§ÛŒØ¯ escape Ø´ÙˆØ¯ (ÙØµÙ„ Û¶Û°).
+                    دقت کنید متن کاربر مستقیم در رشته‌ی HTML می‌نشیند؛ در پروژه‌ی واقعی باید escape شود (همان هشدار فصل ۶۰). برای تمرین اشکالی ندارد، ولی عادتش را از حالا درست کنید.
                 </p>
 
-                <h2>Ù‚Ø¯Ù… Ø¯ÙˆÙ…: Ø­Ø°Ù Ùˆ ØªÛŒÚ© Ø¨Ø§ Ù†Ù…Ø§ÛŒÙ†Ø¯Ú¯ÛŒ Ø±ÙˆÛŒØ¯Ø§Ø¯</h2>
+                <h2>قدم دوم: حذف و تیک با نمایندگی رویداد</h2>
+
+                <p>
+                    چون آیتم‌ها بعداً ساخته می‌شوند، نمی‌شود به هرکدام جدا شنونده چسباند. یک شنونده روی والد (<code>#tasks</code>) می‌گذاریم که کلیک دکمه‌ها را می‌گیرد؛ همان نمایندگی رویداد فصل ۵۹. حذف هم با افکت انجام می‌شود و تهش عنصر واقعاً پاک می‌شود تا حافظه باد نکند.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -309,16 +317,19 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
+                <h2>قدم سوم: ماندگاری با localStorage</h2>
+
                 <p>
-                    Ú†ÙˆÙ† Ø¢ÛŒØªÙ…â€ŒÙ‡Ø§ Ø¨Ø¹Ø¯Ø§Ù‹ Ø³Ø§Ø®ØªÙ‡ Ù…ÛŒâ€ŒØ´ÙˆÙ†Ø¯ØŒ Ø´Ù†ÙˆÙ†Ø¯Ù‡ Ø±ÙˆÛŒ ÙˆØ§Ù„Ø¯ (<code>#tasks</code>) Ø§Ø³Øª Ùˆ Ø¯Ú©Ù…Ù‡â€ŒÙ‡Ø§ Ø±Ø§ Ù‡Ø¯Ù Ù…ÛŒâ€ŒÚ¯ÛŒØ±Ø¯Ø› Ù‡Ù…Ø§Ù† Ù†Ù…Ø§ÛŒÙ†Ø¯Ú¯ÛŒ Ø±ÙˆÛŒØ¯Ø§Ø¯ ÙØµÙ„ ÛµÛ¹. Ø­Ø°Ù Ù‡Ù… Ø¨Ø§ Ø§ÙÚ©Øª Ø§Ù†Ø¬Ø§Ù… Ù…ÛŒâ€ŒØ´ÙˆØ¯ Ùˆ ØªÙ‡Ø´ Ø¹Ù†ØµØ± ÙˆØ§Ù‚Ø¹Ø§Ù‹ Ù¾Ø§Ú© Ù…ÛŒâ€ŒØ´ÙˆØ¯.
+                    تا اینجا با هر رفرش همه‌چیز می‌پرد. قدم آخر: بعد از هر تغییر، آرایه‌ی کارها را با <code>JSON.stringify</code> در <code>localStorage</code> ذخیره کنید و موقع لود صفحه بخوانید و بازسازی کنید. با همین سه قدم، یک اپ واقعی کوچک دارید که همه‌ی مفاهیم دوره را لمس می‌کند — تبریک، دوره تمام شد!
                 </p>
 
                 <div class="callout">
-                    <b>Ù†Ú©ØªÙ‡: </b>
-                    Ù‚Ø¯Ù… Ø¨Ø¹Ø¯ÛŒ Ø®ÙˆØ¯ØªØ§Ù†: Ø°Ø®ÛŒØ±Ù‡â€ŒÛŒ Ù„ÛŒØ³Øª Ø¯Ø± <code>localStorage</code> ØªØ§ Ø¨Ø§ Ø±ÙØ±Ø´ Ù†Ù¾Ø±Ø¯ØŒ Ùˆ ØªÛŒÚ© Â«Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯Â» Ø¨Ø§ <code>toggleClass</code>. Ù‡Ø± Ø¯Ùˆ Ø±Ø§ Ø¨Ø§ Ù‡Ù…ÛŒÙ† Ø§Ø¨Ø²Ø§Ø±Ù‡Ø§ÛŒ Ø§ÛŒÙ† Ø¯ÙˆØ±Ù‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯ Ø³Ø§Ø®Øª â€” Ø§Ù…ØªØ­Ø§Ù† Ú©Ù†ÛŒØ¯!
+                    <b>نکته: </b>
+                    مسیر بعدی شما: همین پروژه را یک بار با جاوااسکریپت خالص (بدون jQuery) بازنویسی کنید با نقشه‌ی فصل ۶۱. اگر توانستید، یعنی هم jQuery را فهمیده‌اید هم آماده‌ی قدم بعدی (Vue یا React) هستید — که هر دو را همین‌جا در DevSchool دارید.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./61-jquery-modern-javascript.html"><span class="lbl">ÙØµÙ„ Ù‚Ø¨Ù„</span><span class="title">â†’ jQuery Ø¯Ø± Ú©Ù†Ø§Ø± JavaScript Ù…Ø¯Ø±Ù†</span></a>
                     <div class="nav-btn next"><span class="lbl">Ù¾Ø§ÛŒØ§Ù† Ø¯ÙˆØ±Ù‡ âœ“</span><span class="title">Ù…ÙˆÙÙ‚ Ø¨Ø§Ø´ÛŒØ¯ </span></div>
                 </div>

@@ -279,23 +279,41 @@
                 <h1>Checkbox و Radio</h1>
 
                 <p>
-                    تله‌ی معروف اینجاست: مقدار (<code>value</code>) چک‌باکس همیشه ثابت است و ربطی به تیک خوردنش ندارد. وضعیت تیک را باید جدا خواند؛ ابزار این کار <code>prop</code> است نه <code>val</code> و نه <code>attr</code>.
+                    تله‌ی معروف اینجاست و خیلی‌ها در آن می‌افتند: مقدار (<code>value</code>) چک‌باکس همیشه یک رشته‌ی ثابت است و ربطی به تیک خوردنش ندارد. وضعیت تیک یک چیز جداست و باید جدا خوانده شود؛ ابزار این کار <code>prop</code> است نه <code>val</code> و نه <code>attr</code>. این سه‌تا را قاطی نکنید.
                 </p>
 
                 <h2>خواندن و تنظیم وضعیت تیک</h2>
+
+                <p>
+                    <code>prop("checked")</code> یک بولی برمی‌گرداند: تیک خورده یا نه. با همین می‌شود شرط گذاشت، و با دادن مقدار بولی به همان، از کد تیک زد یا برداشت. این رفت‌وبرگشت، پایه‌ی همه‌ی کارهای بعدی است.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
 <pre><span class="tok-tag">var</span> <span class="tok-attr">ok</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#agree"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">prop</span><span class="tok-tag">&lpar;</span><span class="tok-str">"checked"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// true یا false</span>
 <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#agree"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">prop</span><span class="tok-tag">&lpar;</span><span class="tok-str">"checked"</span><span class="tok-tag">&comma;</span> <span class="tok-attr">true</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// تیک زدن اجباری</span>
-<span class="tok-tag">var</span> <span class="tok-attr">city</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"input[name=city]:checked"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// گزینه‌ی رادیویی انتخاب‌شده</span></pre>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#agree"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">prop</span><span class="tok-tag">&lpar;</span><span class="tok-str">"checked"</span><span class="tok-tag">&comma;</span> <span class="tok-attr">false</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// برداشتن تیک</span></pre>
                 </div>
 
+                <h2>خواندن گزینه‌ی رادیویی انتخاب‌شده</h2>
+
                 <p>
-                    خط آخر الگوی کلاسیک رادیوهاست: اول با سلکتور <code>:checked</code> همان که انتخاب شده پیدا می‌شود، بعد مقدارش خوانده می‌شود. اگر هیچ‌کدام تیک نخورده باشد جواب <code>undefined</code> است.
+                    رادیوها گروهی کار می‌کنند (هم‌نام‌ها) ولی فقط یکی‌شان تیک دارد. الگو این است: اول با سلکتور <code>:checked</code> همان یکی را پیدا کن، بعد مقدارش را بخوان. اگر هیچ‌کدام تیک نخورده باشند جواب <code>undefined</code> است — پس همیشه برای این حالت هم فکر کنید.
                 </p>
 
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">var</span> <span class="tok-attr">city</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"input[name=city]:checked"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-attr">city</span> <span class="tok-tag">===</span> <span class="tok-tag">undefined</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">alert</span><span class="tok-tag">&lpar;</span><span class="tok-str">"یک شهر انتخاب کنید"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span></pre>
+                </div>
+
                 <h2>تیک گروهی و رویداد change</h2>
+
+                <p>
+                    الگوی معروف «انتخاب همه» را ببینید: یک چک‌باکس مادر که وضعیتش به همه‌ی بچه‌ها سرایت می‌کند. نکته‌ی ظریف این است که <code>change</code> فقط با تعامل واقعی کاربر می‌آید؛ وقتی با کد تیک می‌زنید، اگر منطقی به آن وصل است باید دستی <code>trigger</code> کنید.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -305,16 +323,26 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// تیک «همه» به همه سرایت می‌کند</span></pre>
                 </div>
 
+                <h2>جمع‌کردن همه‌ی تیک‌خورده‌ها</h2>
+
                 <p>
-                    این همان چک‌باکس «انتخاب همه» است. نکته‌ی ظریف: <code>change</code> فقط با تعامل واقعی کاربر می‌آید؛ وقتی با کد تیک می‌زنید، اگر شنونده لازم است دستی <code>trigger</code> کنید.
+                    قدم آخر ترکیب همه‌چیز است: همه‌ی چک‌باکس‌های تیک‌خورده‌ی یک گروه را پیدا کنید، مقدارهایشان را در یک آرایه بریزید و بفرستید. ترکیب <code>:checked</code> با <code>map</code> و <code>get</code> دقیقاً همین کار را می‌کند؛ بدون <code>get</code> آخر، خروجی آبجکت jQuery می‌ماند نه آرایه‌ی تمیز.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">var</span> <span class="tok-attr">tags</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">".tag:checked"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">map</span><span class="tok-tag">&lpar;</span><span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">return</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">this</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">get</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    برای وضعیت بولی (checked، disabled، selected) همیشه <code>prop</code>؛ <code>attr</code> مقدار اولیه‌ی HTML را می‌دهد نه وضعیت فعلی را. این از پرتکرارترین باگ‌های فرم است.
+                    برای وضعیت بولی (checked، disabled، selected) همیشه <code>prop</code>؛ <code>attr</code> مقدار اولیه‌ی HTML را می‌دهد نه وضعیت فعلی را. این از پرتکرارترین باگ‌های فرم است و ساعت‌ها وقت می‌گیرد تا بفهمید مشکل کجاست.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./45-jquery-form-validation.html"><span class="lbl">فصل قبل</span><span class="title">→ Form Validation</span></a>
                     <a class="nav-btn next" href="./47-jquery-select-options.html"><span class="lbl">فصل بعد</span><span class="title">Select و Option ←</span></a>
                 </div>

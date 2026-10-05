@@ -279,10 +279,14 @@
                 <h1>$.ajax()‎</h1>
 
                 <p>
-                    همه‌ی میان‌برهای قبلی تهش به همین یک متد می‌رسند. <code>$.ajax</code> یک آبجکت تنظیمات می‌گیرد و همه‌چیز دست شماست: آدرس، متد، داده، تایم‌اوت، و اینکه موقع موفقیت یا خطا چه تابعی اجرا شود.
+                    همه‌ی میان‌برهای قبلی (<code>load</code>، <code>get</code>، <code>post</code>) تهش به همین یک متد می‌رسند. <code>$.ajax</code> یک آبجکت تنظیمات می‌گیرد و همه‌چیز دست شماست: آدرس، متد، داده، تایم‌اوت، هدر، و این‌که موقع موفقیت یا خطا دقیقاً چه تابعی اجرا شود. هرجا میان‌برها کم آوردند، اینجایید.
                 </p>
 
                 <h2>ساختار کامل یک درخواست</h2>
+
+                <p>
+                    هر خط این آبجکت یک مسئولیت دارد. <code>url</code> و <code>method</code> مقصد و راه، <code>data</code> بار، <code>timeout</code> سقف صبر (به میلی‌ثانیه)، و <code>success</code> و <code>error</code> دو سرنوشت ممکن. این نظم ذهنی را نگه دارید؛ بقیه‌ی آپشن‌ها همین الگو را تکرار می‌کنند.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -300,22 +304,40 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
-                <p>
-                    هر خط یک مسئولیت دارد: کجا، چطور، با چه داده‌ای، حداکثر چقدر صبر کن، اگر شد چه کن، اگر نشد چه کن. همین الگو را که یاد بگیرید، <code>get</code> و <code>post</code> فقط نسخه‌ی خلاصه‌شده‌اش هستند.
-                </p>
-
                 <h2>تایم‌اوت یعنی احترام به کاربر</h2>
 
                 <p>
-                    بدون <code>timeout</code> اگر سرور جواب ندهد، صفحه تا ابد در حالت انتظار می‌ماند. پنج ثانیه عدد معقولی است؛ بعدش پیام فارسی نشان بدهید و دکمه‌ی تلاش مجدد بگذارید.
+                    بدون <code>timeout</code> اگر سرور جواب ندهد، صفحه تا ابد در حالت انتظار می‌ماند و کاربر نمی‌فهمد چه شده.                     پنج ثانیه عدد معقولی برای شروع است؛ بعدش پیام فارسی نشان بدهید و دکمه‌ی تلاش مجدد بگذارید (الگوی کاملش را در فصل ۵۴ می‌بینید).
                 </p>
+
+                <p>
+                    یک نکته‌ی مهم درباره‌ی <code>method</code>: مقدارش را همیشه با حروف بزرگ بنویسید (<code>POST</code> نه <code>post</code>). بیشتر سرورها حساس نیستند ولی بعضی فریم‌ورک‌ها به کوچکی و بزرگی گیر می‌دهند و خطای عجیب می‌گیرید.
+                </p>
+
+                <h2>پارس خودکار JSON با dataType</h2>
+
+                <p>
+                    اگر می‌دانید جواب JSON است، با <code>dataType</code> اعلامش کنید تا jQuery خودش پارس کند و مستقیم آبجکت تحویل بدهد. اگر سرور چیز دیگری بفرستد، به‌جای <code>success</code> سراغ <code>error</code> می‌رود — یعنی ناهماهنگی فرمت خودش یک خطای قابل مدیریت می‌شود.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&period;</span><span class="tok-attr">ajax</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span>
+    <span class="tok-attr">url</span><span class="tok-tag">&colon;</span> <span class="tok-str">"api/user"</span><span class="tok-tag">&comma;</span>
+    <span class="tok-attr">dataType</span><span class="tok-tag">&colon;</span> <span class="tok-str">"json"</span><span class="tok-tag">&comma;</span>
+    <span class="tok-attr">success</span><span class="tok-tag">&colon;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-attr">user</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+        <span class="tok-tag">console</span><span class="tok-tag">&period;</span><span class="tok-attr">log</span><span class="tok-tag">&lpar;</span><span class="tok-attr">user</span><span class="tok-tag">&period;</span><span class="tok-attr">name</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">&rbrace;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    جواب سرور معمولاً JSON است (فصل بعد). اگر متن ساده برگشت، همان را مستقیم نمایش بدهید؛ اگر JSON بود، اول باید پارس شود.
+                    جواب سرور معمولاً JSON است (فصل بعد کاملش می‌گوید). اگر متن ساده برگشت، همان را مستقیم نمایش بدهید؛ اگر JSON بود، اول باید پارس شود — چه دستی چه با همین <code>dataType</code>.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./51-jquery-get-post.html"><span class="lbl">فصل قبل</span><span class="title">→ GET و POST</span></a>
                     <a class="nav-btn next" href="./53-jquery-ajax-json.html"><span class="lbl">فصل بعد</span><span class="title">AJAX و JSON ←</span></a>
                 </div>

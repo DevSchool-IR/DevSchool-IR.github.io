@@ -279,10 +279,14 @@
                 <h1>مدیریت خطا در AJAX</h1>
 
                 <p>
-                    اینترنت همیشه وصل نیست و سرور همیشه جواب نمی‌دهد. درخواست خوب درخواستی است که برای بدترین حالت هم برنامه داشته باشد: اگر خطا آمد، کاربر را با صفحه‌ی خالی رها نکنید؛ بگویید چه شد و راه برگشت بدهید.
+                    اینترنت همیشه وصل نیست و سرور همیشه جواب نمی‌دهد — و بدترین حالت ممکن این است که کاربر با صفحه‌ی خالیِ بی‌خبر رها شود. درخواست خوب درخواستی است که برای بدترین حالت هم برنامه داشته باشد: اگر خطا آمد، بگویید چه شد و راه برگشت بدهید. این فصل همان برنامه است.
                 </p>
 
                 <h2>تابع error و سه آرگومانش</h2>
+
+                <p>
+                    هر درخواست ناموفق سه چیز به شما می‌دهد: خودِ درخواست، رشته‌ی وضعیت، و متن خطا. با رشته‌ی وضعیت تصمیم می‌گیرید چه پیامی نشان بدهید و با کد عددی، لاگ فنی می‌سازید.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -295,26 +299,47 @@
             <span class="tok-tag">alert</span><span class="tok-tag">&lpar;</span><span class="tok-str">"سرور جواب نداد، دوباره تلاش کنید"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
         <span class="tok-tag">&rbrace;</span> <span class="tok-tag">else</span> <span class="tok-tag">&lbrace;</span>
             <span class="tok-tag">alert</span><span class="tok-tag">&lpar;</span><span class="tok-str">"خطا: "</span> <span class="tok-tag">+</span> <span class="tok-attr">xhr</span><span class="tok-tag">&period;</span><span class="tok-attr">status</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
-        <span class="tok-tag">&lbrace;</span>
+        <span class="tok-tag">&rbrace;</span>
     <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
                 <p>
-                    سه آرگومان همیشه همین‌هاست: خود درخواست، رشته‌ی وضعیت (<code>timeout</code> یا <code>error</code> یا...) و متن خطا. با <code>status</code> پیام فارسی مناسب نشان بدهید و با <code>xhr.status</code> کد عددی را لاگ کنید.
+                    الگو را ببینید: اول حالت خاص (تایم‌اوت که پیام خودش را دارد)، بعد حالت عمومی با کد عددی. کاربر فارسی می‌خواند، شما در لاگ عدد می‌بینید — هر دو راضی‌اند.
                 </p>
 
                 <h2>کدهای وضعیت پرتکرار</h2>
 
                 <p>
-                    سه عدد را حفظ باشید: <code>404</code> یعنی آدرس غلط است، <code>500</code> یعنی سرور خراب است، و <code>0</code> یعنی اصلاً درخواستی نرفت (اینترنت قطع یا CORS). برای هرکدام یک پیام جدا بگذارید؛ «خطا!»ی تنها به کاربر کمکی نمی‌کند.
+                    سه عدد را حفظ باشید چون ۹۰٪ خطاها همین‌هایند: <code>404</code> یعنی آدرس غلط است (تایپی در URL یا فایل پاک‌شده)، <code>500</code> یعنی سرور خراب است (مشکل سمت شماست، نه کاربر)، و <code>0</code> یعنی اصلاً درخواستی نرفت — اینترنت قطع است یا CORS جلویش را گرفته. برای هرکدام یک پیام جدا بگذارید؛ «خطا!»ی تنها به کاربر کمکی نمی‌کند.
                 </p>
+
+                <h2>دکمه‌ی تلاش مجدد</h2>
+
+                <p>
+                    پیام به‌تنهایی کافی نیست؛ کاربر باید بتواند کاری بکند. الگوی تمیز این است: منطق گرفتن داده در یک تابع، موقع خطا نمایش دکمه‌ی تلاش مجدد، و با کلیک روی آن صدا زدن دوباره‌ی همان تابع. بدون تکرار کد، بدون منطق پخش‌وپلا.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">function</span> <span class="tok-attr">loadPosts</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#retry"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">hide</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&period;</span><span class="tok-attr">get</span><span class="tok-tag">&lpar;</span><span class="tok-str">"posts.json"</span><span class="tok-tag">&rpar;</span>
+        <span class="tok-tag">&period;</span><span class="tok-attr">done</span><span class="tok-tag">&lpar;</span><span class="tok-attr">showPosts</span><span class="tok-tag">&rpar;</span>
+        <span class="tok-tag">&period;</span><span class="tok-attr">fail</span><span class="tok-tag">&lpar;</span><span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+            <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#retry"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">show</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+        <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#retry"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"click"</span><span class="tok-tag">&comma;</span> <span class="tok-attr">loadPosts</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-attr">loadPosts</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    خطاهای AJAX را در کنسول هم لاگ کنید (<code>console.log</code>). وقتی کاربر گزارش می‌دهد «کار نکرد»، همین لاگ‌ها تنها سرنخ شما هستند.
+                    لاگ کردن خطا را فراموش نکنید (<code>console.log</code> با هر سه آرگومان). وقتی کاربر گزارش می‌دهد «کار نکرد»، همین لاگ‌ها — که می‌توانید از راه دور بخواهید برای‌تان بفرستد — تنها سرنخ شما هستند.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./53-jquery-ajax-json.html"><span class="lbl">فصل قبل</span><span class="title">→ AJAX و JSON</span></a>
                     <a class="nav-btn next" href="./55-jquery-deferred.html"><span class="lbl">فصل بعد</span><span class="title">Deferred و Promise ←</span></a>
                 </div>

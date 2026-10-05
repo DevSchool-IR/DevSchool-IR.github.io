@@ -279,10 +279,14 @@
                 <h1>File Input</h1>
 
                 <p>
-                    ورودی فایل کمی با بقیه فرق دارد: مقدارش فقط اسم فایل است و برای امنیت، جاوااسکریپت به مسیر واقعی دسترسی ندارد. اما خودِ فایل در دسترس است؛ با رویداد <code>change</code> می‌فهمیم کاربر چیزی انتخاب کرده و با <code>files</code> به مشخصاتش می‌رسیم.
+                    ورودی فایل کمی با بقیه فرق دارد و همین فرق منشأ سردرگمی است: مقدارش فقط اسم فایل است (نه خود فایل) و به‌خاطر امنیت، جاوااسکریپت به مسیر واقعی روی دیسک دسترسی ندارد. اما خودِ فایل در دسترس است؛ با رویداد <code>change</code> می‌فهمیم کاربر چیزی انتخاب کرده و با <code>files</code> به مشخصاتش می‌رسیم.
                 </p>
 
                 <h2>خواندن مشخصات فایل انتخاب‌شده</h2>
+
+                <p>
+                    <code>this.files</code> یک لیست شبه‌آرایه است (حتی برای انتخاب تکی) و معمولاً عنصر صفرمش را می‌خواهیم. سه مشخصه‌ی کاربردی‌اش <code>name</code> و <code>size</code> (به بایت) و <code>type</code> (مثل image/png) است. و همیشه حالت «انصراف» را هم چک کنید: اگر پنجره بسته شود و چیزی انتخاب نشود، <code>files[0]</code> خالی است و کد نباید بترکد.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -293,11 +297,30 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
+                <h2>محدودیت نوع و حجم قبل از نمایش</h2>
+
                 <p>
-                    <code>this.files</code> لیست فایل‌هاست و معمولاً اولی را می‌خواهیم. <code>name</code> و <code>size</code> و <code>type</code> سه مشخصه‌ی کاربردی‌اند؛ چک اول هم برای وقتی است که پنجره بسته شده و چیزی انتخاب نشده.
+                    پیش‌نمایش را نباید برای هر چیزی نشان داد. قبلش دو چک سریع می‌گذاریم: آیا واقعاً عکس است؟ و آیا زیر سقف حجم است؟ این چند خط، هم پهنای باند کاربر را نجات می‌دهد هم خطای آپلودهای ناموفق را از اول حذف می‌کند. دقت کنید حجم به بایت است؛ دو مگابایت یعنی ۲ ضربدر ۱۰۲۴ ضربدر ۱۰۲۴.
                 </p>
 
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">var</span> <span class="tok-attr">max</span> <span class="tok-tag">=</span> <span class="tok-attr">2</span> <span class="tok-tag">*</span> <span class="tok-attr">1024</span> <span class="tok-tag">*</span> <span class="tok-attr">1024</span><span class="tok-tag">&semi;</span> <span class="tok-com">// دو مگابایت</span>
+<span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-tag">!</span><span class="tok-attr">file</span><span class="tok-tag">&period;</span><span class="tok-attr">type</span><span class="tok-tag">&period;</span><span class="tok-attr">startsWith</span><span class="tok-tag">&lpar;</span><span class="tok-str">"image/"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">alert</span><span class="tok-tag">&lpar;</span><span class="tok-str">"فقط عکس قبول است"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">return</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span>
+<span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-attr">file</span><span class="tok-tag">&period;</span><span class="tok-attr">size</span> <span class="tok-tag">&gt;</span> <span class="tok-attr">max</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">alert</span><span class="tok-tag">&lpar;</span><span class="tok-str">"حجم باید زیر دو مگ باشد"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">return</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span></pre>
+                </div>
+
                 <h2>پیش‌نمایش عکس قبل از آپلود</h2>
+
+                <p>
+                    حالا قسمت جذاب: <code>FileReader</code> فایل را می‌خواند و نتیجه را به آدرس دیتایی تبدیل می‌کند که مستقیم در <code>src</code> عکس می‌نشیند. کاربر قبل از اینکه چیزی به سرور برود، عکسش را می‌بیند و اگر اشتباه بود عوضش می‌کند.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -308,16 +331,13 @@
 <span class="tok-attr">reader</span><span class="tok-tag">&period;</span><span class="tok-attr">readAsDataURL</span><span class="tok-tag">&lpar;</span><span class="tok-attr">file</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
-                <p>
-                    <code>FileReader</code> فایل را می‌خواند و نتیجه را به آدرس دیتایی تبدیل می‌کند که مستقیم در <code>src</code> عکس می‌نشیند؛ کاربر قبل از آپلود، عکسش را می‌بیند.
-                </p>
-
                 <div class="callout">
                     <b>نکته: </b>
-                    حجم فایل را سمت کاربر چک کنید (مثلاً زیر ۲ مگ) وگرنه کاربر با اینترنت ضعیف وسط آپلود گیر می‌کند. این چک جایگزین محدودیت سرور نیست، مکمل آن است.
+                    این چک‌ها جای محدودیت سرور را نمی‌گیرند، مکملش هستند. کاربر بدجنس جاوااسکریپت را دور می‌زند؛ سرور باید نوع و حجم را دوباره چک کند (یادتان هست فصل امنیت؟ همین‌جاست که به کار می‌آید).
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./47-jquery-select-options.html"><span class="lbl">فصل قبل</span><span class="title">→ Select و Option</span></a>
                     <a class="nav-btn next" href="./49-jquery-ajax-intro.html"><span class="lbl">فصل بعد</span><span class="title">AJAX چیست؟ ←</span></a>
                 </div>

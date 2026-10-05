@@ -279,10 +279,14 @@
                 <h1>ساخت Plugin</h1>
 
                 <p>
-                    وقتی یک الگوی کد را سومین بار کپی می‌کنید، وقتش است پلاگینش کنید. ساخت پلاگین jQuery یعنی اضافه کردن یک متد به <code>fn</code>؛ بعد همه‌ی انتخاب‌ها آن متد را دارند و زنجیره هم کار می‌کند.
+                    وقتی یک الگوی کد را سومین بار کپی می‌کنید، وقتش است پلاگینش کنید — این قانون نانوشته‌ی برنامه‌نویسان باتجربه است. ساخت پلاگین jQuery یعنی اضافه کردن یک متد به <code>fn</code>؛ بعد همه‌ی انتخاب‌ها آن متد را دارند، با آپشن قابل تنظیم، و زنجیره هم کار می‌کند. این فصل اسکلت استانداردی می‌دهد که برای ۹۰٪ پلاگین‌ها کافی است.
                 </p>
 
                 <h2>اسکلت استاندارد پلاگین</h2>
+
+                <p>
+                    سه ستون اسکلت را حفظ کنید: تنظیمات پیش‌فرض با <code>extend</code> قاطی تنظیمات کاربر می‌شود، <code>return this.each</code> روی همه‌ی عناصر حلقه می‌زند و زنجیره را زنده نگه می‌دارد، و <code>this</code> داخل حلقه همان عنصر خام DOM است (نه آبجکت jQuery — برای همین دوباره <code>$()</code> می‌شود).
+                </p>
 
                 <div class="code-card">
                     <div class="file">greenify.js</div>
@@ -294,11 +298,11 @@
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
-                <p>
-                    سه ستون اسکلت: تنظیمات پیش‌فرض با <code>extend</code> قاطی تنظیمات کاربر می‌شود، <code>return this.each</code> روی همه‌ی عناصر حلقه می‌زند و زنجیره را زنده نگه می‌دارد، و <code>this</code> داخل حلقه همان عنصر خام DOM است.
-                </p>
-
                 <h2>استفاده مثل بقیه‌ی متدها</h2>
+
+                <p>
+                    از بیرون هیچ فرقی با متدهای خود jQuery ندارد: انتخاب، صدا زدن، تمام. خط دوم دو نکته دارد: می‌شود رنگ را عوض کرد (آپشن)، و چون پلاگین <code>this</code> را برگردانده، <code>fadeIn</code> همان‌جا زنجیر شده. پلاگینی که زنجیره را بشکند، پلاگین بدی است — این را معیار کیفیت بدانید.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -306,16 +310,29 @@
 <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">".title"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">greenify</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span> <span class="tok-attr">color</span><span class="tok-tag">&colon;</span> <span class="tok-str">"teal"</span> <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">fadeIn</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
+                <h2>خواندن تنظیمات از data-attribute</h2>
+
                 <p>
-                    خط دوم دو نکته دارد: می‌شود رنگ را عوض کرد و چون پلاگین <code>this</code> را برگردانده، <code>fadeIn</code> همان‌جا زنجیر شده. پلاگینی که زنجیره را بشکند، پلاگین بدی است.
+                    یک قدم حرفه‌ای‌تر: به‌جای این‌که رنگ را در جاوااسکریپت هاردکد کنید، از خودِ HTML بخوانیدش. هر عنصر رنگ خودش را در اتریبیوت <code>data-color</code> دارد؛ اگر نداشت، سبز پیش‌فرض. این‌طوری طراح صفحه بدون دست زدن به جاوااسکریپت رنگ‌ها را عوض می‌کند و منطق و ظاهر از هم جدا می‌مانند.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">".title"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">each</span><span class="tok-tag">&lpar;</span><span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">var</span> <span class="tok-attr">$el</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">this</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">$el</span><span class="tok-tag">&period;</span><span class="tok-attr">greenify</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span>
+        <span class="tok-attr">color</span><span class="tok-tag">&colon;</span> <span class="tok-attr">$el</span><span class="tok-tag">&period;</span><span class="tok-attr">data</span><span class="tok-tag">&lpar;</span><span class="tok-str">"color"</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">||</span> <span class="tok-str">"green"</span>
+    <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    نام پلاگین را کوتاه و یکتا انتخاب کنید و قبل از انتشار در صفحه‌ی پلاگین‌های jQuery جست‌وجو کنید که تکراری نباشد؛ تداخل نام، بدترین باگ ممکن است.
+                    نام پلاگین را کوتاه و یکتا انتخاب کنید و قبل از انتشار در صفحه‌ی پلاگین‌های jQuery جست‌وجو کنید که تکراری نباشد؛ تداخل نام دو پلاگین، یکی از بدترین باگ‌هاست چون دومی بی‌سر و صدا جای اولی را می‌گیرد.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./56-jquery-plugins.html"><span class="lbl">فصل قبل</span><span class="title">→ jQuery Plugins</span></a>
                     <a class="nav-btn next" href="./58-jquery-utilities.html"><span class="lbl">فصل بعد</span><span class="title">Utility Methods ←</span></a>
                 </div>

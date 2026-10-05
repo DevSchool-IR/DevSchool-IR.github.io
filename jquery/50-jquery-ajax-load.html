@@ -279,7 +279,7 @@
                 <h1>AJAX load</h1>
 
                 <p>
-                    ساده‌ترین راه گرفتن محتوا از سرور همین یک خط است: آدرس بده، جوابش مستقیم می‌رود داخل عنصری که انتخاب کرده‌ای. برای بخش‌هایی مثل «مطالب بیشتر» یا فوتر مشترک که با HTML ساده برمی‌گردند عالی است.
+                    ساده‌ترین راه گرفتن محتوا از سرور همین یک خط است: آدرس بدهید، جوابش مستقیم می‌رود داخل عنصری که انتخاب کرده‌اید. <code>load</code> برای بخش‌هایی که جواب‌شان HTML آماده است ساخته شده — مثل «مطالب بیشتر»، فوتر مشترک، یا باکس نظرات. برای داده‌ی خام (JSON) فصل‌های بعد ابزار مخصوص دارند.
                 </p>
 
                 <h2>بارگذاری مستقیم در عنصر</h2>
@@ -290,30 +290,50 @@
                 </div>
 
                 <p>
-                    همین. محتوای فایل گرفته می‌شود و جایگزین داخل <code>#news</code> می‌شود. اگر فقط بخشی از آن فایل را می‌خواهید، بعد از آدرس یک فاصله و سلکتور بگذارید.
+                    همین یک خط. محتوای فایل گرفته می‌شود و جایگزین داخل <code>#news</code> می‌شود؛ بدون رفرش، بدون اسکرول‌پریدن. اگر فقط بخشی از آن فایل را می‌خواهید، بعد از آدرس یک فاصله و سلکتور بگذارید تا فقط همان تکه برداشته شود.
                 </p>
-
-                <h2>فهمیدن موفق بودن با callback</h2>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
-<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#news"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">load</span><span class="tok-tag">&lpar;</span><span class="tok-str">"news-list.html #top3"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-attr">res</span><span class="tok-tag">&comma;</span> <span class="tok-attr">status</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#news"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">load</span><span class="tok-tag">&lpar;</span><span class="tok-str">"news-list.html #top3"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// فقط عنصر top3 آن فایل</span></pre>
+                </div>
+
+                <h2>فهمیدن موفق بودن با callback</h2>
+
+                <p>
+                    ولی اگر آدرس غلط باشد چه؟ به‌صورت پیش‌فرض هیچ اتفاقی نمی‌افتد و کاربر خیره به صفحه‌ی خالی می‌ماند. پس همیشه آرگومان دوم — تابع وضعیت — را بدهید و حالت خطا را هم پوشش بدهید.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#news"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">load</span><span class="tok-tag">&lpar;</span><span class="tok-str">"news-list.html"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-attr">res</span><span class="tok-tag">&comma;</span> <span class="tok-attr">status</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
     <span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-attr">status</span> <span class="tok-tag">===</span> <span class="tok-str">"error"</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
         <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#news"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">text</span><span class="tok-tag">&lpar;</span><span class="tok-str">"خطا در بارگذاری"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
     <span class="tok-tag">&rbrace;</span>
 <span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
+                <h2>فرستادن پارامتر همراه load</h2>
+
                 <p>
-                    آرگومان دوم می‌گوید فقط <code>#top3</code> آن فایل را می‌خواهم، و تابع سوم وضعیت را خبر می‌دهد. اگر <code>error</code> بود، به‌جای سکوت یک پیام فارسی نشان می‌دهیم.
+                    گاهی جواب به ورودی بستگی دارد (مثل قیمت یک محصول خاص). آرگومان دوم اختیاریِ <code>load</code> می‌تواند یک آبجکت داده هم باشد؛ در این صورت درخواست خودکار POST می‌شود. برای فرم‌های کوچکی که جواب HTML می‌خواهند، از خود <code>ajax</code> کوتاه‌تر و خواناتر است.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#price"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">load</span><span class="tok-tag">&lpar;</span><span class="tok-str">"price.html"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-attr">product</span><span class="tok-tag">&colon;</span> <span class="tok-attr">productId</span><span class="tok-tag">&comma;</span>
+    <span class="tok-attr">count</span><span class="tok-tag">&colon;</span> <span class="tok-attr">qty</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    <code>load</code> فقط برای گرفتن HTML مناسب است؛ برای JSON یا کنترل کامل (هدر، متد، خطا) فصل‌های ۵۱ تا ۵۴ را ببینید.
+                    <code>load</code> فقط برای گرفتن HTML مناسب است؛ برای JSON، کنترل هدر و متد، یا مدیریت جدی خطا، فصل‌های ۵۱ تا ۵۴ ابزار مخصوص دارند. هر ابزار برای کار خودش.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./49-jquery-ajax-intro.html"><span class="lbl">فصل قبل</span><span class="title">→ AJAX چیست؟</span></a>
                     <a class="nav-btn next" href="./51-jquery-get-post.html"><span class="lbl">فصل بعد</span><span class="title">GET و POST ←</span></a>
                 </div>

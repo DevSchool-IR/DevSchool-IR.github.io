@@ -279,22 +279,27 @@
                 <h1>Select و Option</h1>
 
                 <p>
-                    لیست کشویی فقط یک <code>select</code> با چند <code>option</code> است، ولی سه کار پرتکرار دارد: فهمیدن کدام گزینه انتخاب شده، عوض کردنش با کد، و اضافه کردن گزینه‌ی جدید بدون رفرش صفحه.
+                    لیست کشویی فقط یک <code>select</code> با چند <code>option</code> است، ولی سه کار پرتکرار دارد که هر سه را باید بلد باشید: فهمیدن کدام گزینه انتخاب شده (هم مقدارش هم متنش)، عوض کردنش با کد، و اضافه یا حذف کردن گزینه بدون رفرش صفحه. هر سه با همان ابزارهای فصل‌های قبل حل می‌شوند.
                 </p>
 
                 <h2>خواندن گزینه‌ی انتخاب‌شده</h2>
 
+                <p>
+                    اینجا دو چیز جدا هست که قاطی نکنید: <code>value</code> (همان که به سرور می‌رود) و متنی که کاربر می‌بیند. اولی را از خود select می‌گیرید، دومی را از option انتخاب‌شده.
+                </p>
+
                 <div class="code-card">
                     <div class="file">script.js</div>
 <pre><span class="tok-tag">var</span> <span class="tok-attr">code</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// مقدار value گزینه</span>
-<span class="tok-tag">var</span> <span class="tok-attr">label</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city option:selected"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">text</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// متنی که کاربر می‌بیند</span></pre>
+<span class="tok-tag">var</span> <span class="tok-attr">label</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city option:selected"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">text</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// متنی که کاربر می‌بیند</span>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">val</span><span class="tok-tag">&lpar;</span><span class="tok-str">"tehran"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// انتخاب با کد</span></pre>
                 </div>
 
-                <p>
-                    دقت کنید <code>value</code> و متن نمایشی دو چیز جدا هستند؛ اولی برای سرور می‌رود و دومی برای چشم کاربر است. هر دو را از همین دو خط می‌گیرید.
-                </p>
-
                 <h2>ساخت گزینه‌ی جدید در لحظه</h2>
+
+                <p>
+                    وقتی گزینه‌ها از قبل معلوم نیستند (مثلاً از سرور می‌آیند)، باید در لحظه ساخته شوند. تمیزترین راه، ساخت option با آبجکت تنظیمات است: هم <code>value</code> ست می‌شود هم متن، و بعد با <code>append</code> می‌رود ته لیست (یا با <code>prepend</code> اولش).
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -305,16 +310,25 @@
 <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">append</span><span class="tok-tag">&lpar;</span><span class="tok-attr">opt</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// اضافه به انتهای لیست</span></pre>
                 </div>
 
+                <h2>حذف گزینه و خالی کردن لیست</h2>
+
                 <p>
-                    ساخت option با آبجکت تنظیمات، تمیزترین راه است: هم <code>value</code> ست می‌شود هم متن. بعد با <code>append</code> می‌رود ته لیست؛ اگر اولش می‌خواهید از <code>prepend</code> استفاده کنید.
+                    سمت دیگر ماجرا وقتی است که لیست باید عوض شود؛ معروف‌ترینش لیست وابسته‌ی استان/شهر است: با عوض شدن استان، شهرهای قبلی پاک و شهرهای جدید می‌آیند. اول با <code>empty</code> خالی می‌کنید، بعد در حلقه گزینه‌های تازه را اضافه می‌کنید.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city option[value='mashhad']"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">remove</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// حذف یکی خاص</span>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#city"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">empty</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// خالی کردن کل لیست قبل از پر کردن دوباره</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    بعد از تغییر گزینه‌ها با کد، رویداد <code>change</code> خودکار اجرا نمی‌شود. اگر منطقی به آن وصل است، آخرش دستی <code>trigger</code> کنید تا همه‌چیز همگام بماند.
+                    بعد از تغییر گزینه‌ها با کد، رویداد <code>change</code> خودکار اجرا نمی‌شود. اگر منطقی (مثلاً به‌روزرسانی قیمت) به آن وصل است، آخرش دستی <code>trigger</code> کنید تا همه‌چیز همگام بماند؛ وگرنه کاربر گزینه‌ی جدید می‌بیند ولی منطق قدیمی اجرا می‌شود.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./46-jquery-checkbox-radio.html"><span class="lbl">فصل قبل</span><span class="title">→ Checkbox و Radio</span></a>
                     <a class="nav-btn next" href="./48-jquery-file-input.html"><span class="lbl">فصل بعد</span><span class="title">File Input ←</span></a>
                 </div>

@@ -279,10 +279,14 @@
                 <h1>Position و Offset</h1>
 
                 <p>
-                    برای ساخت تولتیپ، منوی شناور یا اسکرول نرم باید بدانید هر عنصر دقیقاً کجای صفحه است. jQuery دو ابزار جدا دارد: <code>position</code> جای عنصر نسبت به والدش را می‌دهد و <code>offset</code> جای آن نسبت به کل سند را.
+                    برای ساخت تولتیپ، منوی شناور، اسکرول نرم یا هدر چسبان باید بدانید هر عنصر دقیقاً کجای صفحه است. jQuery دو ابزار جدا برای این کار دارد که قاطی کردنشان منشأ نیمی از باگ‌های موقعیتی است: <code>position</code> جای عنصر نسبت به والدِ موقعیت‌دارش را می‌دهد و <code>offset</code> جای آن نسبت به کل سند را. هر دو یک آبجکت با <code>top</code> و <code>left</code> برمی‌گردانند، ولی معنای آن دو عدد کاملاً فرق دارد.
                 </p>
 
-                <h2>تفاوت position و offset</h2>
+                <h2>تفاوت position و offset با مثال</h2>
+
+                <p>
+                    فرض کنید دکمه‌ای داخل یک کارت است و خود کارت ۳۰۰ پیکسل از بالای صفحه فاصله دارد. <code>position</code> آن دکمه می‌گوید «۵۰ پیکسل از بالای کارت»، ولی <code>offset</code> می‌گوید «۳۵۰ پیکسل از بالای سند». اولی برای چیدمان داخلی، دومی برای محاسبات سراسری صفحه است.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
@@ -292,27 +296,61 @@
                 </div>
 
                 <p>
-                    هر دو یک آبجکت با <code>top</code> و <code>left</code> برمی‌گردانند. فقط <code>offset</code> قابل تنظیم است؛ <code>position</code> فقط خواندنی است.
+                    نکته‌ی مهم خط آخر: فقط <code>offset</code> قابل تنظیم است و <code>position</code> فقط خواندنی است. وقتی با <code>offset</code> چیزی را جابه‌جا می‌کنید، jQuery خودش position عنصر را اگر لازم باشد به relative تغییر می‌دهد تا جابه‌جایی اعمال شود.
                 </p>
 
-                <h2>خواندن و تنظیم اسکرول</h2>
+                <h2>خواندن و تنظیم اسکرول صفحه</h2>
+
+                <p>
+                    موقعیت فقط مختص عنصرها نیست؛ خود صفحه هم موقعیت دارد: این‌که کاربر چقدر اسکرول کرده. <code>scrollTop</code> روی پنجره همین را می‌گوید و ترکیبش با انیمیشن، معروف‌ترین کاربردش یعنی دکمه‌ی «بازگشت به بالا» را می‌سازد.
+                </p>
 
                 <div class="code-card">
                     <div class="file">script.js</div>
 <pre><span class="tok-tag">var</span> <span class="tok-attr">y</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-attr">window</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">scrollTop</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// چقدر اسکرول شده؟</span>
-<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"html, body"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">animate</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span> <span class="tok-attr">scrollTop</span><span class="tok-tag">&colon;</span> <span class="tok-attr">0</span> <span class="tok-tag">&rbrace;</span><span class="tok-tag">&comma;</span> <span class="tok-attr">600</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span> <span class="tok-com">// بازگشت نرم به بالا</span></pre>
+<span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-attr">window</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"scroll"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">if</span> <span class="tok-tag">&lpar;</span><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-attr">window</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">scrollTop</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&gt;</span> <span class="tok-attr">400</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+        <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#toTop"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">fadeIn</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">&rbrace;</span> <span class="tok-tag">else</span> <span class="tok-tag">&lbrace;</span>
+        <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#toTop"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">fadeOut</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">&rbrace;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
                 </div>
 
                 <p>
-                    ترکیب همین دو خط، دکمه‌ی «بازگشت به بالا» ی معروف سایت‌هاست: با اسکرول نمایش داده می‌شود و با کلیک نرم برمی‌گردد.
+                    منطقش ساده است: با هر اسکرول چک می‌کنیم از ۴۰۰ پیکسل رد شده‌ایم یا نه و دکمه را نشان یا مخفی می‌کنیم. برای انیمیشنِ خودِ بازگشت هم هر دو تگ <code>html</code> و <code>body</code> را با هم animate کنید، چون بعضی مرورگرها روی یکی و بعضی روی دیگری اسکرول می‌کنند.
                 </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"#toTop"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"click"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"html, body"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">animate</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span> <span class="tok-attr">scrollTop</span><span class="tok-tag">&colon;</span> <span class="tok-attr">0</span> <span class="tok-tag">&rbrace;</span><span class="tok-tag">&comma;</span> <span class="tok-attr">600</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
+
+                <h2>اسکرول نرم به یک عنصر خاص</h2>
+
+                <p>
+                    همان ایده را می‌شود برای فهرست شناور مقاله‌ها هم استفاده کرد: به‌جای صفرِ ثابت، مقصد را از <code>offset</code> خودِ سرفصل می‌خوانیم تا با هر طول محتوایی درست کار کند.
+                </p>
+
+                <div class="code-card">
+                    <div class="file">script.js</div>
+<pre><span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">".toc a"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">on</span><span class="tok-tag">&lpar;</span><span class="tok-str">"click"</span><span class="tok-tag">&comma;</span> <span class="tok-tag">function</span><span class="tok-tag">&lpar;</span><span class="tok-attr">e</span><span class="tok-tag">&rpar;</span> <span class="tok-tag">&lbrace;</span>
+    <span class="tok-attr">e</span><span class="tok-tag">&period;</span><span class="tok-attr">preventDefault</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">var</span> <span class="tok-attr">target</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lpar;</span><span class="tok-str">this</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">attr</span><span class="tok-tag">&lpar;</span><span class="tok-str">"href"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">var</span> <span class="tok-attr">top</span> <span class="tok-tag">=</span> <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-attr">target</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">offset</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">top</span><span class="tok-tag">&semi;</span>
+    <span class="tok-tag">$</span><span class="tok-tag">&lpar;</span><span class="tok-str">"html, body"</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&period;</span><span class="tok-attr">animate</span><span class="tok-tag">&lpar;</span><span class="tok-tag">&lbrace;</span> <span class="tok-attr">scrollTop</span><span class="tok-tag">&colon;</span> <span class="tok-attr">top</span> <span class="tok-tag">&rbrace;</span><span class="tok-tag">&comma;</span> <span class="tok-attr">500</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span>
+<span class="tok-tag">&rbrace;</span><span class="tok-tag">&rpar;</span><span class="tok-tag">&semi;</span></pre>
+                </div>
 
                 <div class="callout">
                     <b>نکته: </b>
-                    برای انیمیشن اسکرول حتماً هر دو تگ <code>html</code> و <code>body</code> را با هم انتخاب کنید؛ بعضی مرورگرها روی یکی و بعضی روی دیگری اسکرول می‌کنند.
+                    رویداد <code>scroll</code> موقع درگ صدها بار در ثانیه شلیک می‌شود؛ اگر داخلش محاسبه‌ی سنگین بگذارید صفحه لگ می‌زند. برای کارهای سبک مثل همین نمایش/مخفی اشکالی ندارد، ولی منطق سنگین را با تأخیر (debounce) اجرا کنید.
                 </div>
 
-                <div class="lesson-nav">
+
+<div class="lesson-nav">
                     <a class="nav-btn prev" href="./42-jquery-dimensions.html"><span class="lbl">فصل قبل</span><span class="title">→ Dimensions</span></a>
                     <a class="nav-btn next" href="./44-jquery-form-values.html"><span class="lbl">فصل بعد</span><span class="title">Form Values ←</span></a>
                 </div>
