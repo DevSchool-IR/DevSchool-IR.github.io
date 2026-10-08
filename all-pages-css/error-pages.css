@@ -1,4 +1,4 @@
-
+﻿
 :root {
 	--ink: #0B0F0E;
 	--paper: #F6F8F5;
@@ -140,6 +140,11 @@ body{
     align-items: center;
     gap: 10px;
     opacity: 1;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.logo:hover{
+    opacity: .85;
+    transform: scale(1.05);
 }
 
 .up-header{

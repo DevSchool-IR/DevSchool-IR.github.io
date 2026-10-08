@@ -1,4 +1,4 @@
-
+﻿
 @font-face {
   font-family: "Dana-Black";
   src: url(./fonts/Dana-Black.ttf) format("truetype");
@@ -371,7 +371,7 @@ html[data-theme="dark"] .eyebrow {
 }
 
 .eyebrow::before {
-  content: "ÃƒÂ¢Ã¢â‚¬â€Ã‚Â";
+  content: "●";
   color: var(--accent);
   font-size: 0.7rem;
 }

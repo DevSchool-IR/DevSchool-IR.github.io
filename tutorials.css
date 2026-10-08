@@ -1,4 +1,4 @@
-
+﻿
 @font-face {
   font-family: "Dana-Black";
   src: url(./fonts/Dana-Black.ttf) format("truetype");
@@ -354,7 +354,7 @@ html[data-theme="dark"] .eyebrow {
 }
 
 .eyebrow::before {
-  content: "â—";
+  content: "●";
   color: var(--accent);
   font-size: 0.7rem;
 }
@@ -578,7 +578,7 @@ html[data-theme="dark"] .search-bar:focus-within {
   padding: 40px 0 80px;
 }
 
-/* ---- Ù†ÙˆØ§Ø± Ø§Ø¨Ø²Ø§Ø± (Ø¯Ø³ØªÙ‡â€ŒØ¨Ù†Ø¯ÛŒ + ÙˆØ¶Ø¹ÛŒØª) ---- */
+/* ---- نوار ابزار (دسته‌بندی + وضعیت) ---- */
 
 .toolbar {
   display: flex;
