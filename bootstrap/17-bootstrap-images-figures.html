@@ -722,6 +722,17 @@
     }
     editor.addEventListener('input', sync);
     editor.addEventListener('scroll', function () {
+    var rafOn = false;
+    function loop() {
+      if (!rafOn) return;
+      pre.scrollTop = editor.scrollTop;
+      pre.scrollLeft = editor.scrollLeft;
+      requestAnimationFrame(loop);
+    }
+    editor.addEventListener('focus', function () { if (!rafOn) { rafOn = true; requestAnimationFrame(loop); } });
+    editor.addEventListener('blur', function () { rafOn = false; });
+    editor.addEventListener('wheel', function () { pre.scrollTop = editor.scrollTop; pre.scrollLeft = editor.scrollLeft; }, { passive: true });
+    editor.addEventListener('touchmove', function () { pre.scrollTop = editor.scrollTop; pre.scrollLeft = editor.scrollLeft; }, { passive: true });
       pre.scrollTop = editor.scrollTop;
       pre.scrollLeft = editor.scrollLeft;
     });
