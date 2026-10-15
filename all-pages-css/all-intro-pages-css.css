@@ -1447,3 +1447,6 @@ main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 
 
 .try-hl,.try-editor{word-break:normal !important;font-kerning:none !important;font-variant-ligatures:none !important;text-rendering:optimizeSpeed !important;}
+
+/* ===== ds-trydir: force identical bidi/layout on both layers ===== */
+.try-hl,.try-editor{direction:ltr !important;text-align:left !important;unicode-bidi:embed !important;word-spacing:normal !important;}
