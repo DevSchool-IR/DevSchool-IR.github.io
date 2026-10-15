@@ -1142,17 +1142,29 @@ footer .logo {
 }
 
 
-/* ===== ds-harmony: one ambient language across homepage sections ===== */
+
+/* ===== ds-harmony: one world across homepage sections ===== */
 .features,.langs{position:relative;overflow:hidden;}
 .features::before,.langs::before{
   content:"";position:absolute;inset:0;pointer-events:none;
 }
 .features::before{
   background:
-    radial-gradient(600px 320px at 6% 0%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%);
+    radial-gradient(700px 380px at 4% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(560px 300px at 96% 100%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 70%);
 }
 .langs::before{
   background:
-    radial-gradient(680px 360px at 94% 100%, color-mix(in srgb, var(--green) 9%, transparent), transparent 70%);
+    radial-gradient(720px 380px at 96% 100%, color-mix(in srgb, var(--green) 15%, transparent), transparent 70%),
+    radial-gradient(520px 280px at 2% 0%, color-mix(in srgb, var(--primary) 11%, transparent), transparent 70%);
+}
+.features::after,.langs::after{
+  content:"";position:absolute;top:0;right:8%;left:8%;height:1px;pointer-events:none;
+  background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 55%, transparent), transparent);
 }
 .features .wrap,.langs .wrap{position:relative;z-index:1;}
+.hero{background:
+  radial-gradient(700px 380px at 88% 8%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 70%),
+  radial-gradient(600px 340px at 6% 92%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+  var(--bg);
+}
