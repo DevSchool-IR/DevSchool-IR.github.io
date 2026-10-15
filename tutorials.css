@@ -1259,3 +1259,7 @@ footer .logo {
 @media (prefers-reduced-motion: reduce){
   .tut-card::after{transition:none;}
 }
+
+/* ===== ds-cardhover: course cards glow with their own tag color ===== */
+.tut-card:hover{border-color:var(--tag-color);box-shadow:0 16px 34px -14px var(--tag-color);transform:translateY(-4px) scale(1.01);}
+.tut-card:hover .tut-go{color:var(--tag-color);}

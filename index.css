@@ -1168,3 +1168,7 @@ footer .logo {
   radial-gradient(600px 340px at 6% 92%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
   var(--bg);
 }
+
+/* ===== ds-chips2: stronger course chip hover ===== */
+.lang-chip:hover{transform:translateY(-4px) scale(1.03);border-color:var(--lang-color);box-shadow:0 12px 26px -10px var(--lang-color);}
+.lang-chip:hover .lang-dot{box-shadow:0 0 12px 2px var(--lang-color);}
