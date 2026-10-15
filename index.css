@@ -1038,7 +1038,6 @@ footer .logo {
 .lang-chip:hover{
   transform:translateY(-3px);
   border-color:var(--lang-color);
-  box-shadow:0 8px 22px -12px var(--lang-color);
 }
 .feat-card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
 .section-head h2{position:relative;display:inline-block;}
