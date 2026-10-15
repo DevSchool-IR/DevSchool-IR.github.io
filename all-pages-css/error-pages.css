@@ -858,3 +858,12 @@ body > div.container-4 {
   max-width: none;
   margin: 0;
 }
+
+/* ===== ds-vitality-errors: ambient glow behind error card ===== */
+.error-content{position:relative;}
+.error-content::before{
+  content:"";position:absolute;inset:-40px 0;pointer-events:none;
+  background:
+    radial-gradient(480px 260px at 50% 0%, color-mix(in srgb, var(--green) 12%, transparent), transparent 70%);
+}
+.error-content > *{position:relative;z-index:1;}

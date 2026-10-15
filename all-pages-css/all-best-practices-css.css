@@ -1402,3 +1402,20 @@ body > div.container-4 {
 main.content table{table-layout:fixed;width:100%;max-width:100%;}
 main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 @media (max-width:640px){main.content table{font-size:12px;}main.content th,main.content td{padding:8px 6px;}}
+
+/* ===== ds-vitality-lessons: ambient glow + next-button emphasis ===== */
+.container-1-2{position:relative;}
+.container-1-2::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(620px 300px at 92% 0%, color-mix(in srgb, var(--primary) 9%, transparent), transparent 70%),
+    radial-gradient(520px 280px at 4% 100%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%);
+}
+.container-1-2 > *{position:relative;z-index:1;}
+.lesson-nav .next{
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:#fff;border-color:transparent;
+}
+@media (prefers-reduced-motion: reduce){
+  .lesson-nav .next{transition:none;}
+}
