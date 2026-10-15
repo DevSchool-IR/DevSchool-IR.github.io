@@ -1,4 +1,4 @@
-:root {
+﻿:root {
 	--ink: #0B0F0E;
 	--paper: #F6F8F5;
 	--panel: #111614;
@@ -1442,3 +1442,8 @@ main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 .try-btn{color:#fff;}
 .try-hl .tk-a{color:#9CDCFE;}
 .try-result-wrap{display:flex;flex-direction:column;min-width:0;}
+
+/* ===== ds-trysync: lock editor and backdrop to identical layout ===== */
+.try-editor{scrollbar-width:none !important;-ms-overflow-style:none !important;}
+.try-editor::-webkit-scrollbar{width:0 !important;height:0 !important;display:none !important;}
+.try-hl,.try-editor{word-break:normal !important;font-kerning:none !important;font-variant-ligatures:none !important;text-rendering:optimizeSpeed !important;}
