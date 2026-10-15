@@ -172,7 +172,8 @@
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero">
+<div class="hero-orbs" aria-hidden="true"><span class="orb orb-a"></span><span class="orb orb-b"></span></div>
       <div class="wrap">
         <div class="hero-inner">
           <h1 class="hero-title">
@@ -192,7 +193,36 @@
             >
           </div>
 
-          <div class="hero-meta">
+          <div class="hero-typer" dir="ltr"><span class="prompt">$</span> <span id="ds-typer"></span><span class="caret"></span></div>
+<script>
+(function () {
+  var el = document.getElementById('ds-typer');
+  if (!el) return;
+  var phrases = ['console.log("سلام دنیا");', 'print("DevSchool")', 'SELECT * FROM lessons;'];
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = phrases[0];
+    return;
+  }
+  var pi = 0, ci = 0, del = false;
+  function tick() {
+    var full = phrases[pi];
+    if (!del) {
+      ci++;
+      el.textContent = full.slice(0, ci);
+      if (ci >= full.length) { del = true; setTimeout(tick, 1600); return; }
+      setTimeout(tick, 55 + Math.random() * 60);
+    } else {
+      ci--;
+      el.textContent = full.slice(0, ci);
+      if (ci <= 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); return; }
+      setTimeout(tick, 28);
+    }
+  }
+  tick();
+})();
+</script>
+
+<div class="hero-meta">
             <div><strong>۳۷</strong><span>زبان و تکنولوژی</span></div>
             <div><strong>۱۰۰+</strong><span>فصل آموزشی</span></div>
             <div><strong>۰</strong><span>ثبت‌نام لازم</span></div>
