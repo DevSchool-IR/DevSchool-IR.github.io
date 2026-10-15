@@ -1245,20 +1245,13 @@ footer .logo {
     radial-gradient(520px 280px at 4% 100%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
 }
 .page-head .wrap{position:relative;z-index:1;}
-.tut-card{overflow:hidden;}
-.tut-card::after{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
-  background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.10) 50%, transparent 60%);
-  transition:opacity .3s ease;
-}
-.tut-card:hover::after{opacity:1;}
+
 .tab.is-active,.pill.is-active{
   background:linear-gradient(135deg, var(--primary), var(--primary-dark));
   color:#fff;border-color:transparent;
 }
 @media (prefers-reduced-motion: reduce){
-  .tut-card::after{transition:none;}
-}
+  }
 
 /* ===== ds-cardhover: course cards glow with their own tag color ===== */
 .tut-card:hover{border-color:var(--tag-color);box-shadow:0 16px 34px -14px var(--tag-color);transform:translateY(-4px) scale(1.01);}
