@@ -397,7 +397,7 @@
 <!-- ################################################################################### -->
 <!-- ################################################################################### -->
 <!-- ################################################################################### -->
-    
+    ﻿
     <div class="container-4">
 
         <footer>
@@ -539,6 +539,44 @@
                 });
             });
         })();
+    </script>
+
+    <script>
+
+        (function () {
+
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            var bar = document.createElement('div');
+
+            bar.id = 'ds-progress';
+
+            bar.setAttribute('aria-hidden', 'true');
+
+            bar.style.cssText = 'position:fixed;top:0;right:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg,var(--green,#22c55e),var(--primary,#0ea5e9));border-radius:0 0 0 3px;pointer-events:none;';
+
+            document.body.appendChild(bar);
+
+            var ticking = false;
+
+            function update() {
+
+                ticking = false;
+
+                var h = document.documentElement;
+
+                var max = h.scrollHeight - h.clientHeight;
+
+                bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+
+            }
+
+            window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+
+            update();
+
+        })();
+
     </script><!-- ################################################################################### -->
 <!-- ################################################################################### -->
 <!-- ################################################################################### -->
