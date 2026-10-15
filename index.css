@@ -1102,7 +1102,7 @@ footer .logo {
   backdrop-filter:blur(6px);
 }
 .chip-a{top:6%;inset-inline-start:2%;color:var(--green);animation:chipFloat 6s ease-in-out infinite alternate;}
-.chip-b{bottom:8%;inset-inline-end:0;color:var(--primary);animation:chipFloat 8s ease-in-out infinite alternate-reverse;}
+.chip-b{bottom:-15%;inset-inline-end:0;color:var(--primary);animation:chipFloat 8s ease-in-out infinite alternate-reverse;}
 @keyframes cardFloat{from{transform:translateY(-6px);}to{transform:translateY(8px);}}
 @keyframes chipFloat{from{transform:translateY(-8px);}to{transform:translateY(8px);}}
 @media (max-width:900px){
