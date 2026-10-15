@@ -483,52 +483,6 @@
     </script>
 
     <script>
-
-        (function () {
-
-            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-            var bar = document.createElement('div');
-
-            bar.id = 'ds-progress';
-
-            bar.setAttribute('aria-hidden', 'true');
-
-            bar.style.cssText = 'position:fixed;top:0;right:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg,var(--green,#22c55e),var(--primary,#0ea5e9));border-radius:0 0 0 3px;pointer-events:none;';
-
-            document.body.appendChild(bar);
-
-            var dsStyle = document.createElement('style');
-
-            dsStyle.id = 'ds-progress-mobile';
-
-            dsStyle.textContent = '#ds-progress{display:none;}@media (max-width:768px){#ds-progress{display:block;}}';
-
-            document.head.appendChild(dsStyle);
-
-            var ticking = false;
-
-            function update() {
-
-                ticking = false;
-
-                var h = document.documentElement;
-
-                var max = h.scrollHeight - h.clientHeight;
-
-                bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-
-            }
-
-            window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-
-            update();
-
-        })();
-
-    </script>
-
-<script>
 (function () {
   var KW = '|break|case|catch|const|continue|debugger|default|delete|do|else|finally|for|function|if|in|instanceof|new|return|switch|this|throw|try|typeof|var|void|while|with|class|extends|super|import|export|let|static|yield|await|async|null|true|false|undefined|document|window|console|localStorage|JSON|Math|Object|Array|String|Number|Boolean|Date|RegExp|Error|Promise|setTimeout|setInterval|alert|prompt|confirm|DOCTYPE|';
   function esc(s) {
