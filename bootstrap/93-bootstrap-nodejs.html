@@ -725,7 +725,7 @@ app.<span class="tok-attr">listen</span>(<span class="tok-attr">3000</span>);</p
     bar.setAttribute('aria-hidden', 'true');
     bar.innerHTML = '<span></span><span></span><span></span>';
     var holder = document.createElement('div');
-    holder.style.position = 'relative';
+    holder.className = 'try-holder';
     var pre = document.createElement('pre');
     pre.className = 'try-hl';
     pre.setAttribute('aria-hidden', 'true');
@@ -748,6 +748,8 @@ app.<span class="tok-attr">listen</span>(<span class="tok-attr">3000</span>);</p
       rwrap.appendChild(iframe);
     }
     function sync() {
+      editor.style.height = 'auto';
+      editor.style.height = editor.scrollHeight + 'px';
       pre.innerHTML = highlight(editor.value) + '\n';
       pre.scrollTop = editor.scrollTop;
       pre.scrollLeft = editor.scrollLeft;

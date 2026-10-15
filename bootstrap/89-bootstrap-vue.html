@@ -606,7 +606,7 @@ createApp(App).mount(<span class="tok-str">'#app'</span>);</pre>
     bar.setAttribute('aria-hidden', 'true');
     bar.innerHTML = '<span></span><span></span><span></span>';
     var holder = document.createElement('div');
-    holder.style.position = 'relative';
+    holder.className = 'try-holder';
     var pre = document.createElement('pre');
     pre.className = 'try-hl';
     pre.setAttribute('aria-hidden', 'true');
@@ -629,6 +629,8 @@ createApp(App).mount(<span class="tok-str">'#app'</span>);</pre>
       rwrap.appendChild(iframe);
     }
     function sync() {
+      editor.style.height = 'auto';
+      editor.style.height = editor.scrollHeight + 'px';
       pre.innerHTML = highlight(editor.value) + '\n';
       pre.scrollTop = editor.scrollTop;
       pre.scrollLeft = editor.scrollLeft;

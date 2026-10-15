@@ -1450,3 +1450,8 @@ main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 
 /* ===== ds-trydir: force identical bidi/layout on both layers ===== */
 .try-hl,.try-editor{direction:ltr !important;text-align:left !important;unicode-bidi:embed !important;word-spacing:normal !important;}
+
+/* ===== ds-trygrid: single shared scroll, desync impossible ===== */
+.try-holder{display:grid;overflow-y:auto;height:260px;}
+.try-holder .try-hl{position:static !important;overflow:visible !important;grid-area:1/1;margin:0 !important;}
+.try-holder .try-editor{grid-area:1/1;height:auto !important;overflow:hidden !important;box-sizing:border-box;}
