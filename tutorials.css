@@ -1234,3 +1234,28 @@ footer .logo {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ===== ds-vitality-tutorials: ambient head + card sheen + active tab ===== */
+.page-head{position:relative;overflow:hidden;}
+.page-head::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(620px 300px at 88% 0%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 70%),
+    radial-gradient(520px 280px at 4% 100%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
+}
+.page-head .wrap{position:relative;z-index:1;}
+.tut-card{overflow:hidden;}
+.tut-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.10) 50%, transparent 60%);
+  transition:opacity .3s ease;
+}
+.tut-card:hover::after{opacity:1;}
+.tab.is-active,.pill.is-active{
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:#fff;border-color:transparent;
+}
+@media (prefers-reduced-motion: reduce){
+  .tut-card::after{transition:none;}
+}
