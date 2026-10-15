@@ -437,7 +437,7 @@ myCarousel.pause();</pre>
             </main>
         </div>
     </div>
-    ﻿
+    
     <div class="container-4">
 
         <footer>
@@ -629,25 +629,50 @@ myCarousel.pause();</pre>
 
 <script>
 (function () {
-  var KW = '|break|case|catch|const|continue|debugger|default|delete|do|else|finally|for|function|if|in|instanceof|new|return|switch|this|throw|try|typeof|var|void|while|with|class|extends|super|import|export|let|static|yield|await|async|null|true|false|undefined|document|window|console|localStorage|JSON|Math|Object|Array|String|Number|Boolean|Date|RegExp|Error|Promise|setTimeout|setInterval|alert|prompt|confirm|';
+  var KW = '|break|case|catch|const|continue|debugger|default|delete|do|else|finally|for|function|if|in|instanceof|new|return|switch|this|throw|try|typeof|var|void|while|with|class|extends|super|import|export|let|static|yield|await|async|null|true|false|undefined|document|window|console|localStorage|JSON|Math|Object|Array|String|Number|Boolean|Date|RegExp|Error|Promise|setTimeout|setInterval|alert|prompt|confirm|DOCTYPE|';
   function esc(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
-  function isWord(c) {
-    return /[A-Za-z0-9_$]/.test(c);
-  }
   function highlight(src) {
-    var out = '', i = 0, n = src.length;
+    var out = '', i = 0, n = src.length, inTag = false;
     while (i < n) {
-      var c = src[i], two = src.substr(i, 2);
-      if (c === '/' && two.charAt(1) === '/') {
+      var c = src[i];
+      if (c === '<' && src.substr(i, 4) === '<!--') {
+        var je = src.indexOf('-->', i + 4);
+        je = je < 0 ? n : je + 3;
+        out += '<span class="tk-c">' + esc(src.slice(i, je)) + '</span>';
+        i = je;
+        continue;
+      }
+      if (c === '<' && /[A-Za-z!\/]/.test(src[i + 1] || '')) {
+        out += '&lt;';
+        i++;
+        if (src[i] === '/') { out += '/'; i++; }
+        var tm = /^[A-Za-z][\w-]*/.exec(src.slice(i));
+        if (tm) {
+          var tn = tm[0];
+          out += (KW.indexOf('|' + tn + '|') >= 0)
+            ? '<span class="tk-k">' + esc(tn) + '</span>'
+            : '<span class="tk-k">' + esc(tn) + '</span>';
+          i += tn.length;
+        }
+        inTag = true;
+        continue;
+      }
+      if (c === '>') {
+        out += '&gt;';
+        inTag = false;
+        i++;
+        continue;
+      }
+      if (c === '/' && src[i + 1] === '/') {
         var j = src.indexOf('\n', i);
         if (j < 0) j = n;
         out += '<span class="tk-c">' + esc(src.slice(i, j)) + '</span>';
         i = j;
         continue;
       }
-      if (two === '/*') {
+      if (c === '/' && src[i + 1] === '*') {
         var k = src.indexOf('*/', i + 2);
         k = k < 0 ? n : k + 2;
         out += '<span class="tk-c">' + esc(src.slice(i, k)) + '</span>';
@@ -681,6 +706,7 @@ myCarousel.pause();</pre>
           var r = i + w.length;
           while (r < n && (src[r] === ' ' || src[r] === '\t' || src[r] === '\n')) r++;
           if (src[r] === '(') cls = 'tk-f';
+          else if (inTag && src[r] === '=') cls = 'tk-a';
         }
         out += cls ? '<span class="' + cls + '">' + esc(w) + '</span>' : esc(w);
         i += w.length;
@@ -710,6 +736,19 @@ myCarousel.pause();</pre>
     wrap.appendChild(holder);
     holder.appendChild(pre);
     holder.appendChild(editor);
+    var iframe = wrap.parentNode.querySelector('.try-result');
+    if (iframe && !iframe.dataset.hlWrapped) {
+      iframe.dataset.hlWrapped = '1';
+      var rwrap = document.createElement('div');
+      rwrap.className = 'try-result-wrap';
+      var rbar = document.createElement('div');
+      rbar.className = 'try-titlebar';
+      rbar.setAttribute('aria-hidden', 'true');
+      rbar.innerHTML = '<span></span><span></span><span></span>';
+      iframe.parentNode.insertBefore(rwrap, iframe);
+      rwrap.appendChild(rbar);
+      rwrap.appendChild(iframe);
+    }
     function sync() {
       pre.innerHTML = highlight(editor.value) + '\n';
       pre.scrollTop = editor.scrollTop;

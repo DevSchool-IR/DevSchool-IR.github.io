@@ -1,4 +1,4 @@
-﻿:root {
+:root {
 	--ink: #0B0F0E;
 	--paper: #F6F8F5;
 	--panel: #111614;
@@ -1437,3 +1437,8 @@ main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 @media (prefers-reduced-motion: reduce){
   .try-btn{transition:none;}
 }
+
+/* ===== ds-tryfix2: button contrast, attr color, result wrap ===== */
+.try-btn{color:#fff;}
+.try-hl .tk-a{color:#9CDCFE;}
+.try-result-wrap{display:flex;flex-direction:column;min-width:0;}
