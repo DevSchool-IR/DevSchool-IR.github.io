@@ -642,5 +642,37 @@
         }
       });
     </script>
-  </body>
+  <script>
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('.hero-meta strong');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  function parseFa(s) {
+    var d = s.replace(/[\u06F0-\u06F9]/g, function (ch) { return String(ch.charCodeAt(0) - 1776); });
+    d = d.replace(/[^0-9]/g, '');
+    return d ? parseInt(d, 10) : NaN;
+  }
+  function fa(n) { try { return n.toLocaleString('fa-IR'); } catch (e) { return '' + n; } }
+  function anim(el) {
+    var raw = el.textContent;
+    var target = parseFa(raw);
+    if (isNaN(target) || target <= 0) return;
+    var suf = raw.trim().slice(-1) === '+' ? '+' : '';
+    var t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 1300);
+      var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = fa(v) + suf;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { anim(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
 </html>
