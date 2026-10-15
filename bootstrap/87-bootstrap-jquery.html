@@ -581,6 +581,14 @@ $(document).ready(<span class="tok-tag">function</span>() {
 
             document.body.appendChild(bar);
 
+            var dsStyle = document.createElement('style');
+
+            dsStyle.id = 'ds-progress-mobile';
+
+            dsStyle.textContent = '#ds-progress{display:none;}@media (max-width:768px){#ds-progress{display:block;}}';
+
+            document.head.appendChild(dsStyle);
+
             var ticking = false;
 
             function update() {

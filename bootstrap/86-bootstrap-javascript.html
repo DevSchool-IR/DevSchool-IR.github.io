@@ -580,6 +580,14 @@ el.classList.add(<span class="tok-str">'bg-success'</span>, <span class="tok-str
 
             document.body.appendChild(bar);
 
+            var dsStyle = document.createElement('style');
+
+            dsStyle.id = 'ds-progress-mobile';
+
+            dsStyle.textContent = '#ds-progress{display:none;}@media (max-width:768px){#ds-progress{display:block;}}';
+
+            document.head.appendChild(dsStyle);
+
             var ticking = false;
 
             function update() {
