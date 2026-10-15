@@ -1393,3 +1393,6 @@ body > div.container-4 {
   max-width: none;
   margin: 0;
 }
+
+/* responsive tables: horizontal scroll inside table, no page x-scroll */
+main.content table{display:block;width:100%;max-width:100%;overflow-x:auto;}
