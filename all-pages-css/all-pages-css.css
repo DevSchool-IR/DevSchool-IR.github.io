@@ -1498,6 +1498,7 @@ body > div.container-4 {
   max-width: none;
   margin: 0;
 }
-
-/* responsive tables: horizontal scroll inside table, no page x-scroll */
-main.content table{display:block;width:100%;max-width:100%;overflow-x:auto;}
+/* responsive tables: fit like rest of site, no inner scroll */
+main.content table{table-layout:fixed;width:100%;max-width:100%;}
+main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
+@media (max-width:640px){main.content table{font-size:12px;}main.content th,main.content td{padding:8px 6px;}}
