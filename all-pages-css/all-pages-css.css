@@ -1494,3 +1494,51 @@ body > div.container-4 {
 main.content table{table-layout:fixed;width:100%;max-width:100%;}
 main.content th,main.content td{white-space:normal;overflow-wrap:anywhere;}
 @media (max-width:640px){main.content table{font-size:12px;}main.content th,main.content td{padding:8px 6px;}}
+
+
+/* ===== ds-tryvscode: VS Code Dark+ live editor + redesigned try buttons ===== */
+.try-btn{
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border:none;border-radius:12px;
+  box-shadow:0 10px 24px -10px rgba(31,122,77,.55);
+}
+.try-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px -10px rgba(31,122,77,.6);
+  filter:brightness(1.06);
+}
+.try-btn:active{transform:translateY(0);}
+.try-edit-wrap{position:relative;}
+.try-titlebar{
+  display:flex;align-items:center;gap:7px;
+  background:#252526;border-bottom:1px solid #333;
+  padding:8px 14px;border-radius:10px 10px 0 0;
+}
+.try-titlebar span{width:11px;height:11px;border-radius:50%;}
+.try-titlebar span:nth-child(1){background:#ff5f57;}
+.try-titlebar span:nth-child(2){background:#febc2e;}
+.try-titlebar span:nth-child(3){background:#28c840;}
+.try-hl,.try-editor{
+  font-family:"JetBrains Mono",monospace !important;
+  font-size:13px !important;line-height:1.8 !important;
+  padding:16px 18px !important;margin:0 !important;border:0 !important;
+  white-space:pre-wrap !important;overflow-wrap:break-word !important;
+  tab-size:4;letter-spacing:normal !important;
+}
+.try-hl{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+  background:#1E1E1E;color:#D4D4D4;border-radius:0 0 0 0;
+}
+.try-editor{
+  position:relative;z-index:1;background:transparent !important;
+  color:transparent !important;caret-color:#AEAFAD;
+}
+.try-editor::selection{background:rgba(38,79,120,.6);}
+.try-hl .tk-k{color:#569CD6;}
+.try-hl .tk-s{color:#CE9178;}
+.try-hl .tk-c{color:#6A9955;font-style:normal;}
+.try-hl .tk-n{color:#B5CEA8;}
+.try-hl .tk-f{color:#DCDCAA;}
+@media (prefers-reduced-motion: reduce){
+  .try-btn{transition:none;}
+}

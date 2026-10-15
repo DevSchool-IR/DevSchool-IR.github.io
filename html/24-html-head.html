@@ -492,7 +492,115 @@
 
         })();
 
-    </script><!-- ################################################################################### -->
+    </script>
+
+<script>
+(function () {
+  var KW = '|break|case|catch|const|continue|debugger|default|delete|do|else|finally|for|function|if|in|instanceof|new|return|switch|this|throw|try|typeof|var|void|while|with|class|extends|super|import|export|let|static|yield|await|async|null|true|false|undefined|document|window|console|localStorage|JSON|Math|Object|Array|String|Number|Boolean|Date|RegExp|Error|Promise|setTimeout|setInterval|alert|prompt|confirm|';
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function isWord(c) {
+    return /[A-Za-z0-9_$]/.test(c);
+  }
+  function highlight(src) {
+    var out = '', i = 0, n = src.length;
+    while (i < n) {
+      var c = src[i], two = src.substr(i, 2);
+      if (c === '/' && two.charAt(1) === '/') {
+        var j = src.indexOf('\n', i);
+        if (j < 0) j = n;
+        out += '<span class="tk-c">' + esc(src.slice(i, j)) + '</span>';
+        i = j;
+        continue;
+      }
+      if (two === '/*') {
+        var k = src.indexOf('*/', i + 2);
+        k = k < 0 ? n : k + 2;
+        out += '<span class="tk-c">' + esc(src.slice(i, k)) + '</span>';
+        i = k;
+        continue;
+      }
+      if (c === '"' || c === "'" || c === '`') {
+        var q = c, k2 = i + 1, s = '' + q;
+        while (k2 < n) {
+          if (src[k2] === '\\' && k2 + 1 < n) { s += src.substr(k2, 2); k2 += 2; continue; }
+          s += src[k2];
+          if (src[k2] === q) { k2++; break; }
+          if (q !== '`' && src[k2] === '\n') break;
+          k2++;
+        }
+        out += '<span class="tk-s">' + esc(s) + '</span>';
+        i = k2;
+        continue;
+      }
+      if (/[0-9]/.test(c)) {
+        var m = /^[0-9]+(?:\.[0-9]+)?/.exec(src.slice(i));
+        out += '<span class="tk-n">' + m[0] + '</span>';
+        i += m[0].length;
+        continue;
+      }
+      if (/[A-Za-z_$]/.test(c)) {
+        var m2 = /^[A-Za-z_$][\w$]*/.exec(src.slice(i));
+        var w = m2[0], cls = null;
+        if (KW.indexOf('|' + w + '|') >= 0) cls = 'tk-k';
+        else {
+          var r = i + w.length;
+          while (r < n && (src[r] === ' ' || src[r] === '\t' || src[r] === '\n')) r++;
+          if (src[r] === '(') cls = 'tk-f';
+        }
+        out += cls ? '<span class="' + cls + '">' + esc(w) + '</span>' : esc(w);
+        i += w.length;
+        continue;
+      }
+      out += esc(c);
+      i++;
+    }
+    return out;
+  }
+  function enhance(editor) {
+    if (editor.dataset.hlReady) return;
+    editor.dataset.hlReady = '1';
+    var wrap = document.createElement('div');
+    wrap.className = 'try-edit-wrap';
+    var bar = document.createElement('div');
+    bar.className = 'try-titlebar';
+    bar.setAttribute('aria-hidden', 'true');
+    bar.innerHTML = '<span></span><span></span><span></span>';
+    var holder = document.createElement('div');
+    holder.style.position = 'relative';
+    var pre = document.createElement('pre');
+    pre.className = 'try-hl';
+    pre.setAttribute('aria-hidden', 'true');
+    editor.parentNode.insertBefore(wrap, editor);
+    wrap.appendChild(bar);
+    wrap.appendChild(holder);
+    holder.appendChild(pre);
+    holder.appendChild(editor);
+    function sync() {
+      pre.innerHTML = highlight(editor.value) + '\n';
+      pre.scrollTop = editor.scrollTop;
+      pre.scrollLeft = editor.scrollLeft;
+    }
+    editor.addEventListener('input', sync);
+    editor.addEventListener('scroll', function () {
+      pre.scrollTop = editor.scrollTop;
+      pre.scrollLeft = editor.scrollLeft;
+    });
+    sync();
+  }
+  function initAll() {
+    var list = document.querySelectorAll('.try-editor');
+    for (var k = 0; k < list.length; k++) enhance(list[k]);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+</script>
+<!-- ################################################################################### -->
 <!-- ################################################################################### -->
 <!-- ################################################################################### -->
 <!-- ################################################################################### -->
