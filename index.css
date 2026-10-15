@@ -1114,3 +1114,29 @@ footer .logo {
 @media (prefers-reduced-motion: reduce){
   .hero-code,.hero-chip{animation:none;}
 }
+
+
+/* ===== ds-vitality-2: features color accents + section lines + CTA glow ===== */
+.feat-grid > :nth-child(2) .feat-ic{
+  background:color-mix(in srgb, var(--accent) 16%, var(--bg));
+  color:var(--accent);
+}
+.feat-grid > :nth-child(3) .feat-ic{
+  background:color-mix(in srgb, var(--green) 16%, var(--bg));
+  color:var(--green);
+}
+.feat-ic svg{width:22px;height:22px;}
+.g-line{
+  height:2px;
+  background:linear-gradient(90deg, var(--primary), transparent);
+  border-radius:2px;
+}
+.cta-band::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(420px 220px at 12% 20%, rgba(255,255,255,.14), transparent 70%),
+    radial-gradient(380px 260px at 88% 85%, rgba(0,0,0,.18), transparent 70%);
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-code,.hero-chip{animation:none;}
+}
