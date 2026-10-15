@@ -1031,7 +1031,7 @@ footer .logo {
 .hero .wrap{position:relative;z-index:1;}
 .cta-band::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.14) 45%, transparent 60%);
+  background:linear-gradient(115deg, transparent 30%, rgb(0 255 43 / 3%) 45%, transparent 60%);
 }
 .cta-band > *{position:relative;z-index:1;}
 .lang-chip{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
@@ -1131,9 +1131,7 @@ footer .logo {
 }
 .cta-band::after{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(420px 220px at 12% 20%, rgba(255,255,255,.14), transparent 70%),
-    radial-gradient(380px 260px at 88% 85%, rgba(0,0,0,.18), transparent 70%);
+  background:radial-gradient(420px 220px at 12% 20%, rgb(34 255 71 / 14%), transparent 70%), radial-gradient(380px 260px at 88% 85%, rgb(0 255 90 / 38%), transparent 70%);
 }
 @media (prefers-reduced-motion: reduce){
   .hero-code,.hero-chip{animation:none;}
