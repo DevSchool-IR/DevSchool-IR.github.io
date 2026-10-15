@@ -1044,7 +1044,7 @@ footer .logo {
 .feat-card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
 .section-head h2{position:relative;display:inline-block;}
 .section-head h2::after{
-  content:"";display:block;height:3px;width:56px;margin-top:8px;border-radius:3px;
+  content:"";display:block;height:3px;width:234px;margin-top:8px;border-radius:3px;
   background:linear-gradient(90deg, var(--primary), transparent);
 }
 @media (prefers-reduced-motion: reduce){
@@ -1071,3 +1071,46 @@ footer .logo {
 @keyframes caretBlink{50%{opacity:0;}}
 @media (max-width:640px){.orb-a{width:220px;height:220px;}.orb-b{width:180px;height:180px;}.hero-typer{font-size:.8rem;}}
 @media (prefers-reduced-motion: reduce){.orb-a,.orb-b,.hero-typer .caret{animation:none;}}
+
+
+/* ===== ds-alive-2: hero visual (code card + floating chips) ===== */
+.hero .wrap{display:flex;align-items:center;gap:48px;}
+.hero-inner{flex:1 1 0;min-width:0;}
+.hero-visual{flex:1 1 0;min-width:0;position:relative;display:flex;justify-content:center;}
+.hero-code{
+  width:100%;max-width:420px;
+  background:color-mix(in srgb, var(--panel) 88%, transparent);
+  border:1px solid var(--line);border-radius:14px;
+  padding:0 0 14px;overflow:hidden;
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.55);
+  animation:cardFloat 7s ease-in-out infinite alternate;
+}
+.hero-code-bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);}
+.hero-code-bar span{width:11px;height:11px;border-radius:50%;background:var(--line-strong);}
+.hero-code-bar span:first-child{background:#ff5f57;}
+.hero-code-bar span:nth-child(2){background:#febc2e;}
+.hero-code-bar span:nth-child(3){background:#28c840;}
+.hero-code pre{margin:0;padding:14px 16px;font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.9;direction:ltr;text-align:left;background:transparent;}
+.tk-k{color:var(--accent);}
+.tk-v{color:var(--ink);}
+.tk-s{color:var(--green);}
+.tk-f{color:var(--primary);}
+.tk-c{color:var(--ink-soft);}
+.hero-chip{
+  position:absolute;padding:7px 14px;border-radius:999px;font-size:.78rem;font-weight:700;
+  background:color-mix(in srgb, var(--panel) 90%, transparent);
+  border:1px solid var(--line);
+  box-shadow:0 12px 30px -14px rgba(0,0,0,.5);
+  backdrop-filter:blur(6px);
+}
+.chip-a{top:6%;inset-inline-start:2%;color:var(--green);animation:chipFloat 6s ease-in-out infinite alternate;}
+.chip-b{bottom:8%;inset-inline-end:0;color:var(--primary);animation:chipFloat 8s ease-in-out infinite alternate-reverse;}
+@keyframes cardFloat{from{transform:translateY(-6px);}to{transform:translateY(8px);}}
+@keyframes chipFloat{from{transform:translateY(-8px);}to{transform:translateY(8px);}}
+@media (max-width:900px){
+  .hero .wrap{flex-direction:column;}
+  .hero-visual{width:100%;max-width:480px;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-code,.hero-chip{animation:none;}
+}
