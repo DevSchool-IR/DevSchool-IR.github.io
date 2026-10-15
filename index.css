@@ -1140,3 +1140,19 @@ footer .logo {
 @media (prefers-reduced-motion: reduce){
   .hero-code,.hero-chip{animation:none;}
 }
+
+
+/* ===== ds-harmony: one ambient language across homepage sections ===== */
+.features,.langs{position:relative;overflow:hidden;}
+.features::before,.langs::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+}
+.features::before{
+  background:
+    radial-gradient(600px 320px at 6% 0%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%);
+}
+.langs::before{
+  background:
+    radial-gradient(680px 360px at 94% 100%, color-mix(in srgb, var(--green) 9%, transparent), transparent 70%);
+}
+.features .wrap,.langs .wrap{position:relative;z-index:1;}
