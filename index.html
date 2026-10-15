@@ -198,7 +198,7 @@
 (function () {
   var el = document.getElementById('ds-typer');
   if (!el) return;
-  var phrases = ['console.log("سلام دنیا");', 'print("DevSchool")', 'SELECT * FROM lessons;'];
+  var phrases = ['console.log("سلام دنیا");', 'print("DevSchool")', 'SELECT * FROM lessons;', 'echo "DevSchool";', 'print(", ".join(skills))'];
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     el.textContent = phrases[0];
     return;
