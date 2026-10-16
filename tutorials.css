@@ -1,4 +1,4 @@
-
+﻿
 @font-face {
   font-family: "Dana-Black";
   src: url(./fonts/Dana-Black.ttf) format("truetype");
@@ -1237,7 +1237,7 @@ footer .logo {
 
 
 /* ===== ds-vitality-tutorials: ambient head + card sheen + active tab ===== */
-.page-head{position:relative;overflow:hidden;}
+.page-head{position:relative;}
 .page-head::before{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:
